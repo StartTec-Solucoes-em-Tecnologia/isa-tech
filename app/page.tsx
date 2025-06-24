@@ -3,10 +3,42 @@ import { Link } from "@/components/ui/link";
 import Image from "next/image";
 import HeroImage from "./_components/HeroImage.";
 import { NavigationBar } from "./_components/NavigationBar";
+import { cn } from "@/lib/utils";
+
+const highlightCards = [
+  {
+    image: "/images/highlights/gestao.png",
+    title: "Gestão de clínica",
+    bg: "bg-limao",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has",
+  },
+  {
+    image: "/images/highlights/produtividade.png",
+    title: "Suporte Humanizado",
+    bg: "bg-lavanda",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has",
+  },
+  {
+    image: "/images/highlights/seguranca.png",
+    title: "Produtividade Real",
+    bg: "bg-neon",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has",
+  },
+  {
+    image: "/images/highlights/suporte.png",
+    title: "Seus dados seguros",
+    bg: "bg-verde-musgo",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has",
+  },
+];
 
 export default function Home() {
   return (
-    <main className="min-h-screen w-screen bg-white">
+    <main className="h-full w-screen bg-white">
       <NavigationBar />
 
       <section
@@ -69,6 +101,42 @@ export default function Home() {
               <p>Play Store</p>
             </a>
           </div>
+        </div>
+      </section>
+
+      <section
+        id="highlights"
+        className="items-center flex flex-col w-full justify-start py-20"
+      >
+        <h2 className="font-bold text-xl z-10">Diferenciais</h2>
+
+        <div className="flex gap-12 flex-col lg:flex-row w-full lg:w-4/5 h-fit items-center mt-12 z-10">
+          {highlightCards.map((item, index) => (
+            <div
+              key={item.title}
+              className={cn(
+                "flex rounded-xl flex-col py-10 px-8 gap-6 w-[60%] items-center",
+                item.bg
+              )}
+            >
+              <Image
+                alt="Ilustração"
+                src={item.image}
+                width={150}
+                height={205}
+              />
+
+              <div
+                className={cn(
+                  "flex flex-col text-verde-musgo gap-2",
+                  index === 3 && "text-white"
+                )}
+              >
+                <p className="font-bold">{item.title}</p>
+                <p className="text-sm">{item.description}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
     </main>

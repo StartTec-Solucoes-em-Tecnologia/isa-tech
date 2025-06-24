@@ -81,8 +81,8 @@ const aboutTab = [
 
 export function NavigationBar() {
   return (
-    <nav className="fixed border-b border-verde-musgo h-[80px] w-full flex items-center justify-center z-50">
-      <div className="flex w-4/5 items-center justify-between">
+    <nav className="fixed border-b border-verde-musgo h-[80px] w-full flex items-center justify-center z-50 bg-white">
+      <div className="w-4/5 items-center justify-between hidden lg:flex">
         <div className="flex flex-row gap-12">
           <Image
             alt="Logomarca da navbar"
@@ -90,6 +90,7 @@ export function NavigationBar() {
             width={96}
             height={47}
           />
+
           <NavigationMenu viewport={false}>
             <NavigationMenuList>
               <NavigationMenuLink>Início</NavigationMenuLink>

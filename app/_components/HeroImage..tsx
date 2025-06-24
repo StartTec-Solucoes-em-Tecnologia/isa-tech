@@ -29,7 +29,7 @@ export default function HeroImage() {
       src={imageUrl[index]}
       width={imageWidth[index]}
       height={imageHeight[index]}
-      className="floating z-20 lg:w-[533px] h-[465px] 2xl:w-[700px] 2xl:h-[610px]"
+      className="floating z-20 w-[320px] h-[280px] lg:w-[533px] lg:h-[465px] 2xl:w-[700px] 2xl:h-[610px]"
     />
   );
 }
