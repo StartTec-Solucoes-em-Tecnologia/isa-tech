@@ -1,40 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "@/components/ui/link";
 import Image from "next/image";
-import HeroImage from "./_components/HeroImage.";
 import { NavigationBar } from "./_components/NavigationBar";
-import { cn } from "@/lib/utils";
-
-const highlightCards = [
-  {
-    image: "/images/highlights/gestao.png",
-    title: "Gestão de clínica",
-    bg: "bg-limao",
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has",
-  },
-  {
-    image: "/images/highlights/produtividade.png",
-    title: "Suporte Humanizado",
-    bg: "bg-lavanda",
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has",
-  },
-  {
-    image: "/images/highlights/seguranca.png",
-    title: "Produtividade Real",
-    bg: "bg-neon",
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has",
-  },
-  {
-    image: "/images/highlights/suporte.png",
-    title: "Seus dados seguros",
-    bg: "bg-verde-musgo",
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has",
-  },
-];
+import { cn, featureCards, highlightCards } from "@/lib/utils";
 
 export default function Home() {
   return (
@@ -45,7 +13,15 @@ export default function Home() {
         id="hero"
         className="h-full min-h-fit items-center flex-col justify-center flex w-full pt-[120px] lg:pt-[10%] lg:flex-row lg:justify-evenly"
       >
-        <HeroImage />
+        <Image
+          alt="Imagem da hero"
+          src="/images/hero/desktop.png"
+          width={700}
+          height={610}
+          sizes="(max-width: 768px) 320px, (max-width: 1536px) 533px, 700px"
+          className="floating z-20 w-[320px] h-[280px] lg:w-[533px] lg:h-[465px] 2xl:w-[700px] 2xl:h-[610px]"
+          priority
+        />
 
         <div className="hero_bg w-full h-[280px] absolute top-[120px] left-0 z-0 lg:h-full lg:top-0" />
 
@@ -72,10 +48,12 @@ export default function Home() {
           </div>
 
           <Image
-            alt="Clientes"
-            src={"/images/hero/users.png"}
+            alt="Usuários da plataforma"
+            src="/images/hero/users.png"
             width={98}
             height={34}
+            sizes="(max-width: 768px) 80px, 98px"
+            className="w-[80px] h-[28px] lg:w-[98px] lg:h-[34px]"
           />
 
           <p>Somos mais de 30.000 mil</p>
@@ -83,20 +61,24 @@ export default function Home() {
           <div className="flex flex-row items-center w-full lg:w-fit lg:gap-4 justify-evenly">
             <a href="#" className="underline flex flex-row items-center gap-3">
               <Image
-                alt="Clientes"
-                src={"/svg/apple-store.svg"}
+                alt="Apple Store"
+                src="/svg/apple-store.svg"
                 width={24}
                 height={24}
+                sizes="24px"
+                className="w-[24px] h-[24px]"
               />
               <p>Apple Store</p>
             </a>
 
             <a href="#" className="underline flex flex-row items-center gap-3">
               <Image
-                alt="Clientes"
-                src={"/svg/play-store.svg"}
+                alt="Play Store"
+                src="/svg/play-store.svg"
                 width={24}
                 height={24}
+                sizes="24px"
+                className="w-[24px] h-[24px]"
               />
               <p>Play Store</p>
             </a>
@@ -108,7 +90,12 @@ export default function Home() {
         id="highlights"
         className="items-center flex flex-col w-full justify-start py-20"
       >
-        <h2 className="font-bold text-xl z-10">Diferenciais</h2>
+        <div className="flex items-center justify-center relative">
+          <h2 className="font-bold text-xl z-10 xl:text-2xl 2xl:text-3xl text-gray-700">
+            Diferenciais
+          </h2>
+          <div className="flex absolute w-2/3 right-0 bottom-1 z-0 bg-limao h-1" />
+        </div>
 
         <div className="flex gap-12 flex-col lg:flex-row w-full lg:w-4/5 h-fit items-center mt-12 z-10">
           {highlightCards.map((item, index) => (
@@ -120,10 +107,12 @@ export default function Home() {
               )}
             >
               <Image
-                alt="Ilustração"
+                alt={`Ilustração ${item.title}`}
                 src={item.image}
                 width={150}
                 height={205}
+                sizes="(max-width: 768px) 100px, 150px"
+                className="w-[100px] h-[137px] lg:w-[150px] lg:h-[205px]"
               />
 
               <div
@@ -138,6 +127,128 @@ export default function Home() {
             </div>
           ))}
         </div>
+      </section>
+
+      <section
+        id="features"
+        className="items-center flex flex-col w-full justify-start py-20"
+      >
+        <div className="flex items-center justify-center relative">
+          <h2 className="font-bold text-xl z-10 xl:text-2xl 2xl:text-3xl text-gray-700">
+            Funcionalidades
+          </h2>
+          <div className="flex absolute w-2/3 right-0 bottom-1 z-0 bg-lavanda h-1" />
+        </div>
+
+        <div className="flex lg:w-4/5">
+          <div className="lg:flex hidden flex-col items-center justify-center w-1/4 h-full gap-12 xl:gap-16 2xl:gap-24 pl-6 relative">
+            {featureCards.map(
+              (item, index) =>
+                index < 4 && (
+                  <div
+                    key={index}
+                    className={cn(
+                      "flex w-full",
+                      index % 2 === 1 ? "justify-end" : "justify-start"
+                    )}
+                  >
+                    <Button
+                      className={cn(
+                        "flex flex-row items-center justify-center gap-2 rounded-full",
+                        item.bgColor,
+                        item.textColor
+                      )}
+                    >
+                      <item.icon size={24} />
+                      {item.title}
+                    </Button>
+                  </div>
+                )
+            )}
+            <Image
+              alt="Cursor indicando interação"
+              src="/svg/cursor-pointer.svg"
+              width={24}
+              height={24}
+              sizes="24px"
+              className="absolute top-12 left-[45%] w-[24px] h-[24px]"
+            />
+          </div>
+
+          <div className="flex lg:w-2/4 items-center">
+            <Image
+              src="/images/features/dashboard.png"
+              alt="Dashboard da plataforma"
+              width={1070}
+              height={715}
+              sizes="(max-width: 768px) 375px, 1070px"
+              className="object-cover lg:object-top w-full h-[375px] lg:h-full lg:w-[1070px]"
+              priority
+            />
+          </div>
+
+          <div className="lg:flex hidden flex-col items-center justify-center w-1/4 h-full gap-12 xl:gap-16 2xl:gap-24 pl-6">
+            {featureCards.map(
+              (item, index) =>
+                index >= 4 && (
+                  <div
+                    key={index}
+                    className={cn(
+                      "flex w-full",
+                      index % 2 !== 1 ? "justify-end" : "justify-start"
+                    )}
+                  >
+                    <Button
+                      key={index}
+                      className={cn(
+                        "flex flex-row items-center justify-center gap-2 rounded-full",
+                        item.bgColor,
+                        item.textColor
+                      )}
+                    >
+                      <item.icon size={24} />
+                      {item.title}
+                    </Button>
+                  </div>
+                )
+            )}
+          </div>
+        </div>
+
+        <div className="flex flex-row items-start justify-start w-fit max-w-screen overflow-x-auto gap-6 pl-6 relative lg:hidden">
+          {featureCards.map((item, index) => (
+            <Button
+              key={index}
+              className={cn(
+                "flex flex-row items-center justify-center gap-2 rounded-full",
+                item.bgColor,
+                item.textColor
+              )}
+            >
+              <item.icon size={24} />
+              {item.title}
+            </Button>
+          ))}
+
+          <Image
+            alt="Cursor indicando interação"
+            src="/svg/cursor-pointer.svg"
+            width={24}
+            height={24}
+            sizes="24px"
+            className="absolute bottom-0 left-[45%] w-[24px] h-[24px]"
+          />
+        </div>
+
+        <p className="text-center mt-4 lg:hidden">
+          <strong className="text-verde-musgo">Deslize</strong> para o lado e{" "}
+          <strong className="text-lavanda-escuro">clique</strong> em uma das
+          funcionalidades para vê-la acima
+        </p>
+
+        <p className="text-center mt-4 lg:flex hidden">
+          Clique em uma das funcionalidades para vê-la acima
+        </p>
       </section>
     </main>
   );

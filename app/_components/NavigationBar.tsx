@@ -1,16 +1,10 @@
 "use client";
 
-import * as React from "react";
+import { HouseIcon, MenuIcon } from "lucide-react";
 import Link from "next/link";
-import {
-  HouseIcon,
-  Lightbulb,
-  MenuIcon,
-  ScrollText,
-  UsersRound,
-  Zap,
-} from "lucide-react";
+import * as React from "react";
 
+import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -19,65 +13,8 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
+import { aboutTab, cn } from "@/lib/utils";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-
-const aboutTab = [
-  {
-    title: "Início",
-    href: "/docs/primitives/alert-dialog",
-    icon: HouseIcon,
-    description:
-      "A modal dialog that interrupts the user with important content and expects a response.",
-
-    textColor: "text-neon",
-    bgColor: "bg-limao-escuro",
-    pipeColor: "bg-limao",
-  },
-  {
-    title: "Nosso time",
-    href: "/docs/primitives/scroll-area",
-    icon: UsersRound,
-    description: "Visually or semantically separates content.",
-
-    textColor: "text-lavanda-escuro",
-    bgColor: "bg-lavanda",
-    pipeColor: "bg-limao",
-  },
-  {
-    title: "Missão, visão e valores",
-    href: "/docs/primitives/hover-card",
-    icon: ScrollText,
-    description:
-      "For sighted users to preview content available behind a link.",
-
-    textColor: "text-neon",
-    bgColor: "bg-verde-musgo",
-    pipeColor: "bg-lavanda",
-  },
-  {
-    title: "O que nos move",
-    href: "/docs/primitives/tabs",
-    icon: Zap,
-    description:
-      "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
-    textColor: "text-limao-escuro",
-    bgColor: "bg-limao",
-    pipeColor: "bg-lavanda",
-  },
-  {
-    title: "Nossa história",
-    href: "/docs/primitives/progress",
-    icon: Lightbulb,
-    description:
-      "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
-
-    textColor: "text-lavanda",
-    bgColor: "bg-lavanda-escuro",
-    pipeColor: "bg-limao",
-  },
-];
 
 export function NavigationBar() {
   return (
