@@ -47,6 +47,23 @@ export const highlightCards = [
   },
 ];
 
+export const featuresSimple = [
+  { title: "Agendamento", icon: Calendar },
+  { title: "Recepção", icon: Sofa },
+  { title: "Prontuário eletrônico", icon: ScrollText },
+  { title: "Faturamento TISS", icon: HandCoins },
+  { title: "Gestão de filas", icon: Tickets },
+  { title: "Chat Interno", icon: MessageSquareText },
+  { title: "Telemedicina", icon: MonitorSmartphone },
+  { title: "Power BI", icon: ChartNetwork },
+  { title: "ChatBot", icon: ChartNetwork },
+  { title: "Aplicativo do Médico", icon: ChartNetwork },
+  { title: "I.A Inteligencia Artificial", icon: ChartNetwork },
+  { title: "Contabilidade", icon: ChartNetwork },
+  { title: "Financeiro", icon: ChartNetwork },
+  { title: "Estoque", icon: ChartNetwork },
+];
+
 export const featureCards = [
   {
     title: "Agendamento",
@@ -73,7 +90,7 @@ export const featureCards = [
     bgColor: "bg-lavanda-escuro",
   },
   {
-    title: "Painel de chamado",
+    title: "Gestão de filas",
     icon: Tickets,
     textColor: "text-verde-musgo",
     bgColor: "bg-limao",
@@ -92,6 +109,42 @@ export const featureCards = [
   },
   {
     title: "Power BI",
+    icon: ChartNetwork,
+    textColor: "text-neon",
+    bgColor: "bg-verde-musgo",
+  },
+  {
+    title: "ChatBot",
+    icon: ChartNetwork,
+    textColor: "text-neon",
+    bgColor: "bg-verde-musgo",
+  },
+  {
+    title: "Aplicativo do Médico",
+    icon: ChartNetwork,
+    textColor: "text-neon",
+    bgColor: "bg-verde-musgo",
+  },
+  {
+    title: "I.A Inteligencia Artificial",
+    icon: ChartNetwork,
+    textColor: "text-neon",
+    bgColor: "bg-verde-musgo",
+  },
+  {
+    title: "Contabilidade",
+    icon: ChartNetwork,
+    textColor: "text-neon",
+    bgColor: "bg-verde-musgo",
+  },
+  {
+    title: "Financeiro",
+    icon: ChartNetwork,
+    textColor: "text-neon",
+    bgColor: "bg-verde-musgo",
+  },
+  {
+    title: "Estoque",
     icon: ChartNetwork,
     textColor: "text-neon",
     bgColor: "bg-verde-musgo",

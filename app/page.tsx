@@ -2,7 +2,9 @@ import { Button } from "@/components/ui/button";
 import { Link } from "@/components/ui/link";
 import Image from "next/image";
 import { NavigationBar } from "./_components/NavigationBar";
-import { cn, featureCards, highlightCards } from "@/lib/utils";
+import { cn, featureCards, featuresSimple, highlightCards } from "@/lib/utils";
+import { FeatureCardsRandomColor } from "./_components/FeatureCardsRandomColor";
+import SectionHeader from "./_components/SectionHeader";
 
 export default function Home() {
   return (
@@ -90,12 +92,7 @@ export default function Home() {
         id="highlights"
         className="items-center flex flex-col w-full justify-start py-20"
       >
-        <div className="flex items-center justify-center relative">
-          <h2 className="font-bold text-xl z-10 xl:text-2xl 2xl:text-3xl text-gray-700">
-            Diferenciais
-          </h2>
-          <div className="flex absolute w-2/3 right-0 bottom-1 z-0 bg-limao h-1" />
-        </div>
+        <SectionHeader title="Diferenciais" pipeColor="bg-limao" />
 
         <div className="flex gap-12 flex-col lg:flex-row w-full lg:w-4/5 h-fit items-center mt-12 z-10">
           {highlightCards.map((item, index) => (
@@ -131,40 +128,18 @@ export default function Home() {
 
       <section
         id="features"
-        className="items-center flex flex-col w-full justify-start py-20"
+        className="items-center flex flex-col w-full justify-start py-20 gap-20"
       >
-        <div className="flex items-center justify-center relative">
-          <h2 className="font-bold text-xl z-10 xl:text-2xl 2xl:text-3xl text-gray-700">
-            Funcionalidades
-          </h2>
-          <div className="flex absolute w-2/3 right-0 bottom-1 z-0 bg-lavanda h-1" />
-        </div>
+        <SectionHeader pipeColor="bg-lavanda" title="Funcionalidades" />
 
-        <div className="flex lg:w-4/5">
-          <div className="lg:flex hidden flex-col items-center justify-center w-1/4 h-full gap-12 xl:gap-16 2xl:gap-24 pl-6 relative">
-            {featureCards.map(
-              (item, index) =>
-                index < 4 && (
-                  <div
-                    key={index}
-                    className={cn(
-                      "flex w-full",
-                      index % 2 === 1 ? "justify-end" : "justify-start"
-                    )}
-                  >
-                    <Button
-                      className={cn(
-                        "flex flex-row items-center justify-center gap-2 rounded-full",
-                        item.bgColor,
-                        item.textColor
-                      )}
-                    >
-                      <item.icon size={24} />
-                      {item.title}
-                    </Button>
-                  </div>
-                )
-            )}
+        <div className="flex lg:w-4/5 gap-12">
+          <div className="lg:flex hidden flex-col items-center justify-center w-1/4 h-full gap-12 pl-6 relative">
+            <FeatureCardsRandomColor
+              items={featuresSimple.filter(
+                (_, index) => index < featuresSimple.length / 2
+              )}
+            />
+
             <Image
               alt="Cursor indicando interação"
               src="/svg/cursor-pointer.svg"
@@ -187,31 +162,12 @@ export default function Home() {
             />
           </div>
 
-          <div className="lg:flex hidden flex-col items-center justify-center w-1/4 h-full gap-12 xl:gap-16 2xl:gap-24 pl-6">
-            {featureCards.map(
-              (item, index) =>
-                index >= 4 && (
-                  <div
-                    key={index}
-                    className={cn(
-                      "flex w-full",
-                      index % 2 !== 1 ? "justify-end" : "justify-start"
-                    )}
-                  >
-                    <Button
-                      key={index}
-                      className={cn(
-                        "flex flex-row items-center justify-center gap-2 rounded-full",
-                        item.bgColor,
-                        item.textColor
-                      )}
-                    >
-                      <item.icon size={24} />
-                      {item.title}
-                    </Button>
-                  </div>
-                )
-            )}
+          <div className="lg:flex hidden flex-col items-center justify-center w-1/4 h-full gap-12 pl-6">
+            <FeatureCardsRandomColor
+              items={featuresSimple.filter(
+                (_, index) => index < featuresSimple.length / 2
+              )}
+            />
           </div>
         </div>
 
