@@ -110,8 +110,8 @@ export const featureCards = [
   {
     title: "Power BI",
     icon: ChartNetwork,
-    textColor: "text-neon",
-    bgColor: "bg-verde-musgo",
+    textColor: "text-lavanda-escuro",
+    bgColor: "bg-lavanda",
   },
   {
     title: "ChatBot",
@@ -122,14 +122,14 @@ export const featureCards = [
   {
     title: "Aplicativo do Médico",
     icon: ChartNetwork,
-    textColor: "text-neon",
-    bgColor: "bg-verde-musgo",
+    textColor: "text-verde-musgo",
+    bgColor: "bg-limao",
   },
   {
     title: "I.A Inteligencia Artificial",
     icon: ChartNetwork,
-    textColor: "text-neon",
-    bgColor: "bg-verde-musgo",
+    textColor: "text-lavanda-escuro",
+    bgColor: "bg-lavanda",
   },
   {
     title: "Contabilidade",
@@ -140,8 +140,8 @@ export const featureCards = [
   {
     title: "Financeiro",
     icon: ChartNetwork,
-    textColor: "text-neon",
-    bgColor: "bg-verde-musgo",
+    textColor: "text-verde-musgo",
+    bgColor: "bg-limao",
   },
   {
     title: "Estoque",

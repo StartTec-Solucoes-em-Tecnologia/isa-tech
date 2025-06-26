@@ -81,16 +81,32 @@ body {
   font-style: normal;
 }
 
-.floating {
-  animation: floating 3s ease-in-out infinite;
+.floating-top {
+  animation: floating_top 3s ease-in-out infinite;
 }
 
-@keyframes floating {
+@keyframes floating_top {
   0% {
     transform: translateY(0);
   }
   50% {
     transform: translateY(-4px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.floating-bottom {
+  animation: floating_bottom 3s ease-in-out infinite;
+}
+
+@keyframes floating_bottom {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(4px);
   }
   100% {
     transform: translateY(0);

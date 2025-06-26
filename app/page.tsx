@@ -1,10 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "@/components/ui/link";
+import { cn, highlightCards } from "@/lib/utils";
 import Image from "next/image";
 import { NavigationBar } from "./_components/NavigationBar";
-import { cn, featureCards, featuresSimple, highlightCards } from "@/lib/utils";
-import { FeatureCardsRandomColor } from "./_components/FeatureCardsRandomColor";
 import SectionHeader from "./_components/SectionHeader";
+import FadeCarrossel from "./_components/FadeCarrossel";
 
 export default function Home() {
   return (
@@ -128,73 +128,19 @@ export default function Home() {
 
       <section
         id="features"
-        className="items-center flex flex-col w-full justify-start py-20 gap-20"
+        className="items-center flex flex-col w-full justify-start py-20"
       >
         <SectionHeader pipeColor="bg-lavanda" title="Funcionalidades" />
 
-        <div className="flex lg:w-4/5 gap-12">
-          <div className="lg:flex hidden flex-col items-center justify-center w-1/4 h-full gap-12 pl-6 relative">
-            <FeatureCardsRandomColor
-              items={featuresSimple.filter(
-                (_, index) => index < featuresSimple.length / 2
-              )}
-            />
+        <FadeCarrossel />
 
-            <Image
-              alt="Cursor indicando interação"
-              src="/svg/cursor-pointer.svg"
-              width={24}
-              height={24}
-              sizes="24px"
-              className="absolute top-12 left-[45%] w-[24px] h-[24px]"
-            />
-          </div>
-
-          <div className="flex lg:w-2/4 items-center">
-            <Image
-              src="/images/features/dashboard.png"
-              alt="Dashboard da plataforma"
-              width={1070}
-              height={715}
-              sizes="(max-width: 768px) 375px, 1070px"
-              className="object-cover lg:object-top w-full h-[375px] lg:h-full lg:w-[1070px]"
-              priority
-            />
-          </div>
-
-          <div className="lg:flex hidden flex-col items-center justify-center w-1/4 h-full gap-12 pl-6">
-            <FeatureCardsRandomColor
-              items={featuresSimple.filter(
-                (_, index) => index < featuresSimple.length / 2
-              )}
-            />
-          </div>
-        </div>
-
-        <div className="flex flex-row items-start justify-start w-fit max-w-screen overflow-x-auto gap-6 pl-6 relative lg:hidden">
-          {featureCards.map((item, index) => (
-            <Button
-              key={index}
-              className={cn(
-                "flex flex-row items-center justify-center gap-2 rounded-full",
-                item.bgColor,
-                item.textColor
-              )}
-            >
-              <item.icon size={24} />
-              {item.title}
-            </Button>
-          ))}
-
-          <Image
-            alt="Cursor indicando interação"
-            src="/svg/cursor-pointer.svg"
-            width={24}
-            height={24}
-            sizes="24px"
-            className="absolute bottom-0 left-[45%] w-[24px] h-[24px]"
+        {/* <div className="flex lg:hidden w-full">
+          <FeatureCardsRandomColor
+            items={featuresSimple.filter(
+              (_, index) => index < featuresSimple.length / 2
+            )}
           />
-        </div>
+        </div> */}
 
         <p className="text-center mt-4 lg:hidden">
           <strong className="text-verde-musgo">Deslize</strong> para o lado e{" "}
