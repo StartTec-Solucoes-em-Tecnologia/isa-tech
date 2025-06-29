@@ -114,10 +114,19 @@ body {
 }
 
 .hero_bg {
-  background-image: url("/images/hero/mobile_bg.png");
+  background-image: url("/images/hero/bg.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.hero_gradient {
+  background: linear-gradient(
+    180deg,
+    #fff 0%,
+    rgba(255, 255, 255, 0) 50%,
+    #fff 100%
+  );
 }
 
 :root {

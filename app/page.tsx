@@ -13,39 +13,36 @@ export default function Home() {
 
       <section
         id="hero"
-        className="h-full min-h-fit items-center flex-col justify-center flex w-full pt-[120px] lg:pt-[10%] lg:flex-row lg:justify-evenly"
+        className="h-full min-h-[80vh] items-center flex-col justify-center flex w-full pt-[120px] lg:pt-[10%] lg:flex-row lg:justify-evenly"
       >
         <Image
           alt="Imagem da hero"
           src="/images/hero/desktop.png"
           width={700}
           height={610}
-          sizes="(max-width: 768px) 320px, (max-width: 1536px) 533px, 700px"
-          className="floating z-20 w-[320px] h-[280px] lg:w-[533px] lg:h-[465px] 2xl:w-[700px] 2xl:h-[610px]"
+          // sizes="(max-width: 768px) 320px, (max-width: 1536px) 533px, 700px"
+          className="floating z-20 w-[320px] h-[280px] sm:w-[400px] sm:h-[350px] xl:w-[533px] xl:h-[465px] 2xl:w-[700px] 2xl:h-[610px]"
           priority
         />
 
         <div className="hero_bg w-full h-[280px] absolute top-[120px] left-0 z-0 lg:h-full lg:top-0" />
+        <div className="hero_gradient w-full h-[280px] absolute top-[120px] left-0 z-10 lg:h-full lg:top-0" />
 
-        <div className="flex justify-center w-4/5 lg:w-1/3 flex-col text-verde-musgo text-center items-center gap-6 lg:items-start lg:text-start z-10">
+        <div className="flex justify-center w-4/5 lg:w-1/3 flex-col text-verde-musgo text-center items-center gap-4 sm:gap-6 sm:pt-6 2xl:gap-6 lg:items-start lg:text-start z-20">
           <div className="flex relative">
-            <h1 className="text-2xl lg:text-5xl z-10">
+            <h1 className="text-2xl md:text-3xl xl:text-4xl 2xl:text-5xl z-10">
               Simplifique sua rotina com uma plataforma completa
             </h1>
             <div className="w-1/2 bg-lavanda h-2 absolute bottom-1 z-0 hidden lg:flex" />
           </div>
 
-          <h2 className="lg:text-lg">
+          <h2 className="2xl:text-lg">
             A revolução digital para clínicas e médicos está aqui
           </h2>
 
-          <div className="flex w-full justify-between gap-2 lg:w-fit lg:gap-4">
-            <Link
-              href="#"
-              className="rounded-xl font-semibold bg-verde-musgo text-neon px-5 lg:px-8 py-4 items-center justify-center flex text-base lg:text-lg"
-            >
-              Saber mais
-            </Link>
+          <div className="flex w-full justify-between gap-2 sm:w-fit lg:gap-4">
+            <Link href="#">Saber mais</Link>
+
             <Button variant={"outline"}>Acessar plataforma</Button>
           </div>
 
@@ -60,7 +57,7 @@ export default function Home() {
 
           <p>Somos mais de 30.000 mil</p>
 
-          <div className="flex flex-row items-center w-full lg:w-fit lg:gap-4 justify-evenly">
+          <div className="flex flex-row items-center w-full sm:w-fit sm:gap-4 justify-evenly">
             <a href="#" className="underline flex flex-row items-center gap-3">
               <Image
                 alt="Apple Store"
@@ -90,16 +87,16 @@ export default function Home() {
 
       <section
         id="highlights"
-        className="items-center flex flex-col w-full justify-start py-20"
+        className="items-center flex flex-col w-full justify-start py-12 xl:py-20"
       >
         <SectionHeader title="Diferenciais" pipeColor="bg-limao" />
 
-        <div className="flex gap-12 flex-col lg:flex-row w-full lg:w-4/5 h-fit items-center mt-12 z-10">
+        <div className="flex gap-12 flex-col lg:flex-row w-full lg:w-11/12 xl:w-4/5 xl:gap-12 lg:gap-6 h-fit items-center mt-12 z-10">
           {highlightCards.map((item, index) => (
             <div
               key={item.title}
               className={cn(
-                "flex rounded-xl flex-col py-10 px-8 gap-6 w-[60%] items-center",
+                "flex rounded-xl flex-col py-10 px-8 gap-6 w-[60%] items-center lg:w-1/4 lg:px-4 xl:px-8",
                 item.bg
               )}
             >
@@ -109,7 +106,7 @@ export default function Home() {
                 width={150}
                 height={205}
                 sizes="(max-width: 768px) 100px, 150px"
-                className="w-[100px] h-[137px] lg:w-[150px] lg:h-[205px]"
+                className="w-[100px] h-[137px] sm:w-[150px] sm:h-[205px] lg:w-[100px] lg:h-[137px] xl:w-[150px] xl:h-[205px]"
               />
 
               <div

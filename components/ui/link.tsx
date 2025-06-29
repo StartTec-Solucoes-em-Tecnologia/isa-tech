@@ -15,7 +15,7 @@ const linkVariants = cva(
           "rounded-xl font-semibold border border-verde-musgo text-verde-musgo items-center justify-center flex hover:opacity-50",
       },
       size: {
-        default: "px-5 lg:px-8 py-4 text-sm lg:text-base",
+        default: "px-5 h-12 text-sm 2xl:text-lg 2xl:h-auto 2xl:px-8 2xl:py-4",
         sm: "h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5",
         lg: "h-10 rounded-md px-6 has-[>svg]:px-4",
         icon: "size-9",
