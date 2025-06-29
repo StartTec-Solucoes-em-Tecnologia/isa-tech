@@ -1,10 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "@/components/ui/link";
-import { cn, highlightCards } from "@/lib/utils";
+import NextLink from "next/link";
+import { cn, highlightCards, testimonials } from "@/lib/utils";
 import Image from "next/image";
 import { NavigationBar } from "./_components/NavigationBar";
 import SectionHeader from "./_components/SectionHeader";
 import FadeCarrossel from "./_components/FadeCarrossel";
+import FeedbackCard from "./_components/FeedbackCard";
 
 export default function Home() {
   return (
@@ -125,19 +127,11 @@ export default function Home() {
 
       <section
         id="features"
-        className="items-center flex flex-col w-full justify-start py-20"
+        className="items-center flex flex-col w-full justify-start py-12 xl:py-20"
       >
         <SectionHeader pipeColor="bg-lavanda" title="Funcionalidades" />
 
         <FadeCarrossel />
-
-        {/* <div className="flex lg:hidden w-full">
-          <FeatureCardsRandomColor
-            items={featuresSimple.filter(
-              (_, index) => index < featuresSimple.length / 2
-            )}
-          />
-        </div> */}
 
         <p className="text-center mt-4 lg:hidden">
           <strong className="text-verde-musgo">Deslize</strong> para o lado e{" "}
@@ -146,9 +140,128 @@ export default function Home() {
         </p>
 
         <p className="text-center mt-4 lg:flex hidden">
-          Clique em uma das funcionalidades para vê-la acima
+          <strong className="text-verde-musgo mr-1">Clique</strong> em uma das
+          funcionalidades para vê-la acima
         </p>
       </section>
+
+      <section className="w-full flex flex-col items-center py-12 xl:py-20 bg-transparent">
+        <SectionHeader pipeColor="bg-lavanda" title="Depoimentos" />
+
+        <div className="hidden lg:flex w-4/5 flex-row gap-12">
+          {/* Primeira coluna */}
+          <div className="flex flex-col gap-6 w-1/4">
+            <FeedbackCard {...testimonials[0]} />
+            <FeedbackCard {...testimonials[1]} />
+          </div>
+          {/* Segunda coluna */}
+          <div className="flex flex-col gap-6 w-2/4">
+            <FeedbackCard {...testimonials[2]} />
+            <FeedbackCard {...testimonials[3]} />
+            <div className="2xl:flex hidden">
+              <FeedbackCard {...testimonials[4]} />
+            </div>
+          </div>
+          {/* Terceira coluna */}
+          <div className="flex flex-col gap-6 w-1/4">
+            <FeedbackCard {...testimonials[5]} />
+            <FeedbackCard {...testimonials[6]} />
+          </div>
+        </div>
+
+        <div className="flex flex-col lg:hidden w-4/5 gap-12 sm:grid sm:grid-cols-2 sm:gap-6 sm:mt-6">
+          {testimonials.map((testimonial, index) => (
+            <FeedbackCard key={index} {...testimonial} />
+          ))}
+        </div>
+      </section>
+
+      <footer className="w-full bg-verde-musgo text-white py-10 px-4 border-t border-[#3a545a] mt-8">
+        <div className="mx-auto items-center flex flex-col md:flex-row md:justify-evenly md:items-start gap-10 md:gap-0">
+          <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10 w-full md:w-2/5">
+            <div className="flex flex-col items-start gap-2 min-w-[120px]">
+              <Image
+                src="/svg/footer-logo.svg"
+                alt="ISA Tech Logo"
+                width={120}
+                height={80}
+                className="mb-2"
+              />
+            </div>
+            <div className="flex flex-col gap-1 text-sm min-w-[180px] md:min-w-auto">
+              <span className="font-bold text-white">
+                Simplifique sua rotina com uma
+                <br />
+                plataforma completa!
+              </span>
+              <span className="mt-2">(44) 546-4356</span>
+              <span className="mt-1">contact@lift.agency</span>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-2 mt-8 md:mt-0 min-w-[180px]">
+            <span className="font-bold text-white mb-1">
+              Navegue nesta página
+            </span>
+            <NextLink
+              href="#hero"
+              className="hover:underline text-gray-100 text-sm"
+            >
+              Início
+            </NextLink>
+            <NextLink
+              href="#highlights"
+              className="hover:underline text-gray-100 text-sm"
+            >
+              Diferenciais
+            </NextLink>
+            <NextLink
+              href="#features"
+              className="hover:underline text-gray-100 text-sm"
+            >
+              Funcionalidades
+            </NextLink>
+            <NextLink
+              href="#depoimentos"
+              className="hover:underline text-gray-100 text-sm"
+            >
+              Feedbacks
+            </NextLink>
+          </div>
+
+          <div className="flex flex-col gap-2 mt-8 md:mt-0 min-w-[180px]">
+            <span className="font-bold text-white mb-1">Navegue pelo site</span>
+            <NextLink
+              href="#"
+              className="hover:underline text-gray-100 text-sm"
+            >
+              Início
+            </NextLink>
+            <NextLink
+              href="#"
+              className="hover:underline text-gray-100 text-sm"
+            >
+              Produtos e serviços
+            </NextLink>
+            <NextLink
+              href="#"
+              className="hover:underline text-gray-100 text-sm"
+            >
+              Sobre nós
+            </NextLink>
+            <NextLink
+              href="#"
+              className="hover:underline text-gray-100 text-sm"
+            >
+              Valores
+            </NextLink>
+          </div>
+        </div>
+
+        <div className="w-full text-center text-xs text-gray-300 mt-12">
+          © 2025 ISA Tech todos os direitos reservados.
+        </div>
+      </footer>
     </main>
   );
 }

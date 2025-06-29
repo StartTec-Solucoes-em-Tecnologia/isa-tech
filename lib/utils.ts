@@ -206,3 +206,48 @@ export const aboutTab = [
     pipeColor: "bg-limao",
   },
 ];
+
+export const testimonials = [
+  {
+    name: "Daniel",
+    username: "@askdalik",
+    image: "/images/hero/users.png", // Substitua por um avatar real se desejar
+    text: "Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos. Lorem Ipsum tem sido o texto padrão usado por essas indústrias desde o ano de 1500.",
+  },
+  {
+    name: "Marina",
+    username: "@marinadev",
+    image: "/images/hero/users.png",
+    text: "A plataforma revolucionou a rotina da minha clínica. Extremamente intuitiva e eficiente! Recomendo para todos os profissionais da saúde.",
+  },
+  {
+    name: "Carlos",
+    username: "@carluxo",
+    image: "/images/hero/users.png",
+    text: "O suporte é excelente e as funcionalidades atendem todas as necessidades do meu consultório. Estou muito satisfeito! Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos. Lorem Ipsum tem sido o texto padrão usado por essas indústrias desde o ano de 1500. Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos. Lorem Ipsum tem sido o texto padrão usado por essas indústrias desde o ano de 1500.",
+  },
+  {
+    name: "Fernanda",
+    username: "@feroliveira",
+    image: "/images/hero/users.png",
+    text: "Nunca foi tão fácil gerenciar meus pacientes e agendamentos. A interface é linda e muito prática! Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos. Lorem Ipsum tem sido o texto padrão usado por essas indústrias desde o ano de 1500. Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos. Lorem Ipsum tem sido o texto padrão usado por essas indústrias desde o ano de 1500.",
+  },
+  {
+    name: "João Paulo",
+    username: "@jpmed",
+    image: "/images/hero/users.png",
+    text: "A integração com outras ferramentas é um diferencial. Otimizou muito o meu tempo! Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos. Lorem Ipsum tem sido o texto padrão usado por essas indústrias desde o ano de 1500. Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos. Lorem Ipsum tem sido o texto padrão usado por essas indústrias desde o ano de 1500.",
+  },
+  {
+    name: "Patrícia",
+    username: "@patriciapsi",
+    image: "/images/hero/users.png",
+    text: "Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos. Lorem Ipsum tem sido o texto padrão usado por essas indústrias desde o ano de 1500.",
+  },
+  {
+    name: "Lucas",
+    username: "@lucasdoc",
+    image: "/images/hero/users.png",
+    text: "A plataforma revolucionou a rotina da minha clínica. Extremamente intuitiva e eficiente! Recomendo para todos os profissionais da saúde.",
+  },
+];
