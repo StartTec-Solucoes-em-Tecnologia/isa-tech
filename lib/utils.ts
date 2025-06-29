@@ -102,6 +102,12 @@ export const featureCards = [
     bgColor: "bg-lavanda",
   },
   {
+    title: "Aplicativo do Médico",
+    icon: ChartNetwork,
+    textColor: "text-verde-musgo",
+    bgColor: "bg-limao",
+  },
+  {
     title: "Telemedicina",
     icon: MonitorSmartphone,
     textColor: "text-verde-musgo",
@@ -118,12 +124,6 @@ export const featureCards = [
     icon: ChartNetwork,
     textColor: "text-neon",
     bgColor: "bg-verde-musgo",
-  },
-  {
-    title: "Aplicativo do Médico",
-    icon: ChartNetwork,
-    textColor: "text-verde-musgo",
-    bgColor: "bg-limao",
   },
   {
     title: "I.A Inteligencia Artificial",

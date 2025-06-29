@@ -28,7 +28,7 @@ export default function Home() {
         <div className="hero_bg w-full h-[280px] absolute top-[120px] left-0 z-0 lg:h-full lg:top-0" />
         <div className="hero_gradient w-full h-[280px] absolute top-[120px] left-0 z-10 lg:h-full lg:top-0" />
 
-        <div className="flex justify-center w-4/5 lg:w-1/3 flex-col text-verde-musgo text-center items-center gap-4 sm:gap-6 sm:pt-6 2xl:gap-6 lg:items-start lg:text-start z-20">
+        <div className="flex justify-center w-4/5 lg:w-[40%] xl:w-1/3 flex-col text-verde-musgo text-center items-center gap-4 sm:gap-6 sm:pt-6 2xl:gap-6 lg:items-start lg:text-start z-20">
           <div className="flex relative">
             <h1 className="text-2xl md:text-3xl xl:text-4xl 2xl:text-5xl z-10">
               Simplifique sua rotina com uma plataforma completa
