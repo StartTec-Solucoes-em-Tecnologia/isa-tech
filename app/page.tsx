@@ -10,7 +10,7 @@ import FeedbackCard from "./_components/FeedbackCard";
 
 export default function Home() {
   return (
-    <main className="h-full w-screen bg-white">
+    <main className="h-full w-full bg-white">
       <NavigationBar />
 
       <section

@@ -1,16 +1,24 @@
 import { clsx, type ClassValue } from "clsx";
-import { twMerge } from "tailwind-merge";
 import {
+  BotMessageSquare,
+  Box,
+  BrainCircuit,
   Calendar,
   ChartNetwork,
   HandCoins,
+  HouseIcon,
+  Landmark,
+  Lightbulb,
   MessageSquareText,
   MonitorSmartphone,
+  PiggyBank,
   ScrollText,
   Sofa,
+  TabletSmartphone,
   Tickets,
+  UsersRound, Zap,
 } from "lucide-react";
-import { HouseIcon, Lightbulb, UsersRound, Zap } from "lucide-react";
+import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -45,23 +53,6 @@ export const highlightCards = [
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has",
   },
-];
-
-export const featuresSimple = [
-  { title: "Agendamento", icon: Calendar },
-  { title: "Recepção", icon: Sofa },
-  { title: "Prontuário eletrônico", icon: ScrollText },
-  { title: "Faturamento TISS", icon: HandCoins },
-  { title: "Gestão de filas", icon: Tickets },
-  { title: "Chat Interno", icon: MessageSquareText },
-  { title: "Telemedicina", icon: MonitorSmartphone },
-  { title: "Power BI", icon: ChartNetwork },
-  { title: "ChatBot", icon: ChartNetwork },
-  { title: "Aplicativo do Médico", icon: ChartNetwork },
-  { title: "I.A Inteligencia Artificial", icon: ChartNetwork },
-  { title: "Contabilidade", icon: ChartNetwork },
-  { title: "Financeiro", icon: ChartNetwork },
-  { title: "Estoque", icon: ChartNetwork },
 ];
 
 export const featureCards = [
@@ -103,7 +94,7 @@ export const featureCards = [
   },
   {
     title: "Aplicativo do Médico",
-    icon: ChartNetwork,
+    icon: TabletSmartphone,
     textColor: "text-verde-musgo",
     bgColor: "bg-limao",
   },
@@ -121,31 +112,31 @@ export const featureCards = [
   },
   {
     title: "ChatBot",
-    icon: ChartNetwork,
+    icon: BotMessageSquare,
     textColor: "text-neon",
     bgColor: "bg-verde-musgo",
   },
   {
     title: "I.A Inteligencia Artificial",
-    icon: ChartNetwork,
+    icon: BrainCircuit,
     textColor: "text-lavanda-escuro",
     bgColor: "bg-lavanda",
   },
   {
     title: "Contabilidade",
-    icon: ChartNetwork,
+    icon: Landmark,
     textColor: "text-neon",
     bgColor: "bg-verde-musgo",
   },
   {
     title: "Financeiro",
-    icon: ChartNetwork,
+    icon: PiggyBank,
     textColor: "text-verde-musgo",
     bgColor: "bg-limao",
   },
   {
     title: "Estoque",
-    icon: ChartNetwork,
+    icon: Box,
     textColor: "text-neon",
     bgColor: "bg-verde-musgo",
   },
