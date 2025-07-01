@@ -11,7 +11,7 @@ export default function SectionHeader({
 }: SectionHeaderProps) {
   return (
     <div className="flex items-center justify-center relative">
-      <h2 className="font-bold text-xl z-20 xl:text-2xl 2xl:text-3xl text-gray-700 text-center">
+      <h2 className="font-bold text-xl z-20 xl:text-3xl 2xl:text-4xl text-gray-700 text-center">
         {title}
       </h2>
 
