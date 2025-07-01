@@ -2,14 +2,14 @@ import Image from "next/image";
 
 interface Testimonial {
   name: string;
-  username: string;
+  postData: string;
   image: string;
   text: string;
 }
 
 export default function FeedbackCard({
   name,
-  username,
+  postData,
   image,
   text,
 }: Testimonial) {
@@ -28,7 +28,7 @@ export default function FeedbackCard({
 
         <div className="flex flex-col">
           <span className="font-bold text-verde-musgo text-base">{name}</span>
-          <span className="text-gray-500 text-sm">{username}</span>
+          <span className="text-gray-500 text-sm">{postData}</span>
         </div>
       </div>
 

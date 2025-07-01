@@ -16,7 +16,8 @@ import {
   Sofa,
   TabletSmartphone,
   Tickets,
-  UsersRound, Zap,
+  UsersRound,
+  Zap,
 } from "lucide-react";
 import { twMerge } from "tailwind-merge";
 
@@ -33,22 +34,22 @@ export const highlightCards = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has",
   },
   {
-    image: "/images/highlights/produtividade.png",
+    image: "/images/highlights/suporte.png",
     title: "Suporte Humanizado",
     bg: "bg-lavanda",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has",
   },
   {
-    image: "/images/highlights/seguranca.png",
+    image: "/images/highlights/produtividade.png",
     title: "Produtividade Real",
     bg: "bg-neon",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has",
   },
   {
-    image: "/images/highlights/suporte.png",
     title: "Seus dados seguros",
+    image: "/images/highlights/seguranca.png",
     bg: "bg-verde-musgo",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has",
@@ -198,47 +199,47 @@ export const aboutTab = [
   },
 ];
 
-export const testimonials = [
+export const feedbacks = [
   {
-    name: "Daniel",
-    username: "@askdalik",
-    image: "/images/hero/users.png", // Substitua por um avatar real se desejar
-    text: "Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos. Lorem Ipsum tem sido o texto padrão usado por essas indústrias desde o ano de 1500.",
+    name: "Dr. Pedro Rodrigues",
+    postData: "17/05/2024",
+    image: "/images/feedbacks/dr-pedro-rodrigues.webp",
+    text: "Há pouco mais de 5 anos trabalhamos com o StDoctor, e a evolução tem sido constante, com atualizações e facilidades no sistema, o que nos proporciona agilidade nos atendimentos e credibilidade. Além disso, recebemos auxílio fora do consultório, agora com o aplicativo gratuito. Mas o principal para mim é a assistência, que é impecável. Essas alterações corrigem alguns erros de pontuação e de concordância, tornando o comentário mais claro e fluente.",
   },
   {
-    name: "Marina",
-    username: "@marinadev",
-    image: "/images/hero/users.png",
-    text: "A plataforma revolucionou a rotina da minha clínica. Extremamente intuitiva e eficiente! Recomendo para todos os profissionais da saúde.",
+    name: "Dra. Luciana Rocha",
+    postData: "24/08/2024",
+    image: "/images/feedbacks/dra-luciana.webp",
+    text: "O StDoctor é um sistema completo e fácil de operar. A assistência técnica é perfeita e a recente gestão financeira é uma ótima adição. Com atualizações frequentes, temos agilidade nos atendimentos e mais credibilidade. O aplicativo gratuito também auxilia fora do consultório. Sem dúvida, o StDoctor é essencial para aprimorar nossas práticas na área da saúde e oferecer um serviço de excelência aos pacientes.",
   },
   {
-    name: "Carlos",
-    username: "@carluxo",
-    image: "/images/hero/users.png",
-    text: "O suporte é excelente e as funcionalidades atendem todas as necessidades do meu consultório. Estou muito satisfeito! Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos. Lorem Ipsum tem sido o texto padrão usado por essas indústrias desde o ano de 1500. Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos. Lorem Ipsum tem sido o texto padrão usado por essas indústrias desde o ano de 1500.",
+    name: "Mônica Pereira",
+    postData: "11/02/2025",
+    image: "/images/feedbacks/interne-prime.webp",
+    text: "Gostaria de parabenizar a todos que fazem parte da equipe StDoctor, pelo atendimento de excelência em todas as etapas do nosso processo. Com plataforma flexível e adequada a cada cliente conseguem demonstrar exclusividade em cada atendimento e olhar diferenciado para necessidade do que o cliente entende como valor.",
   },
   {
-    name: "Fernanda",
-    username: "@feroliveira",
-    image: "/images/hero/users.png",
-    text: "Nunca foi tão fácil gerenciar meus pacientes e agendamentos. A interface é linda e muito prática! Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos. Lorem Ipsum tem sido o texto padrão usado por essas indústrias desde o ano de 1500. Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos. Lorem Ipsum tem sido o texto padrão usado por essas indústrias desde o ano de 1500.",
+    name: "Dr. Rilcon Coelho",
+    postData: "12/06/2025",
+    image: "/images/feedbacks/dr-rilcon-coelho.webp",
+    text: "É com grande satisfação que expresso minha admiração pelo excepcional programa de prontuário eletrônico STDoctor. Como oftalmologista, reconheço a importância de ferramentas eficientes na gestão de informações médicas e no atendimento aos pacientes. O STDoctor não apenas simplifica o registro de dados clínicos, mas também proporciona uma interface amigável e intuitiva, otimizando o fluxo de trabalho no consultório. Sua abordagem abrangente e recursos personalizáveis demonstram um compromisso genuíno com a excelência na assistência médica. Parabenizo a equipe por criar um sistema tão notável e benéfico para a comunidade médica.",
   },
   {
     name: "João Paulo",
-    username: "@jpmed",
+    postData: "@jpmed",
     image: "/images/hero/users.png",
     text: "A integração com outras ferramentas é um diferencial. Otimizou muito o meu tempo! Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos. Lorem Ipsum tem sido o texto padrão usado por essas indústrias desde o ano de 1500. Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos. Lorem Ipsum tem sido o texto padrão usado por essas indústrias desde o ano de 1500.",
   },
   {
     name: "Patrícia",
-    username: "@patriciapsi",
+    postData: "@patriciapsi",
     image: "/images/hero/users.png",
-    text: "Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos. Lorem Ipsum tem sido o texto padrão usado por essas indústrias desde o ano de 1500.",
+    text: "Há pouco mais de 5 anos trabalhamos com o StDoctor, e a evolução tem sido constante, com atualizações e facilidades no sistema, o que nos proporciona agilidade nos atendimentos e credibilidade. Além disso, recebemos auxílio fora do consultório, agora com o aplicativo gratuito. Mas o principal para mim é a assistência, que é impecável. Essas alterações corrigem alguns erros de pontuação e de concordância, tornando o comentário mais claro e fluente.",
   },
   {
     name: "Lucas",
-    username: "@lucasdoc",
+    postData: "@lucasdoc",
     image: "/images/hero/users.png",
-    text: "A plataforma revolucionou a rotina da minha clínica. Extremamente intuitiva e eficiente! Recomendo para todos os profissionais da saúde.",
+    text: "O StDoctor é um sistema completo e fácil de operar. A assistência técnica é perfeita e a recente gestão financeira é uma ótima adição. Com atualizações frequentes, temos agilidade nos atendimentos e mais credibilidade. O aplicativo gratuito também auxilia fora do consultório. Sem dúvida, o StDoctor é essencial para aprimorar nossas práticas na área da saúde e oferecer um serviço de excelência aos pacientes.",
   },
 ];

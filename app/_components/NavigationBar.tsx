@@ -49,7 +49,7 @@ export function NavigationBar() {
                   <ul className="flex flex-col items-center justify-evenly w-[400px] xl:w-[500px]">
                     <div className="flex flex-col gap-1 w-2/3">
                       <div className="flex flex-row gap-2 relative">
-                        <p className="text-sm leading-none font-medium z-10">
+                        <p className="text-sm leading-none font-semibold text-texto z-10">
                           ISA Tech
                         </p>
 
@@ -64,7 +64,7 @@ export function NavigationBar() {
 
                     <div className="flex flex-col gap-1 w-2/3">
                       <div className="flex flex-row gap-2 relative">
-                        <p className="text-sm leading-none font-medium z-10">
+                        <p className="text-sm leading-none font-semibold text-texto z-10">
                           ISA Clinic
                         </p>
 
@@ -159,15 +159,18 @@ function ListItem({
               {icon ? (
                 React.createElement(icon, {
                   className: textColor,
+                  strokeWidth: 3,
                 })
               ) : (
-                <HouseIcon className={textColor} />
+                <HouseIcon className={textColor} strokeWidth={3} />
               )}
             </div>
 
             <div className="flex flex-col gap-1 w-2/3">
               <div className="flex flex-row gap-2 relative">
-                <p className="text-sm leading-none font-medium z-10">{title}</p>
+                <p className="text-sm leading-none font-semibold text-texto z-10">
+                  {title}
+                </p>
 
                 <div
                   className={cn(
