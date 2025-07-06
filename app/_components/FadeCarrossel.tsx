@@ -68,7 +68,7 @@ export default function FadeCarrossel() {
             width={24}
             height={24}
             sizes="24px"
-            className="absolute bottom-0 left-[45%] w-[24px] h-[24px]"
+            className="absolute top-14 left-[45%] w-[24px] h-[24px]"
           />
         </div>
 
