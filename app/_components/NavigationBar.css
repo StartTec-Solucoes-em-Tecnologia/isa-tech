@@ -20,7 +20,7 @@
 }
 
 .navbar-content {
-  position: relative;
+  position: fixed;
   z-index: 50;
   width: 100vw;
   height: 80px;
