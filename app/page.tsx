@@ -1,4 +1,4 @@
-const h1Text = `Transforme sua rotina médica com mais leveza, inteligência e segurança.`;
+// const h1Text = `Transforme sua rotina médica com mais leveza, inteligência e segurança.`;
 
 export default function Home() {
   return (
