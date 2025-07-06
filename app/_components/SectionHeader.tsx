@@ -8,8 +8,8 @@ export default function SectionHeader({
 }: // pipeColor,
 SectionHeaderProps) {
   return (
-    <div className="flex items-center justify-center relative">
-      <h2 className="z-20 text-3xl 2xl:text-4xl w-4/5 lg:w-3/4 text-gray-700 text-center">
+    <div className="flex items-center justify-center relative w-4/5 lg:w-3/4">
+      <h2 className="z-20 text-3xl 2xl:text-4xl text-gray-700 text-center">
         {title}
       </h2>
 

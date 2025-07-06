@@ -15,8 +15,11 @@ import {
 } from "@/components/ui/navigation-menu";
 import { aboutTab, cn } from "@/lib/utils";
 import Image from "next/image";
+import { MobileMenu } from "./MobileMenu";
 
 export function NavigationBar() {
+  const [mobileOpen, setMobileOpen] = React.useState(false);
+
   return (
     <nav className="fixed border-b border-verde-musgo h-[80px] w-full flex items-center justify-center z-50 bg-white/44 backdrop-blur-3xl">
       <div className="w-4/5 items-center justify-between hidden lg:flex">
@@ -122,10 +125,11 @@ export function NavigationBar() {
           height={47}
         />
 
-        <button className="p-4">
+        <button className="p-4" onClick={() => setMobileOpen(true)}>
           <MenuIcon className="text-verde-musgo" />
         </button>
       </ul>
+      <MobileMenu open={mobileOpen} onClose={() => setMobileOpen(false)} />
     </nav>
   );
 }

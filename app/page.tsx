@@ -212,7 +212,7 @@ export default function Home() {
 
         <FadeCarrossel />
 
-        <p className="text-center mt-4 lg:hidden">
+        <p className="text-center mt-4 lg:hidden w-4/5 items-center">
           <strong className="text-verde-musgo">Deslize</strong> para o lado e{" "}
           <strong className="text-lavanda-escuro">clique</strong> em uma das
           funcionalidades para vê-la acima
