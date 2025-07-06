@@ -7,6 +7,7 @@ import { cn, featureCards } from "@/lib/utils";
 
 export default function FadeCarrossel() {
   const images = [
+    "/images/features/banner.png",
     "/images/features/dashboard.png",
     "/images/features/system.png",
     "/images/features/youtube.png",
@@ -106,7 +107,7 @@ export default function FadeCarrossel() {
                   <motion.button
                     initial={false}
                     aria-label="Next"
-                    onClick={() => setSelectedImage(index)}
+                    onClick={() => setSelectedImage(index + 1)}
                     whileFocus={{ outline: `2px solid` }}
                     whileTap={{ scale: 0.9 }}
                   >
@@ -140,7 +141,7 @@ export default function FadeCarrossel() {
             <motion.button
               initial={false}
               aria-label="Next"
-              onClick={() => setSelectedImage(index)}
+              onClick={() => setSelectedImage(index + 1)}
               whileFocus={{ outline: `2px solid` }}
               whileTap={{ scale: 0.9 }}
             >
@@ -194,8 +195,8 @@ const Slide = forwardRef<HTMLDivElement, SlideProps>(function Slide(
         alt="Dashboard da plataforma"
         width={1070}
         height={715}
-        sizes="(max-width: 768px) 375px, 1070px"
-        className="object-contain lg:object-center w-full px-1 sm:px-11 h-[294px] sm:h-[260px] md:px-24 lg:px-0 lg:h-full lg:w-[1070px]"
+        // sizes="(max-width: 768px) 375px, 1070px"
+        className="object-contain lg:object-center w-full px-[7px] sm:px-11 h-[294px] sm:h-[260px] md:px-24 lg:h-full lg:p-2 xl:w-[1070px] xl:p-3 2xl:p-4"
         priority
       />
     </motion.div>

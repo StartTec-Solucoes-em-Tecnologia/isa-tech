@@ -1,5 +1,6 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
+import { X } from "lucide-react";
 
 interface MobileMenuProps {
   open: boolean;
@@ -22,12 +23,16 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
       {/* Menu content */}
       <div className="relative h-full w-full max-w-[90vw] sm:max-w-xs bg-white shadow-xl flex flex-col p-6 gap-6 animate-in slide-in-from-right-10 border-l border-verde-musgo">
         {/* Logo */}
-        <div className="flex items-center mb-4">
+        <div className="flex items-center mb-4 flex-row justify-between">
           <img
             src="/svg/nav-logo.svg"
             alt="ISA Tech Logo"
             className="w-24 h-auto"
           />
+
+          <button onClick={onClose}>
+            <X />
+          </button>
         </div>
         {/* Links */}
         <nav className="flex flex-col gap-4 text-verde-musgo text-lg font-medium">
