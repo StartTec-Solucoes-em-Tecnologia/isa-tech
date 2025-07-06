@@ -183,8 +183,8 @@ export const aboutTab = [
     description:
       "A modal dialog that interrupts the user with important content and expects a response.",
 
-    textColor: "text-neon",
-    bgColor: "bg-limao-escuro",
+    textColor: "text-limao",
+    bgColor: "bg-verde-musgo",
     pipeColor: "bg-limao",
   },
   {
@@ -193,7 +193,7 @@ export const aboutTab = [
     icon: UsersRound,
     description: "Visually or semantically separates content.",
 
-    textColor: "text-lavanda-escuro",
+    textColor: "text-verde-musgo",
     bgColor: "bg-lavanda",
     pipeColor: "bg-limao",
   },
@@ -204,8 +204,8 @@ export const aboutTab = [
     description:
       "For sighted users to preview content available behind a link.",
 
-    textColor: "text-neon",
-    bgColor: "bg-verde-musgo",
+    textColor: "text-verde-musgo",
+    bgColor: "bg-limao",
     pipeColor: "bg-lavanda",
   },
   {
@@ -214,8 +214,8 @@ export const aboutTab = [
     icon: Zap,
     description:
       "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
-    textColor: "text-limao-escuro",
-    bgColor: "bg-limao",
+    textColor: "text-limao",
+    bgColor: "bg-verde-musgo",
     pipeColor: "bg-lavanda",
   },
   {
@@ -225,8 +225,8 @@ export const aboutTab = [
     description:
       "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
 
-    textColor: "text-lavanda",
-    bgColor: "bg-lavanda-escuro",
+    textColor: "text-verde-musgo",
+    bgColor: "bg-lavanda",
     pipeColor: "bg-limao",
   },
 ];

@@ -18,14 +18,15 @@ import Image from "next/image";
 
 export function NavigationBar() {
   return (
-    <nav className="fixed border-b border-verde-musgo h-[80px] w-full flex items-center justify-center z-50 bg-white">
+    <nav className="fixed border-b border-verde-musgo h-[80px] w-full flex items-center justify-center z-50 bg-white/44 backdrop-blur-3xl">
       <div className="w-4/5 items-center justify-between hidden lg:flex">
-        <div className="flex flex-row gap-12">
+        <div className="flex flex-row gap-6 text-verde-musgo">
           <Image
             alt="Logomarca da navbar"
             src={"/svg/nav-logo.svg"}
-            width={96}
-            height={47}
+            width={300}
+            height={300}
+            className="w-[120px] h-[85px]"
           />
 
           <NavigationMenu viewport={false}>
@@ -36,25 +37,23 @@ export function NavigationBar() {
                 <NavigationMenuTrigger>
                   Produtos e serviços
                 </NavigationMenuTrigger>
+
                 <NavigationMenuContent className="flex flex-row">
                   <NavigationMenuLink asChild>
                     <Image
                       alt="Captura de tela do app"
-                      src={"/images/navbar/app_print.png"}
+                      src={"/images/highlights/gestao.png"}
                       width={250}
                       height={340}
+                      className="object-contain"
                     />
                   </NavigationMenuLink>
 
                   <ul className="flex flex-col items-center justify-evenly w-[400px] xl:w-[500px]">
                     <div className="flex flex-col gap-1 w-2/3">
-                      <div className="flex flex-row gap-2 relative">
-                        <p className="text-sm leading-none font-semibold text-texto z-10">
-                          ISA Tech
-                        </p>
-
-                        <div className="w-1/4 bg-lavanda h-1 left-0 absolute bottom-0 z-0 hidden lg:flex" />
-                      </div>
+                      <p className="text-sm leading-none font-semibold text-texto z-10">
+                        ISA Tech
+                      </p>
 
                       <p className="text-muted-foreground line-clamp-2 text-sm leading-snug">
                         Lorem Ipsum is simply dummy text of the printing and
@@ -63,13 +62,20 @@ export function NavigationBar() {
                     </div>
 
                     <div className="flex flex-col gap-1 w-2/3">
-                      <div className="flex flex-row gap-2 relative">
-                        <p className="text-sm leading-none font-semibold text-texto z-10">
-                          ISA Clinic
-                        </p>
+                      <p className="text-sm leading-none font-semibold text-texto z-10">
+                        ISA Clinic
+                      </p>
 
-                        <div className="w-1/4 bg-limao h-1 left-0 absolute bottom-0 z-0 hidden lg:flex" />
-                      </div>
+                      <p className="text-muted-foreground line-clamp-2 text-sm leading-snug">
+                        Lorem Ipsum is simply dummy text of the printing and
+                        typesetting industry. Lorem Ipsum has
+                      </p>
+                    </div>
+
+                    <div className="flex flex-col gap-1 w-2/3">
+                      <p className="text-sm leading-none font-semibold text-texto z-10">
+                        ISA GO
+                      </p>
 
                       <p className="text-muted-foreground line-clamp-2 text-sm leading-snug">
                         Lorem Ipsum is simply dummy text of the printing and
@@ -92,7 +98,6 @@ export function NavigationBar() {
                         icon={item.icon}
                         textColor={item.textColor}
                         bgColor={item.bgColor}
-                        pipeColor={item.pipeColor}
                       >
                         {item.description}
                       </ListItem>
@@ -142,7 +147,7 @@ function ListItem({
   icon,
   textColor = "",
   bgColor = "",
-  pipeColor = "",
+  // pipeColor = "",
   ...props
 }: ListItemProps) {
   return (
@@ -167,18 +172,9 @@ function ListItem({
             </div>
 
             <div className="flex flex-col gap-1 w-2/3">
-              <div className="flex flex-row gap-2 relative">
-                <p className="text-sm leading-none font-semibold text-texto z-10">
-                  {title}
-                </p>
-
-                <div
-                  className={cn(
-                    "w-1/4 bg-lavanda h-1 left-0 absolute bottom-0 z-0 hidden lg:flex",
-                    pipeColor
-                  )}
-                />
-              </div>
+              <p className="text-sm leading-none font-semibold text-texto z-10">
+                {title}
+              </p>
 
               <p className="text-muted-foreground line-clamp-2 text-sm leading-snug">
                 {children}
