@@ -11,7 +11,7 @@ import Motion from "./_components/Motion";
 import { NumberTicker } from "@/components/magicui/number-ticker";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 
-const words = `Transforme sua rotina médica com mais leveza, inteligência e segurança.`;
+const h1Text = `Transforme sua rotina médica com mais leveza, inteligência e segurança.`;
 
 export default function Home() {
   return (
@@ -94,7 +94,7 @@ export default function Home() {
           </div>
 
           <div className="flex mt-20 lg:mt-16 justify-center w-4/5 lg:w-[40%] flex-col text-verde-musgo text-center items-center gap-4 sm:gap-6 sm:pt-6 2xl:gap-6 lg:items-start lg:text-start z-20">
-            <TextGenerateEffect duration={2} filter={false} words={words} />
+            <TextGenerateEffect duration={2} filter={false} words={h1Text} />
 
             <h2 className="text-sm 2xl:text-lg">
               A ISA TECH é o sistema de gestão completo que simplifica
@@ -175,7 +175,7 @@ export default function Home() {
               direction="top"
               identifier={index}
               className={cn(
-                "flex rounded-xl flex-col py-10 px-8 gap-6 w-[60%] items-center lg:w-1/4 lg:px-4 xl:px-8",
+                "flex rounded-xl flex-col py-10 px-8 gap-6 w-[60%] lg:h-[340px] xl:h-[440px] 2xl:h-[400px] items-center lg:w-1/4 lg:px-4 xl:px-8",
                 item.bg
               )}
             >
@@ -190,8 +190,8 @@ export default function Home() {
 
               <div
                 className={cn(
-                  "flex flex-col text-verde-musgo gap-2",
-                  index === 3 && "text-white"
+                  "flex flex-col gap-2",
+                  index % 2 === 0 ? "text-white" : "text-verde-musgo"
                 )}
               >
                 <p className="font-bold">{item.title}</p>

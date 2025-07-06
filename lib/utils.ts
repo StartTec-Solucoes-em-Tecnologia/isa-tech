@@ -60,31 +60,31 @@ export const BotToTop = {
 export const highlightCards = [
   {
     image: "/images/highlights/gestao.png",
-    title: "Gestão de clínica",
-    bg: "bg-limao",
+    title: "Gestão inteligente",
+    bg: "bg-verde-musgo",
     description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has",
+      "Organize agenda, prontuário, financeiro e contabilidade em uma única plataforma intuitiva.",
   },
   {
     image: "/images/highlights/suporte.png",
     title: "Suporte Humanizado",
-    bg: "bg-lavanda",
+    bg: "bg-limao",
     description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has",
+      "Atendimento próximo, ágil e feito por quem entende a rotina médica de verdade.",
+  },
+  {
+    title: "Segurança de dados",
+    image: "/images/highlights/seguranca.png",
+    bg: "bg-verde-musgo",
+    description:
+      "Tecnologia robusta com proteção avançada e total conformidade com a LGPD.",
   },
   {
     image: "/images/highlights/produtividade.png",
     title: "Produtividade Real",
-    bg: "bg-neon",
+    bg: "bg-lavanda",
     description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has",
-  },
-  {
-    title: "Seus dados seguros",
-    image: "/images/highlights/seguranca.png",
-    bg: "bg-verde-musgo",
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has",
+      "Organize agenda, prontuário, financeiro e contabilidade em uma única plataforma intuitiva.",
   },
 ];
 
