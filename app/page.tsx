@@ -10,6 +10,7 @@ import FeedbackCard from "./_components/FeedbackCard";
 import Motion from "./_components/Motion";
 import { NumberTicker } from "@/components/magicui/number-ticker";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
+import PlansCards from "./_components/PlansCards";
 
 const h1Text = `Transforme sua rotina médica com mais leveza, inteligência e segurança.`;
 
@@ -313,6 +314,23 @@ export default function Home() {
             </Motion>
           ))}
         </div>
+      </section>
+
+      <section
+        id="plans"
+        className="w-full flex flex-col items-center py-12 xl:py-20 bg-transparent"
+      >
+        <div className="flex flex-col gap-2 items-center">
+          <h2 className="z-20 text-3xl 2xl:text-4xl w-4/5 text-gray-700 text-center">
+            Conheça nossos planos
+          </h2>
+          <p className="text-center">
+            Escolha o plano ideal para sua clínica — e ganhe tempo para o que
+            importa.
+          </p>
+        </div>
+
+        <PlansCards />
       </section>
 
       <footer className="w-full bg-verde-musgo text-white py-10 px-4 border-t border-[#3a545a] mt-8">
