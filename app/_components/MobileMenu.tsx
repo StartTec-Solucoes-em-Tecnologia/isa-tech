@@ -71,12 +71,13 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
             Valores
           </a>
         </nav>
-        <button
+        <a
           className="mt-8 w-full bg-verde-musgo text-white rounded-xl py-3 font-semibold"
-          onClick={onClose}
+          // onClick={onClose}
+          href="https://isatech.com.br"
         >
           Acessar plataforma
-        </button>
+        </a>
       </div>
     </div>
   );

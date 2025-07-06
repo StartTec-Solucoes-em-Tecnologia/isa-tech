@@ -1,10 +1,9 @@
 "use client";
 
 import { HouseIcon, MenuIcon } from "lucide-react";
-import Link from "next/link";
+import NextLink from "next/link";
 import * as React from "react";
 
-import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -18,6 +17,7 @@ import Image from "next/image";
 import { MobileMenu } from "./MobileMenu";
 import "../globals.css";
 import "./NavigationBar.css";
+import { Link } from "@/components/ui/link";
 
 export function NavigationBar() {
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -120,7 +120,9 @@ export function NavigationBar() {
             </NavigationMenu>
           </div>
 
-          <Button size={"sm"}>Acessar plataforma</Button>
+          <Link size={"sm"} href="https://isatech.com.br">
+            Acessar plataforma
+          </Link>
         </div>
 
         <ul className="flex flex-row w-4/5 h-full items-center justify-between lg:hidden">
@@ -164,7 +166,7 @@ function ListItem({
   return (
     <li {...props}>
       <NavigationMenuLink asChild>
-        <Link href={href}>
+        <NextLink href={href}>
           <div className="flex gap-4">
             <div
               className={cn(
@@ -192,7 +194,7 @@ function ListItem({
               </p>
             </div>
           </div>
-        </Link>
+        </NextLink>
       </NavigationMenuLink>
     </li>
   );

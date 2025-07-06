@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import * as motion from "motion/react-client";
 import { Link } from "@/components/ui/link";
 import { cn, highlightCards, feedbacks } from "@/lib/utils";
@@ -105,9 +104,11 @@ export default function Home() {
             </h2>
 
             <div className="flex w-full justify-between gap-2 sm:w-fit lg:gap-4">
-              <Link href="#">Saber mais</Link>
+              <Link href="#highlights">Saber mais</Link>
 
-              <Button variant={"outline"}>Acessar plataforma</Button>
+              <Link variant={"outline"} href="https://isatech.com.br">
+                Acessar plataforma
+              </Link>
             </div>
 
             <Image
@@ -419,7 +420,7 @@ export default function Home() {
 
       <a
         href={`http://wa.me/558198101171?text=${encodeURIComponent(
-          `Olá! Venho do site da StartTec e gostaria de fazer um orçamento.`
+          `Olá! Venho do site da ISA Tech e gostaria de fazer um orçamento.`
         )}`}
         className="fixed bottom-24 right-4 rounded-full p-4 bg-verde-musgo z-30"
       >
