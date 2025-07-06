@@ -33,9 +33,9 @@ export function NavigationBar() {
             <Image
               alt="Logomarca da navbar"
               src={"/svg/nav-logo.svg"}
-              width={300}
-              height={300}
-              className="w-[120px] h-[85px]"
+              width={400}
+              height={400}
+              className="w-[120px] h-full"
             />
 
             <NavigationMenu viewport={false}>
