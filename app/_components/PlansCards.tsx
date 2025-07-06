@@ -48,15 +48,30 @@ export default function PlansCards() {
   return (
     <div className="w-full flex flex-col items-center mt-8">
       <div className="flex flex-col items-center lg:flex-row gap-6 justify-center lg:items-end w-full max-w-5xl">
-        {plans.map((plan, idx) => (
-          <PlanCard key={plan.name} plan={plan} idx={idx} />
+        {plans.map((plan) => (
+          <PlanCard key={plan.name} plan={plan} />
         ))}
       </div>
     </div>
   );
 }
 
-function PlanCard({ plan, idx }: { plan: any; idx: number }) {
+type PlanFeature = {
+  text: string;
+  included: boolean;
+};
+
+type Plan = {
+  name: string;
+  price: number;
+  period: string;
+  features: PlanFeature[];
+  button: { text: string; disabled: boolean };
+  highlight: boolean;
+  recommended?: boolean;
+};
+
+function PlanCard({ plan }: { plan: Plan }) {
   const isRecommended = plan.recommended;
   return (
     <div
@@ -94,7 +109,7 @@ function PlanCard({ plan, idx }: { plan: any; idx: number }) {
       </div>
 
       <div className={cn("flex-1 w-full flex flex-col gap-3 px-8 py-6")}>
-        {plan.features.map((feature: any, i: number) => (
+        {plan.features.map((feature: PlanFeature, i: number) => (
           <div
             key={i}
             className="flex items-center gap-3 text-base text-gray-700"

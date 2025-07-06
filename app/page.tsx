@@ -11,6 +11,7 @@ import Motion from "./_components/Motion";
 import { NumberTicker } from "@/components/magicui/number-ticker";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import PlansCards from "./_components/PlansCards";
+import { Instagram, Linkedin, Mail } from "lucide-react";
 
 const h1Text = `Transforme sua rotina médica com mais leveza, inteligência e segurança.`;
 
@@ -335,38 +336,36 @@ export default function Home() {
 
       <footer className="w-full bg-verde-musgo text-white py-10 px-4 border-t border-[#3a545a] mt-8">
         <div className="mx-auto items-center flex flex-col lg:flex-row lg:justify-evenly lg:items-start gap-10 lg:gap-0">
-          <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-10 w-full lg:w-2/5">
-            <div className="flex flex-col items-start gap-2 min-w-[120px]">
-              <Image
-                src="/svg/footer-logo.svg"
-                alt="ISA Tech Logo"
-                width={120}
-                height={80}
-                className="mb-2"
-              />
+          <Image
+            src="/svg/footer-logo.svg"
+            alt="ISA Tech Logo"
+            width={120}
+            height={80}
+            className="mb-2"
+          />
+
+          <div className="flex flex-col gap-4 mt-8 md:mt-0 min-w-[180px] w-3/4 sm:w-1/2 lg:w-fit">
+            <span className="font-bold text-white">
+              Simplifique sua rotina com uma
+              <br />
+              plataforma completa!
+            </span>
+
+            <div className="flex flex-row gap-2">
+              <Mail />
+              atendimento@isatech.com.br
             </div>
-            <div className="flex flex-col gap-1 text-sm min-w-[180px] md:min-w-auto">
-              <span className="font-bold text-white">
-                Simplifique sua rotina com uma
-                <br />
-                plataforma completa!
-              </span>
-              <a
-                className="mt-2 underline"
-                href="https://api.whatsapp.com/send/?phone=558197515199&text=Ol%C3%A1%21+Venho+do+site+e+gostaria+de+fazer+um+or%C3%A7amento+e+entender+melhor+esse+produto%21&type=phone_number&app_absent=0"
-              >
-                +55 (81) 9.9751-5199
-              </a>
-              <a
-                className="mt-1 underline"
-                href="mailto:atendimento@isatech.com.br"
-              >
-                atendimento@isatech.com.br
-              </a>
+            <div className="flex flex-row gap-2">
+              <Instagram />
+              @isatechbr
+            </div>
+            <div className="flex flex-row gap-2">
+              <Linkedin />
+              in.isatechbr
             </div>
           </div>
 
-          <div className="flex flex-col gap-2 mt-8 md:mt-0 min-w-[180px]">
+          <div className="flex flex-col gap-2 mt-8 md:mt-0 min-w-[180px] w-3/4 sm:w-1/2 lg:w-fit">
             <span className="font-bold text-white mb-1">
               Navegue nesta página
             </span>
@@ -389,11 +388,14 @@ export default function Home() {
               href="#feedbacks"
               className="hover:underline text-gray-100 text-sm"
             >
-              Feedbacks
+              Depoimentos
+            </a>
+            <a href="#plans" className="hover:underline text-gray-100 text-sm">
+              Planos
             </a>
           </div>
 
-          <div className="flex flex-col gap-2 mt-8 md:mt-0 min-w-[180px]">
+          <div className="flex flex-col gap-2 mt-8 md:mt-0 min-w-[180px] w-3/4 sm:w-1/2 lg:w-fit">
             <span className="font-bold text-white mb-1">Navegue pelo site</span>
             <a href="#" className="hover:underline text-gray-100 text-sm">
               Início
