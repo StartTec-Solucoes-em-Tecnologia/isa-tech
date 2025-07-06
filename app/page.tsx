@@ -224,26 +224,41 @@ export default function Home() {
 
       <section
         id="banner"
-        className="w-full h-[40vh] relative items-center justify-center hidden sm:flex"
+        className="w-full h-[40vh] relative items-center justify-center hidden sm:flex bg-limao/30"
       >
-        <div className="hero_bg w-full h-full absolute left-0 z-0 lg:h-full lg:top-0" />
-        <div className="hero_gradient w-full h-full absolute left-0 z-10 lg:h-full lg:top-0" />
-
         <div className="flex w-full h-full flex-col items-center text-center justify-center gap-12">
           <SectionHeader
             pipeColor="bg-lavanda"
-            title="Números que refletem a realidade"
+            title="Profissionais que escolheram simplificar a gestão com a ISA TECH"
           />
 
-          <div className="flex flex-row z-30 text-xl xl:text-3xl 2xl:text-4xl text-verde-musgo w-full justify-evenly">
+          <div className="flex flex-row z-30 text-2xl lg:text-3xl 2xl:text-4xl text-verde-musgo w-full justify-evenly">
             <p>
-              <strong>+330K</strong> Atendimentos
+              +
+              <NumberTicker
+                value={330}
+                decimalPlaces={0}
+                className="whitespace-pre-wrap text-verde-musgo font-bold"
+              />
+              K Atendimentos
             </p>
             <p>
-              <strong>+60</strong> Médicos
+              +
+              <NumberTicker
+                value={60}
+                decimalPlaces={0}
+                className="whitespace-pre-wrap text-verde-musgo font-bold"
+              />
+              Médicos
             </p>
             <p>
-              <strong>+135K</strong> Pacientes
+              +
+              <NumberTicker
+                value={135}
+                decimalPlaces={0}
+                className="whitespace-pre-wrap text-verde-musgo font-bold"
+              />
+              K Pacientes
             </p>
           </div>
         </div>
