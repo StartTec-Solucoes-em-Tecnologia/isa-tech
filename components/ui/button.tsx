@@ -10,7 +10,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "rounded-xl h-fit font-semibold bg-verde-musgo text-neon items-center justify-center flex hover:opacity-50",
+          "rounded-xl h-fit font-semibold bg-verde-musgo text-limao items-center justify-center flex hover:opacity-50",
         outline:
           "rounded-xl font-semibold border border-verde-musgo text-verde-musgo items-center justify-center flex hover:opacity-50",
       },
