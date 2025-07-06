@@ -11,7 +11,7 @@ import Motion from "./_components/Motion";
 import { NumberTicker } from "@/components/magicui/number-ticker";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import PlansCards from "./_components/PlansCards";
-import { Instagram, Linkedin, Mail } from "lucide-react";
+import { ArrowUp, Instagram, Linkedin, Mail } from "lucide-react";
 
 const h1Text = `Transforme sua rotina médica com mais leveza, inteligência e segurança.`;
 
@@ -339,9 +339,9 @@ export default function Home() {
           <Image
             src="/svg/footer-logo.svg"
             alt="ISA Tech Logo"
-            width={120}
-            height={80}
-            className="mb-2"
+            width={300}
+            height={300}
+            className="mb-2 w-[120px] h-fit"
           />
 
           <div className="flex flex-col gap-4 mt-8 md:mt-0 min-w-[180px] w-3/4 sm:w-1/2 lg:w-fit">
@@ -353,7 +353,7 @@ export default function Home() {
 
             <div className="flex flex-row gap-2">
               <Mail />
-              atendimento@isatech.com.br
+              contato@isatech.com.br
             </div>
             <div className="flex flex-row gap-2">
               <Instagram />
@@ -416,6 +416,27 @@ export default function Home() {
           © 2025 ISA Tech todos os direitos reservados.
         </div>
       </footer>
+
+      <a
+        href={`http://wa.me/558198101171?text=${encodeURIComponent(
+          `Olá! Venho do site da StartTec e gostaria de fazer um orçamento.`
+        )}`}
+        className="fixed bottom-24 right-4 rounded-full p-4 bg-verde-musgo z-30"
+      >
+        <Image
+          alt="Whatsapp"
+          src={"/svg/whatsapp.svg"}
+          width={24}
+          height={24}
+        />
+      </a>
+
+      <a
+        href={"#hero"}
+        className="fixed bottom-6 right-4 rounded-full p-4 bg-verde-musgo z-30"
+      >
+        <ArrowUp className="text-limao" />
+      </a>
     </main>
   );
 }
