@@ -1,4 +1,5 @@
 "use client";
+import SectionHeader from "@/app/_components/SectionHeader";
 import { useScroll, useTransform, motion } from "motion/react";
 import React, { useEffect, useRef, useState } from "react";
 
@@ -32,10 +33,8 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
       className="w-full bg-white dark:bg-neutral-950 font-sans md:px-10"
       ref={containerRef}
     >
-      <div className="flex flex-col w-full items-center justify-center gap-2">
-        <h2 className="text-3xl text-verde-musgo">
-          Nossa jornada até aqui — e além
-        </h2>
+      <div className="flex flex-col text-center w-full items-center justify-center gap-2">
+        <SectionHeader title="Nossa jornada até aqui — e além" />
         <p className="text-neutral-700">
           A ISA TECH nasceu do desejo de mudar a experiência da gestão médica.
           Veja como essa ideia se transformou em realidade.

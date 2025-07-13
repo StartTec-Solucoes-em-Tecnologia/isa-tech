@@ -1,6 +1,6 @@
 interface SectionHeaderProps {
   title: string;
-  pipeColor: "bg-lavanda" | "bg-limao";
+  pipeColor?: "bg-lavanda" | "bg-limao";
 }
 
 export default function SectionHeader({
