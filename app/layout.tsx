@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
+import Footer from "./_components/Footer";
+import { NavigationBar } from "./_components/NavigationBar";
+import Image from "next/image";
+import { ArrowUp } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "ISA Tech",
@@ -33,7 +37,33 @@ export default function RootLayout({
         <meta property="twitter:image:alt" content="About Acme" />
       </head>
 
-      <body className={`antialiased`}>{children}</body>
+      <body className={`antialiased relative`}>
+        <NavigationBar />
+        {children}
+
+        <Footer />
+
+        <a
+          href={`http://wa.me/558198101171?text=${encodeURIComponent(
+            `Olá! Venho do site da ISA Tech e gostaria de fazer um orçamento.`
+          )}`}
+          className="fixed bottom-24 right-4 rounded-full p-4 bg-verde-musgo z-30"
+        >
+          <Image
+            alt="Whatsapp"
+            src={"/svg/whatsapp.svg"}
+            width={24}
+            height={24}
+          />
+        </a>
+
+        <a
+          href={"#hero"}
+          className="fixed bottom-6 right-4 rounded-full p-4 bg-verde-musgo z-30"
+        >
+          <ArrowUp className="text-limao" />
+        </a>
+      </body>
 
       <Analytics />
     </html>
