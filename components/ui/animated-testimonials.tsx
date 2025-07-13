@@ -2,8 +2,7 @@
 
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { motion, AnimatePresence } from "motion/react";
-
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react"; // Importe useRef
 
 type Testimonial = {
   quote: string;
@@ -11,6 +10,7 @@ type Testimonial = {
   designation: string;
   src: string;
 };
+
 export const AnimatedTestimonials = ({
   testimonials,
   autoplay = false,
@@ -19,6 +19,17 @@ export const AnimatedTestimonials = ({
   autoplay?: boolean;
 }) => {
   const [active, setActive] = useState(0);
+  // Use um ref para armazenar as rotações aleatórias para que sejam consistentes no cliente
+  const rotationsRef = useRef<number[]>([]);
+
+  // Inicialize as rotações aleatórias uma vez no cliente
+  useEffect(() => {
+    if (rotationsRef.current.length === 0) {
+      rotationsRef.current = testimonials.map(
+        () => Math.floor(Math.random() * 21) - 10
+      );
+    }
+  }, [testimonials]); // Depende de testimonials para garantir que seja gerado quando os dados estiverem disponíveis
 
   const handleNext = () => {
     setActive((prev) => (prev + 1) % testimonials.length);
@@ -37,11 +48,8 @@ export const AnimatedTestimonials = ({
       const interval = setInterval(handleNext, 5000);
       return () => clearInterval(interval);
     }
-  }, [autoplay]);
+  }, [autoplay, handleNext]); // Adicione handleNext como dependência para linting, embora seja estável
 
-  const randomRotateY = () => {
-    return Math.floor(Math.random() * 21) - 10;
-  };
   return (
     <div className="mx-auto max-w-sm px-4 py-20 font-sans antialiased md:max-w-4xl md:px-8 lg:px-12">
       <div className="relative grid grid-cols-1 gap-20 md:grid-cols-2">
@@ -55,13 +63,18 @@ export const AnimatedTestimonials = ({
                     opacity: 0,
                     scale: 0.9,
                     z: -100,
-                    rotate: randomRotateY(),
+                    // Use a rotação pré-calculada ou um valor padrão para o initial
+                    rotate: isActive(index)
+                      ? 0
+                      : rotationsRef.current[index] || 0, // Garante que a rotação inicial seja 0 para o ativo
                   }}
                   animate={{
                     opacity: isActive(index) ? 1 : 0.7,
                     scale: isActive(index) ? 1 : 0.95,
                     z: isActive(index) ? 0 : -100,
-                    rotate: isActive(index) ? 0 : randomRotateY(),
+                    rotate: isActive(index)
+                      ? 0
+                      : rotationsRef.current[index] || 0, // Use a rotação pré-calculada
                     zIndex: isActive(index)
                       ? 40
                       : testimonials.length + 2 - index,
@@ -71,7 +84,7 @@ export const AnimatedTestimonials = ({
                     opacity: 0,
                     scale: 0.9,
                     z: 100,
-                    rotate: randomRotateY(),
+                    rotate: rotationsRef.current[index] || 0, // Use a rotação pré-calculada
                   }}
                   transition={{
                     duration: 0.4,
@@ -153,7 +166,7 @@ export const AnimatedTestimonials = ({
             </button>
             <button
               onClick={handleNext}
-              className="group/button flex h-7 w-7 items-center justify-center rounded-full bg-gray-100 dark:bg-neutral-800"
+              className="group/button flex h-7 w-7 items-center justify-200 rounded-full bg-gray-100 dark:bg-neutral-800"
             >
               <IconArrowRight className="h-5 w-5 text-black transition-transform duration-300 group-hover/button:-rotate-12 dark:text-neutral-400" />
             </button>
