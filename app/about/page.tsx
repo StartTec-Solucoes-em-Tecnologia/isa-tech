@@ -3,6 +3,8 @@ import HeroImageFade from "../_components/HeroImageFade";
 import SectionHeader from "../_components/SectionHeader";
 import { Briefcase, Eye, Heart } from "lucide-react";
 import { AnimatedTestimonialsDemo } from "../_components/AboutFeedback";
+import * as motion from "motion/react-client";
+import Motion from "../_components/Motion";
 
 const usersImages = [
   "/images/about/user1.png",
@@ -71,118 +73,141 @@ export default function AboutPage() {
 
   return (
     <main className="h-full w-full bg-white">
-      <section className="pb-12 sm:h-[90vh] w-full flex flex-col sm:flex-row px-[5%] items-center justify-evenly pt-[120px] overflow-hidden">
-        <div className="flex sm:grid sm:grid-cols-2 w-full sm:w-1/2 gap-6 h-full sm:h-auto justify-center">
-          <div className="flex-col gap-12 -pt282 hidden sm:flex">
-            {muralConfigs.slice(0, 3).map((cfg, index) => (
-              <HeroImageFade
-                key={index}
-                images={imagesPerSlot[index]}
-                initialIndex={0}
-                delay={cfg.delay}
-                transitionInterval={cfg.transitionInterval}
-              />
-            ))}
+      <motion.div
+        initial={{ opacity: 0, y: -200 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          duration: 0.5,
+        }}
+        className="z-20"
+      >
+        <section
+          id="hero"
+          className="pb-12 sm:h-[90vh] w-full flex flex-col sm:flex-row px-[5%] items-center justify-evenly pt-[120px] overflow-hidden"
+        >
+          <div className="flex sm:grid sm:grid-cols-2 w-full sm:w-1/2 gap-6 h-full sm:h-auto justify-center">
+            <div className="flex-col gap-12 -pt282 hidden sm:flex">
+              {muralConfigs.slice(0, 3).map((cfg, index) => (
+                <HeroImageFade
+                  key={index}
+                  images={imagesPerSlot[index]}
+                  initialIndex={0}
+                  delay={cfg.delay}
+                  transitionInterval={cfg.transitionInterval}
+                />
+              ))}
+            </div>
+
+            <div className="sm:flex hidden flex-col gap-12 pt-28">
+              {muralConfigs.slice(3).map((cfg, index) => (
+                <HeroImageFade
+                  key={index + 3}
+                  images={imagesPerSlot[index + 3]}
+                  initialIndex={0}
+                  delay={cfg.delay}
+                  transitionInterval={cfg.transitionInterval}
+                />
+              ))}
+            </div>
+
+            <div className="flex flex-row gap-3 sm:hidden">
+              {muralConfigs.map((cfg, index) => (
+                <HeroImageFade
+                  key={index}
+                  images={imagesPerSlot[index]}
+                  initialIndex={0}
+                  delay={cfg.delay}
+                  transitionInterval={cfg.transitionInterval}
+                />
+              ))}
+            </div>
           </div>
 
-          <div className="sm:flex hidden flex-col gap-12 pt-28">
-            {muralConfigs.slice(3).map((cfg, index) => (
-              <HeroImageFade
-                key={index + 3}
-                images={imagesPerSlot[index + 3]}
-                initialIndex={0}
-                delay={cfg.delay}
-                transitionInterval={cfg.transitionInterval}
-              />
-            ))}
+          <div className="flex w-full sm:w-1/2 flex-col gap-6 pt-6 sm:pt-0">
+            <h1 className="text-3xl text-verde-musgo">
+              Muito além de um sistema: somos parceiros da boa medicina.
+            </h1>
+            <p className="text-sm xl:text-base">
+              A ISA TECH nasceu para transformar a forma como médicos e clínicas
+              vivem a gestão.
+              <br />
+              <br />
+              Com uma plataforma completa, suporte real e foco no que importa,
+              tornamos os bastidores da rotina médica mais leves, organizados e
+              seguros.
+              <br />
+              <br />
+              Acreditamos que tempo, clareza e tranquilidade são essenciais para
+              cuidar bem — e é isso que nossa tecnologia entrega.
+              <br />
+              <br />
+              Na prática, somos mais do que um sistema: somos inteligência
+              aplicada com empatia, ajudando profissionais da saúde a viverem
+              com mais eficiência, bem-estar e propósito.
+            </p>
           </div>
+        </section>
+      </motion.div>
 
-          <div className="flex flex-row gap-3 sm:hidden">
-            {muralConfigs.map((cfg, index) => (
-              <HeroImageFade
-                key={index}
-                images={imagesPerSlot[index]}
-                initialIndex={0}
-                delay={cfg.delay}
-                transitionInterval={cfg.transitionInterval}
-              />
-            ))}
-          </div>
-        </div>
-
-        <div className="flex w-full sm:w-1/2 flex-col gap-6 pt-6 sm:pt-0">
-          <h1 className="text-3xl text-verde-musgo">
-            Muito além de um sistema: somos parceiros da boa medicina.
-          </h1>
-          <p className="text-sm xl:text-base">
-            A ISA TECH nasceu para transformar a forma como médicos e clínicas
-            vivem a gestão.
-            <br />
-            <br />
-            Com uma plataforma completa, suporte real e foco no que importa,
-            tornamos os bastidores da rotina médica mais leves, organizados e
-            seguros.
-            <br />
-            <br />
-            Acreditamos que tempo, clareza e tranquilidade são essenciais para
-            cuidar bem — e é isso que nossa tecnologia entrega.
-            <br />
-            <br />
-            Na prática, somos mais do que um sistema: somos inteligência
-            aplicada com empatia, ajudando profissionais da saúde a viverem com
-            mais eficiência, bem-estar e propósito.
-          </p>
-        </div>
-      </section>
-
-      <section className="h-fit w-full flex flex-col px-[5%] items-center gap-12 justify-between py-[120px] bg-limao/30 overflow-hidden">
+      <section
+        id="principles"
+        className="h-fit w-full flex flex-col px-[5%] items-center gap-12 justify-between py-[120px] bg-limao/30 overflow-hidden"
+      >
         <SectionHeader title="O que nos guia, do código ao cuidado" />
 
         <div className="flex flex-col md:flex-row items-center justify-center">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl w-full">
             {/* Missão Card */}
-            <div className="bg-[#274F4A] text-white rounded-xl p-8 shadow-lg flex flex-col items-center text-center">
-              <Briefcase className="w-12 h-12 mb-4 text-[#E6ECC0]" />{" "}
-              {/* Ícone da Maleta */}
-              <h3 className="text-xl font-semibold mb-2">Missão</h3>
-              <p className="text-sm font-light leading-relaxed">
-                Organize agenda, prontuário, financeiro e contabilidade em uma
-                única plataforma intuitiva.
-              </p>
-            </div>
+            <Motion key={0} direction="top" identifier={0}>
+              <div className="bg-[#274F4A] text-white rounded-xl p-8 shadow-lg flex flex-col items-center text-center">
+                <Briefcase className="w-12 h-12 mb-4 text-[#E6ECC0]" />{" "}
+                {/* Ícone da Maleta */}
+                <h3 className="text-xl font-semibold mb-2">Missão</h3>
+                <p className="text-sm font-light leading-relaxed">
+                  Organize agenda, prontuário, financeiro e contabilidade em uma
+                  única plataforma intuitiva.
+                </p>
+              </div>
+            </Motion>
 
             {/* Visão Card */}
-            <div className="bg-[#C7D1F5] text-gray-800 rounded-xl p-8 shadow-lg flex flex-col items-center text-center">
-              <Eye className="w-12 h-12 mb-4 text-gray-700" />{" "}
-              {/* Ícone do Olho */}
-              <h3 className="text-xl font-semibold mb-2">Visão</h3>
-              <p className="text-sm font-light leading-relaxed">
-                Organize agenda, prontuário, financeiro e contabilidade em uma
-                única plataforma intuitiva.
-              </p>
-            </div>
-
-            {/* Valores Card */}
-            <div className="bg-[#E6ECC0] text-gray-800 rounded-xl p-8 shadow-lg flex flex-col items-center text-center">
-              <Heart className="w-12 h-12 mb-4 text-gray-700" />{" "}
-              {/* Ícone do Coração */}
-              <h3 className="text-xl font-semibold mb-2">Valores</h3>
-              <p className="text-sm font-light leading-relaxed">
-                Organize agenda, prontuário, financeiro e contabilidade em uma
-                única plataforma intuitiva.
-              </p>
-            </div>
+            <Motion key={1} direction="top" identifier={1}>
+              <div className="bg-[#C7D1F5] text-gray-800 rounded-xl p-8 shadow-lg flex flex-col items-center text-center">
+                <Eye className="w-12 h-12 mb-4 text-gray-700" />{" "}
+                {/* Ícone do Olho */}
+                <h3 className="text-xl font-semibold mb-2">Visão</h3>
+                <p className="text-sm font-light leading-relaxed">
+                  Organize agenda, prontuário, financeiro e contabilidade em uma
+                  única plataforma intuitiva.
+                </p>
+              </div>
+            </Motion>
+            <Motion key={2} direction="top" identifier={2}>
+              {/* Valores Card */}
+              <div className="bg-[#E6ECC0] text-gray-800 rounded-xl p-8 shadow-lg flex flex-col items-center text-center">
+                <Heart className="w-12 h-12 mb-4 text-gray-700" />{" "}
+                {/* Ícone do Coração */}
+                <h3 className="text-xl font-semibold mb-2">Valores</h3>
+                <p className="text-sm font-light leading-relaxed">
+                  Organize agenda, prontuário, financeiro e contabilidade em uma
+                  única plataforma intuitiva.
+                </p>
+              </div>
+            </Motion>
           </div>
         </div>
 
         {/* <BentoDemo /> */}
       </section>
 
-      <section className="h-fit w-full flex flex-row px-[5%] items-center justify-between pt-[120px]">
+      <section
+        id="timeline"
+        className="h-fit w-full flex flex-row px-[5%] items-center justify-between pt-[120px]"
+      >
         <TimelineDemo />
       </section>
 
-      <section className="flex flex-col items-center py-[120px]">
+      <section id="feedbacks" className="flex flex-col items-center py-[120px]">
         <div className="flex gap-2 flex-col items-center w-full">
           <SectionHeader title="Pessoas reais. Suporte de verdade." />
           <p className="w-2/3 xl:w-1/2 text-center">

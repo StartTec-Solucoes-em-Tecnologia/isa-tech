@@ -40,7 +40,7 @@ export function NavigationBar() {
 
             <NavigationMenu viewport={false}>
               <NavigationMenuList>
-                <NavigationMenuLink>Início</NavigationMenuLink>
+                <NavigationMenuLink href="/">Início</NavigationMenuLink>
 
                 <NavigationMenuItem>
                   <NavigationMenuTrigger>

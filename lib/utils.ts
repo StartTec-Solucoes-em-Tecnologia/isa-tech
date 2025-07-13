@@ -178,10 +178,9 @@ export const featureCards = [
 export const aboutTab = [
   {
     title: "Início",
-    href: "/about",
+    href: "/about#hero",
     icon: HouseIcon,
-    description:
-      "A modal dialog that interrupts the user with important content and expects a response.",
+    description: "Muito além de um sistema: somos parceiros da boa medicina.",
 
     textColor: "text-limao",
     bgColor: "bg-verde-musgo",
@@ -189,9 +188,9 @@ export const aboutTab = [
   },
   {
     title: "Nosso time",
-    href: "/docs/primitives/scroll-area",
+    href: "/about#feedbacks",
     icon: UsersRound,
-    description: "Visually or semantically separates content.",
+    description: "Pessoas reais. Suporte de verdade.",
 
     textColor: "text-verde-musgo",
     bgColor: "bg-lavanda",
@@ -199,10 +198,9 @@ export const aboutTab = [
   },
   {
     title: "Missão, visão e valores",
-    href: "/docs/primitives/hover-card",
+    href: "/about#principles",
     icon: ScrollText,
-    description:
-      "For sighted users to preview content available behind a link.",
+    description: "O que nos guia, do código ao cuidado",
 
     textColor: "text-verde-musgo",
     bgColor: "bg-limao",
@@ -210,7 +208,7 @@ export const aboutTab = [
   },
   {
     title: "O que nos move",
-    href: "/docs/primitives/tabs",
+    href: "/about#timeline",
     icon: Zap,
     description:
       "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
@@ -220,10 +218,9 @@ export const aboutTab = [
   },
   {
     title: "Nossa história",
-    href: "/docs/primitives/progress",
+    href: "/about#timeline",
     icon: Lightbulb,
-    description:
-      "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+    description: "Nossa jornada até aqui — e além",
 
     textColor: "text-verde-musgo",
     bgColor: "bg-lavanda",

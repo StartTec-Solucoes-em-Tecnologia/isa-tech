@@ -51,19 +51,27 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
             </a>
           </MobileDropdown>
           <MobileDropdown label="Sobre nós">
-            <a href="#" className="block py-2">
+            <a onClick={onClose} href="/about#hero" className="block py-2">
               Início
             </a>
-            <a href="#" className="block py-2">
+            <a
+              onClick={onClose}
+              href="/about#principles"
+              className="block py-2"
+            >
               Missão, visão e valores
             </a>
-            <a href="#" className="block py-2">
+            <a onClick={onClose} href="/about#timeline" className="block py-2">
               Nossa história
             </a>
-            <a href="#" className="block py-2">
+            <a onClick={onClose} href="/about#feedbacks" className="block py-2">
               Nosso time
             </a>
-            <a href="#" className="block py-2">
+            <a
+              onClick={onClose}
+              href="/about#principles"
+              className="block py-2"
+            >
               O que nos move
             </a>
           </MobileDropdown>
@@ -72,7 +80,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
           </a>
         </nav>
         <a
-          className="mt-8 w-full bg-verde-musgo text-white rounded-xl py-3 font-semibold"
+          className="mt-8 w-full bg-verde-musgo text-white rounded-xl p-3 text-center font-semibold"
           // onClick={onClose}
           href="https://isatech.com.br"
         >
