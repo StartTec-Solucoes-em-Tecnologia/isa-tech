@@ -1,4 +1,6 @@
-import Image from "next/image";
+import { TimelineDemo } from "../_components/Timeline";
+import { BentoDemo } from "../_components/AboutGrid";
+import HeroImageFade from "../_components/HeroImageFade";
 
 const usersImages = [
   "/images/about/user1.png",
@@ -12,37 +14,17 @@ const usersImages = [
 export default function AboutPage() {
   return (
     <main className="h-full w-full bg-white">
-      <section className="h-[80vh] w-full flex flex-row px-[5%] items-center justify-between pt-[120px]">
+      <section className="h-[80vh] w-full flex flex-row px-[5%] items-center justify-between pt-[120px] overflow-hidden">
         <div className="grid grid-cols-2 w-[45%]">
           <div className="flex flex-col gap-12 -pt282">
             {usersImages.map(
-              (item, index) =>
-                index < 3 && (
-                  <Image
-                    key={index}
-                    alt="Imagem de usuários"
-                    src={item}
-                    width={500}
-                    height={500}
-                    className="object-contain w-[300px] h-auto"
-                  />
-                )
+              (item, index) => index < 3 && <HeroImageFade key={index} />
             )}
           </div>
 
           <div className="flex flex-col gap-12 pt-28">
             {usersImages.map(
-              (item, index) =>
-                index >= 3 && (
-                  <Image
-                    key={index}
-                    alt="Imagem de usuários"
-                    src={item}
-                    width={500}
-                    height={500}
-                    className="object-contain w-[300px] h-auto"
-                  />
-                )
+              (item, index) => index >= 3 && <HeroImageFade key={index} />
             )}
           </div>
         </div>
@@ -72,7 +54,13 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="h-[80vh] w-full flex flex-row px-[5%] items-center justify-between pt-[120px] bg-limao/30"></section>
+      <section className="h-[80vh] w-full flex flex-row px-[5%] items-center justify-between pt-[120px] bg-limao/30 overflow-hidden">
+        <BentoDemo />
+      </section>
+
+      <section className="h-fit w-full flex flex-row px-[5%] items-center justify-between pt-[120px]">
+        <TimelineDemo />
+      </section>
     </main>
   );
 }
