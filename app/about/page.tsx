@@ -5,6 +5,7 @@ import { Briefcase, Eye, Heart } from "lucide-react";
 import { AnimatedTestimonialsDemo } from "../_components/AboutFeedback";
 import * as motion from "motion/react-client";
 import Motion from "../_components/Motion";
+import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 
 const usersImages = [
   "/images/about/user1.png",
@@ -124,9 +125,11 @@ export default function AboutPage() {
           </div>
 
           <div className="flex w-full sm:w-1/2 flex-col gap-6 pt-6 sm:pt-0">
-            <h1 className="text-3xl text-verde-musgo">
-              Muito além de um sistema: somos parceiros da boa medicina.
-            </h1>
+            <TextGenerateEffect
+              duration={2}
+              filter={false}
+              words={`Muito além de um sistema: somos parceiros da boa medicina.`}
+            />
             <p className="text-sm xl:text-base">
               A ISA TECH nasceu para transformar a forma como médicos e clínicas
               vivem a gestão.
