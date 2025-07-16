@@ -7,10 +7,7 @@ import Image from "next/image";
 import FadeCarrossel from "./_components/FadeCarrossel";
 import FeedbackCard from "./_components/FeedbackCard";
 import Motion from "./_components/Motion";
-import PlansCards from "./_components/PlansCards";
 import SectionHeader from "./_components/SectionHeader";
-
-const h1Text = `Transforme sua rotina médica com mais leveza, inteligência e segurança.`;
 
 export default function Home() {
   return (
@@ -91,7 +88,11 @@ export default function Home() {
           </div>
 
           <div className="flex mt-20 lg:mt-16 justify-center w-4/5 lg:w-[40%] flex-col text-verde-musgo text-center items-center gap-4 sm:gap-6 sm:pt-6 2xl:gap-6 lg:items-start lg:text-start z-20">
-            <TextGenerateEffect duration={2} filter={false} words={h1Text} />
+            <TextGenerateEffect
+              duration={2}
+              filter={false}
+              words={`Transforme sua rotina médica com mais leveza, inteligência e segurança.`}
+            />
 
             <h2 className="text-sm 2xl:text-lg">
               A ISA TECH é o sistema de gestão completo que simplifica
@@ -203,7 +204,7 @@ export default function Home() {
 
       <section
         id="features"
-        className="items-center flex flex-col w-full justify-start py-12 xl:py-20"
+        className="items-center flex flex-col w-full justify-start py-12 xl:py-20 lg:gap-6"
       >
         <SectionHeader pipeColor="bg-lavanda" title="Funcionalidades" />
 
@@ -216,8 +217,8 @@ export default function Home() {
         </p>
 
         <p className="text-center mt-4 lg:flex hidden">
-          <strong className="text-verde-musgo mr-1">Clique</strong> em uma das
-          funcionalidades para vê-la acima
+          <strong className="text-verde-musgo mr-1">Passe o mouse</strong> em
+          uma das funcionalidades para vê-la acima
         </p>
       </section>
 
@@ -269,52 +270,20 @@ export default function Home() {
       >
         <SectionHeader pipeColor="bg-lavanda" title="Depoimentos" />
 
-        <div className="hidden lg:flex w-4/5 flex-row gap-12 mt-12 lg:w-11/12 2xl:w-4/5">
-          <div className="flex flex-col gap-6 w-1/4">
-            <Motion direction="top" identifier={10} key={10}>
-              <FeedbackCard {...feedbacks[0]} />
-            </Motion>
-            <div className="flex lg:hidden xl:flex">
-              <Motion direction="top" identifier={11} key={11}>
-                <FeedbackCard {...feedbacks[1]} />
-              </Motion>
-            </div>
-          </div>
-          <div className="flex flex-col gap-6 w-2/4">
-            <Motion direction="top" identifier={12} key={12}>
-              <FeedbackCard {...feedbacks[2]} />
-            </Motion>
-            <Motion direction="top" identifier={13} key={13}>
-              <FeedbackCard {...feedbacks[3]} />
-            </Motion>
-            <div className="flex lg:hidden xl:flex">
-              <Motion direction="top" identifier={14} key={14}>
-                <FeedbackCard {...feedbacks[4]} />
-              </Motion>
-            </div>
-          </div>
-          <div className="flex flex-col gap-6 w-1/4">
-            <Motion direction="top" identifier={15} key={15}>
-              <FeedbackCard {...feedbacks[1]} />
-            </Motion>
-            <div className="flex lg:hidden xl:flex">
-              <Motion direction="top" identifier={16} key={16}>
-                <FeedbackCard {...feedbacks[6]} />
-              </Motion>
-            </div>
-          </div>
-        </div>
-
-        <div className="flex flex-col lg:hidden w-4/5 gap-12 mt-12">
-          {feedbacks.map((item, index) => (
-            <Motion direction="top" identifier={20 + index} key={index}>
-              <FeedbackCard {...item} />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:flex flex-row flex-wrap items-start justify-center gap-6 lg:gap-8 mx-auto px-12">
+          {feedbacks.map((feedback, index) => (
+            <Motion
+              direction="top" // Você pode ajustar a direção se quiser animações diferentes
+              identifier={index} // Use o índice como identificador único
+              key={index} // Use o índice como key para renderização de lista
+            >
+              <FeedbackCard {...feedback} />
             </Motion>
           ))}
         </div>
       </section>
 
-      <section
+      {/* <section
         id="plans"
         className="w-full flex flex-col items-center py-12 xl:py-20 bg-transparent"
       >
@@ -329,7 +298,7 @@ export default function Home() {
         </div>
 
         <PlansCards />
-      </section>
+      </section> */}
     </main>
   );
 }

@@ -56,9 +56,9 @@ export default function Footer() {
           >
             Depoimentos
           </a>
-          <a href="#plans" className="hover:underline text-gray-100 text-sm">
+          {/* <a href="#plans" className="hover:underline text-gray-100 text-sm">
             Planos
-          </a>
+          </a> */}
         </div>
 
         <div className="flex flex-col gap-2 mt-8 md:mt-0 min-w-[180px] w-3/4 sm:w-1/2 lg:w-fit">
