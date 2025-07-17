@@ -24,10 +24,13 @@ export default function Footer() {
             <Mail />
             contato@isatech.com.br
           </div>
-          <div className="flex flex-row gap-2">
+          <a
+            href="https://www.instagram.com/isatechbr/"
+            className="flex flex-row gap-2"
+          >
             <Instagram />
             @isatechbr
-          </div>
+          </a>
           <div className="flex flex-row gap-2">
             <Linkedin />
             in.isatechbr
@@ -63,13 +66,13 @@ export default function Footer() {
 
         <div className="flex flex-col gap-2 mt-8 md:mt-0 min-w-[180px] w-3/4 sm:w-1/2 lg:w-fit">
           <span className="font-bold text-white mb-1">Navegue pelo site</span>
-          <a href="#" className="hover:underline text-gray-100 text-sm">
+          <a href="/" className="hover:underline text-gray-100 text-sm">
             Início
           </a>
           <a href="#" className="hover:underline text-gray-100 text-sm">
             Produtos e serviços
           </a>
-          <a href="#" className="hover:underline text-gray-100 text-sm">
+          <a href="/about" className="hover:underline text-gray-100 text-sm">
             Sobre nós
           </a>
           <a href="#" className="hover:underline text-gray-100 text-sm">

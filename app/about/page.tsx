@@ -1,11 +1,20 @@
 import { TimelineDemo } from "../_components/Timeline";
 import HeroImageFade from "../_components/HeroImageFade";
 import SectionHeader from "../_components/SectionHeader";
-import { Briefcase, Eye, Heart } from "lucide-react";
-import { AnimatedTestimonialsDemo } from "../_components/AboutFeedback";
+import {
+  Briefcase,
+  Eye,
+  Heart,
+  HeartHandshake,
+  Lightbulb,
+  SearchCode,
+  UserLock,
+  Zap,
+} from "lucide-react";
 import * as motion from "motion/react-client";
 import Motion from "../_components/Motion";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
+import Image from "next/image";
 
 const usersImages = [
   "/images/about/user1.png",
@@ -124,7 +133,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="flex w-full sm:w-1/2 flex-col gap-6 pt-6 sm:pt-0">
+          <div className="flex w-full sm:w-1/2 flex-col gap-6 pt-6 sm:pt-0 text-verde-musgo">
             <TextGenerateEffect
               duration={2}
               filter={false}
@@ -159,10 +168,15 @@ export default function AboutPage() {
         <SectionHeader title="O que nos guia, do código ao cuidado" />
 
         <div className="flex flex-col md:flex-row items-center justify-center">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl w-full">
+          <div className="flex gap-6 flex-col lg:flex-row lg:flex-wrap items-center justify-center w-full">
             {/* Missão Card */}
-            <Motion key={0} direction="top" identifier={0}>
-              <div className="bg-[#274F4A] text-white rounded-xl p-8 shadow-lg flex flex-col items-center text-center">
+            <Motion
+              key={0}
+              direction="top"
+              identifier={0}
+              className="flex w-full justify-center  md:w-md lg:w-xs"
+            >
+              <div className="bg-[#274F4A] text-white rounded-xl p-8 shadow-lg flex flex-col items-center text-center w-4/5 lg:w-full">
                 <Briefcase className="w-12 h-12 mb-4 text-[#E6ECC0]" />{" "}
                 {/* Ícone da Maleta */}
                 <h3 className="text-xl font-semibold mb-2">Missão</h3>
@@ -174,8 +188,13 @@ export default function AboutPage() {
             </Motion>
 
             {/* Visão Card */}
-            <Motion key={1} direction="top" identifier={1}>
-              <div className="bg-[#C7D1F5] text-gray-800 rounded-xl p-8 shadow-lg flex flex-col items-center text-center">
+            <Motion
+              key={1}
+              direction="top"
+              identifier={1}
+              className="flex w-full justify-center md:w-md lg:w-xs"
+            >
+              <div className="bg-[#C7D1F5] text-gray-800 rounded-xl p-8 shadow-lg flex flex-col items-center text-center w-4/5 lg:w-full">
                 <Eye className="w-12 h-12 mb-4 text-gray-700" />{" "}
                 {/* Ícone do Olho */}
                 <h3 className="text-xl font-semibold mb-2">Visão</h3>
@@ -185,9 +204,14 @@ export default function AboutPage() {
                 </p>
               </div>
             </Motion>
-            <Motion key={2} direction="top" identifier={2}>
+            <Motion
+              key={2}
+              direction="top"
+              identifier={2}
+              className="flex w-full justify-center md:w-md lg:w-xs"
+            >
               {/* Valores Card */}
-              <div className="bg-[#E6ECC0] text-gray-800 rounded-xl p-8 shadow-lg flex flex-col items-center text-center">
+              <div className="bg-[#E6ECC0] text-gray-800 rounded-xl p-8 shadow-lg flex flex-col items-center text-center w-4/5 lg:w-full">
                 <Heart className="w-12 h-12 mb-4 text-gray-700" />{" "}
                 {/* Ícone do Coração */}
                 <h3 className="text-xl font-semibold mb-2">Valores</h3>
@@ -200,17 +224,179 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* <BentoDemo /> */}
+        <div className="w-full flex flex-col items-center gap-12 justify-between">
+          <SectionHeader title="Valores" />
+
+          <div className="flex flex-row flex-wrap items-center justify-center w-full gap-12 xl:pl-[5%] 2xl:w-4/5">
+            {/* Valor 1: Inovação que te acompanha */}
+            <Motion key={3} direction="top" identifier={3}>
+              <div className="flex items-start gap-4 w-xs sm:w-md lg:w-xs">
+                <div className="flex w-12 h-12 bg-verde-musgo items-center justify-center rounded-full">
+                  <Lightbulb className="text-limao" />
+                </div>
+
+                <div className="w-4/5">
+                  <h3 className="text-lg font-semibold text-neutral-800 dark:text-white mb-1">
+                    Inovação que te acompanha
+                  </h3>
+                  <p className="text-sm text-neutral-600 dark:text-neutral-300">
+                    Evoluímos sempre, criando soluções úteis, modernas e
+                    práticas.
+                  </p>
+                </div>
+              </div>
+            </Motion>
+
+            {/* Valor 2: Humanização real */}
+            <Motion key={4} direction="top" identifier={4}>
+              <div className="flex items-start gap-4 w-xs sm:w-md lg:w-xs">
+                <div className="flex w-12 h-12 bg-limao items-center justify-center rounded-full">
+                  <HeartHandshake className="text-verde-musgo" />
+                </div>
+
+                <div className="w-4/5">
+                  <h3 className="text-lg font-semibold text-neutral-800 dark:text-white mb-1">
+                    Humanização real
+                  </h3>
+                  <p className="text-sm text-neutral-600 dark:text-neutral-300">
+                    Tecnologia para aproximar, não afastar. Cuidamos de quem
+                    cuida.
+                  </p>
+                </div>
+              </div>
+            </Motion>
+
+            {/* Valor 3: Eficiência na prática */}
+            <Motion
+              key={5}
+              direction="top"
+              identifier={5}
+              className="hidden lg:flex"
+            >
+              <div className="flex items-start gap-4 w-xs sm:w-md lg:w-xs">
+                <div className="flex w-12 h-12 bg-lavanda items-center justify-center rounded-full">
+                  <Zap className="text-verde-musgo" />
+                </div>
+
+                <div className="w-4/5">
+                  <h3 className="text-lg font-semibold text-neutral-800 dark:text-white mb-1">
+                    Eficiência na prática
+                  </h3>
+                  <p className="text-sm text-neutral-600 dark:text-neutral-300">
+                    Descomplicamos processos com inteligência e foco no
+                    essencial.
+                  </p>
+                </div>
+              </div>
+            </Motion>
+
+            {/* Valor 4: Transparência de verdade */}
+            <Motion key={6} direction="top" identifier={6}>
+              <div className="flex items-start gap-4 w-xs sm:w-md lg:w-xs">
+                <div className="flex w-12 h-12 bg-lavanda items-center justify-center rounded-full">
+                  <SearchCode className="text-verde-musgo" />
+                </div>
+
+                <div className="w-4/5">
+                  <h3 className="text-lg font-semibold text-neutral-800 dark:text-white mb-1">
+                    Transparência de verdade
+                  </h3>
+                  <p className="text-sm text-neutral-600 dark:text-neutral-300">
+                    Atuamos com ética, clareza e respeito – do atendimento ao
+                    sistema.
+                  </p>
+                </div>
+              </div>
+            </Motion>
+
+            {/* Valor 5: Segurança com presença */}
+            <Motion key={7} direction="top" identifier={7}>
+              <div className="flex items-start gap-4 w-xs sm:w-md lg:w-xs">
+                <div className="flex w-12 h-12 bg-verde-musgo items-center justify-center rounded-full">
+                  <UserLock className="text-limao" />
+                </div>
+
+                <div className="w-4/5">
+                  <h3 className="text-lg font-semibold text-neutral-800 dark:text-white mb-1">
+                    Segurança com presença
+                  </h3>
+                  <p className="text-sm text-neutral-600 dark:text-neutral-300">
+                    Protegemos dados com firmeza e oferecemos suporte ágil,
+                    humano e constante.
+                  </p>
+                </div>
+              </div>
+            </Motion>
+
+            <Motion
+              key={8}
+              direction="top"
+              identifier={8}
+              className="flex lg:hidden"
+            >
+              <div className="flex items-start gap-4 w-xs sm:w-md lg:w-xs">
+                <div className="flex w-12 h-12 bg-lavanda items-center justify-center rounded-full">
+                  <Zap className="text-verde-musgo" />
+                </div>
+
+                <div className="w-4/5">
+                  <h3 className="text-lg font-semibold text-neutral-800 dark:text-white mb-1">
+                    Eficiência na prática
+                  </h3>
+                  <p className="text-sm text-neutral-600 dark:text-neutral-300">
+                    Descomplicamos processos com inteligência e foco no
+                    essencial.
+                  </p>
+                </div>
+              </div>
+            </Motion>
+          </div>
+        </div>
       </section>
 
       <section
         id="timeline"
-        className="h-fit w-full flex flex-row px-[5%] items-center justify-between pt-[120px]"
+        className="h-fit w-full flex flex-row lg:px-[5%] items-center justify-between pt-12 md:pt-[120px]"
       >
         <TimelineDemo />
       </section>
 
-      <section id="feedbacks" className="flex flex-col items-center py-[120px]">
+      <section className="relative w-full py-6 md:py-32 -mb-8 overflow-hidden bg-gradient-to-br from-white via-white to-[#E6ECC0]/50 dark:from-neutral-950 dark:via-neutral-950 dark:to-[#274F4A]/30">
+        <div className="max-w-7xl lg:w-11/12 xl:w-4/5 mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center z-10 relative">
+          <div>
+            <h2 className="text-4xl font-extrabold mb-6 leading-tight text-transparent bg-clip-text bg-gradient-to-r from-[#274F4A] to-[#E6ECC0] dark:from-[#E6ECC0] dark:to-[#274F4A]">
+              Acreditamos que a boa medicina começa com tempo e clareza.
+            </h2>
+
+            <p className="text-neutral-700 dark:text-neutral-300 leading-relaxed mb-8">
+              Para cuidar bem, é preciso ter espaço para pensar, respirar e se
+              conectar com as pessoas.
+              <br />
+              <br />
+              Por isso, criamos tecnologia que organiza, protege e simplifica —
+              com inteligência e empatia.
+            </p>
+
+            <p className="font-semibold text-[#274F4A] dark:text-[#E6ECC0]">
+              Não desenvolvemos apenas sistemas: desenvolvemos ferramentas que
+              libertam o profissional da saúde para ser, de fato, médico. É isso
+              que nos move. Todos os dias.
+            </p>
+          </div>
+
+          <div className="flex justify-center items-center">
+            <Image
+              src="/images/about/woman-using-laptop.png"
+              alt="Profissional da saúde relaxado usando tecnologia moderna"
+              className="rounded-xl shadow-2xl w-full h-auto max-w-lg md:max-w-none transform transition-transform duration-500 hover:scale-105"
+              width={800}
+              height={800}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* <section id="feedbacks" className="flex flex-col items-center py-[120px]">
         <div className="flex gap-2 flex-col items-center w-full">
           <SectionHeader title="Pessoas reais. Suporte de verdade." />
           <p className="w-2/3 xl:w-1/2 text-center">
@@ -233,7 +419,7 @@ export default function AboutPage() {
             burocracia.
           </p>
         </div>
-      </section>
+      </section> */}
     </main>
   );
 }
