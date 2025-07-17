@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
 import { Instagram, Linkedin, Mail } from "lucide-react";
 import Image from "next/image";
 
@@ -69,15 +70,15 @@ export default function Footer() {
           <a href="/" className="hover:underline text-gray-100 text-sm">
             Início
           </a>
-          <a href="#" className="hover:underline text-gray-100 text-sm">
+          {/* <a href="#" className="hover:underline text-gray-100 text-sm">
             Produtos e serviços
-          </a>
+          </a> */}
           <a href="/about" className="hover:underline text-gray-100 text-sm">
             Sobre nós
           </a>
-          <a href="#" className="hover:underline text-gray-100 text-sm">
+          {/* <a href="#" className="hover:underline text-gray-100 text-sm">
             Valores
-          </a>
+          </a> */}
         </div>
       </div>
 

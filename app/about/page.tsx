@@ -361,7 +361,10 @@ export default function AboutPage() {
         <TimelineDemo />
       </section>
 
-      <section className="relative w-full py-6 md:py-32 -mb-8 overflow-hidden bg-gradient-to-br from-white via-white to-[#E6ECC0]/50 dark:from-neutral-950 dark:via-neutral-950 dark:to-[#274F4A]/30">
+      <section
+        id="motivation"
+        className="relative w-full py-6 md:py-32 -mb-8 overflow-hidden bg-gradient-to-br from-white via-white to-[#E6ECC0]/50 dark:from-neutral-950 dark:via-neutral-950 dark:to-[#274F4A]/30"
+      >
         <div className="max-w-7xl lg:w-11/12 xl:w-4/5 mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center z-10 relative">
           <div>
             <h2 className="text-4xl font-extrabold mb-6 leading-tight text-transparent bg-clip-text bg-gradient-to-r from-[#274F4A] to-[#E6ECC0] dark:from-[#E6ECC0] dark:to-[#274F4A]">

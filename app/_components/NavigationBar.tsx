@@ -19,32 +19,32 @@ import "../globals.css";
 import "./NavigationBar.css";
 import { Link } from "@/components/ui/link";
 
-const productsAndServices = [
-  {
-    title: "Isa Bot",
-    description:
-      "Automatize mensagens, agendamentos e check-ins. Atenda 24h com o nosso chatbot.",
-  },
-  {
-    title: "Isa Go",
-    description:
-      "O app médico que te dá mobilidade, controle e praticidade — onde você estiver.",
-  },
-  {
-    title: "Isa Clinic",
-    description: "Gestão completa para sua clínica. Tudo em um só lugar.",
-  },
-  {
-    title: "Isa Cont",
-    description:
-      "Contabilidade integrada com as soluções ISA. Menos dor de cabeça, mais controle.",
-  },
-  {
-    title: "Isa Consult",
-    description:
-      "Consultoria para sua clínica crescer com eficiência: reduza custos, aumente lucros.",
-  },
-];
+// const productsAndServices = [
+//   {
+//     title: "Isa Bot",
+//     description:
+//       "Automatize mensagens, agendamentos e check-ins. Atenda 24h com o nosso chatbot.",
+//   },
+//   {
+//     title: "Isa Go",
+//     description:
+//       "O app médico que te dá mobilidade, controle e praticidade — onde você estiver.",
+//   },
+//   {
+//     title: "Isa Clinic",
+//     description: "Gestão completa para sua clínica. Tudo em um só lugar.",
+//   },
+//   {
+//     title: "Isa Cont",
+//     description:
+//       "Contabilidade integrada com as soluções ISA. Menos dor de cabeça, mais controle.",
+//   },
+//   {
+//     title: "Isa Consult",
+//     description:
+//       "Consultoria para sua clínica crescer com eficiência: reduza custos, aumente lucros.",
+//   },
+// ];
 
 export function NavigationBar() {
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -69,16 +69,13 @@ export function NavigationBar() {
               <NavigationMenuList>
                 <NavigationMenuLink href="/">Início</NavigationMenuLink>
 
-                <NavigationMenuItem>
+                {/* <NavigationMenuItem>
                   <NavigationMenuTrigger>
                     Produtos e serviços
                   </NavigationMenuTrigger>
 
                   <NavigationMenuContent className="flex flex-row p-4">
-                    {" "}
-                    {/* Adicionei p-4 para padding interno */}
                     <NavigationMenuLink asChild>
-                      {/* Imagem principal, você pode ajustar src se quiser que ela mude */}
                       <Image
                         alt="Captura de tela do app"
                         src={"/images/highlights/gestao.png"}
@@ -88,13 +85,9 @@ export function NavigationBar() {
                       />
                     </NavigationMenuLink>
                     <ul className="grid grid-cols-2 w-[550px] xl:w-[650px] py-2">
-                      {" "}
-                      {/* Alterei justify-evenly para justify-center e adicionei py-2 */}
                       {productsAndServices.map((item, index) => (
                         <li key={index} className="px-4 py-2 w-full">
-                          {" "}
-                          {/* Adicionado px e py para espaçamento dentro do li */}
-                          {/* Você pode envolver este bloco com NavigationMenuLink se cada item for clicável */}
+                        
                           <a
                             href="#" // Substitua '#' pela rota real do seu produto/serviço
                             className="block text-sm leading-none font-semibold text-texto hover:text-verde-musgo transition-colors"
@@ -102,15 +95,13 @@ export function NavigationBar() {
                             {item.title}
                           </a>
                           <p className="text-muted-foreground line-clamp-2 text-sm leading-snug mt-1">
-                            {" "}
-                            {/* mt-1 para espaçamento com o título */}
                             {item.description}
                           </p>
                         </li>
                       ))}
                     </ul>
                   </NavigationMenuContent>
-                </NavigationMenuItem>
+                </NavigationMenuItem>  */}
 
                 <NavigationMenuItem>
                   <NavigationMenuTrigger>Sobre nós</NavigationMenuTrigger>
@@ -132,7 +123,7 @@ export function NavigationBar() {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
 
-                <NavigationMenuLink>Valores</NavigationMenuLink>
+                {/* <NavigationMenuLink>Valores</NavigationMenuLink> */}
               </NavigationMenuList>
             </NavigationMenu>
           </div>

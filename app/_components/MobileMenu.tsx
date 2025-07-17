@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
 import * as React from "react";
 import { cn } from "@/lib/utils";
 import { X } from "lucide-react";
@@ -36,10 +37,10 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
         </div>
         {/* Links */}
         <nav className="flex flex-col gap-4 text-verde-musgo text-lg font-medium">
-          <a href="#hero" onClick={onClose}>
+          <a href="/" onClick={onClose}>
             Início
           </a>
-          <MobileDropdown label="Produtos e serviços">
+          {/* <MobileDropdown label="Produtos e serviços">
             <a href="#" className="block py-2">
               ISA Tech
             </a>
@@ -49,7 +50,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
             <a href="#" className="block py-2">
               ISA GO
             </a>
-          </MobileDropdown>
+          </MobileDropdown> */}
           <MobileDropdown label="Sobre nós">
             <a onClick={onClose} href="/about#hero" className="block py-2">
               Início
@@ -64,20 +65,20 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
             <a onClick={onClose} href="/about#timeline" className="block py-2">
               Nossa história
             </a>
-            <a onClick={onClose} href="/about#feedbacks" className="block py-2">
+            {/* <a onClick={onClose} href="/about#feedbacks" className="block py-2">
               Nosso time
-            </a>
+            </a> */}
             <a
               onClick={onClose}
-              href="/about#principles"
+              href="/about#motivations"
               className="block py-2"
             >
               O que nos move
             </a>
           </MobileDropdown>
-          <a href="#" onClick={onClose}>
+          {/* <a href="#" onClick={onClose}>
             Valores
-          </a>
+          </a> */}
         </nav>
         <a
           className="mt-8 w-full bg-verde-musgo text-white rounded-xl p-3 text-center font-semibold"
