@@ -1,18 +1,18 @@
 "use client";
 
 import React, { useEffect, useRef, useState, useCallback } from "react";
-import type { ReactNode } from "react"; // Importar ReactNode para tipagem
+import type { ReactNode } from "react";
 
 // Definição da interface para os dados da timeline
 export interface TimelineEntry {
   title: string;
-  content: ReactNode; // Permite que o conteúdo seja qualquer elemento React
+  content: ReactNode;
 }
 
 interface TimelineProps {
   data: TimelineEntry[];
-  sectionHeaderTitle?: string; // Título opcional para o cabeçalho
-  sectionHeaderDescription?: string; // Descrição opcional para o cabeçalho
+  sectionHeaderTitle?: string;
+  sectionHeaderDescription?: string;
 }
 
 export const Timeline: React.FC<TimelineProps> = ({
@@ -21,18 +21,27 @@ export const Timeline: React.FC<TimelineProps> = ({
   sectionHeaderDescription,
 }) => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const itemRefs = useRef<(HTMLDivElement | null)[]>([]); // Array para armazenar as refs de cada item
-  const [isDragging, setIsDragging] = useState(false);
-  const startX = useRef(0); // Posição X inicial do clique/toque
-  const scrollLeftStart = useRef(0); // scrollLeft inicial do contêiner
-  const [activeItemIndex, setActiveItemIndex] = useState(0); // Índice do item atualmente ativo/visível
+  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-  // --- Lógica de Arrasto para Rolagem ---
+  // Reativando a lógica de arrasto para desktop
+  const [isDragging, setIsDragging] = useState(false);
+  const startX = useRef(0);
+  const scrollLeftStart = useRef(0);
+
+  const [activeItemIndex, setActiveItemIndex] = useState(0);
+
+  // --- Lógica de Arrasto para Rolagem (Ativa apenas em desktop/telas maiores) ---
   const handleMouseDown = useCallback(
     (
       e: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>
     ) => {
-      if ("button" in e && e.button !== 0) return;
+      // Verifica se é uma tela mobile (menor que md) para NÃO aplicar o arrasto manual
+      // ou se for touch event (mobile), o browser já gerencia bem o scroll.
+      // O scroll snap vai dominar no mobile.
+      if (window.innerWidth < 768 && "touches" in e) {
+        return; // Não interfere com o scroll snap no mobile
+      }
+      if ("button" in e && e.button !== 0) return; // Apenas botão esquerdo do mouse
 
       setIsDragging(true);
       if (scrollContainerRef.current) {
@@ -48,10 +57,17 @@ export const Timeline: React.FC<TimelineProps> = ({
     (e: MouseEvent | TouchEvent) => {
       if (!isDragging || !scrollContainerRef.current) return;
 
-      e.preventDefault();
+      // Impede o comportamento padrão apenas se estiver arrastando com o mouse
+      if ("buttons" in e && e.buttons === 1) {
+        e.preventDefault();
+      } else if ("touches" in e) {
+        // Para touch, podemos deixar o preventDefault, mas o scroll snap já estará ativo
+      }
 
       const currentX = "touches" in e ? e.touches[0].pageX : e.pageX;
-      const walk = currentX - startX.current;
+      // Multiplicador de sensibilidade para desktop, se desejar um arrasto mais rápido
+      const sensitivity = 1; // Ou 1.5, 2.0 para maior sensibilidade no desktop
+      const walk = (currentX - startX.current) * sensitivity;
 
       scrollContainerRef.current.scrollLeft = scrollLeftStart.current - walk;
     },
@@ -65,16 +81,18 @@ export const Timeline: React.FC<TimelineProps> = ({
     }
   }, []);
 
-  // Adiciona e remove os event listeners para o arrasto
+  // Adiciona e remove os event listeners para o arrasto (principalmente para desktop)
   useEffect(() => {
     const container = scrollContainerRef.current;
     if (container) {
+      // Eventos de mouse para desktop
       container.addEventListener("mousemove", handleMouseMove);
       container.addEventListener("mouseup", handleMouseUp);
-      container.addEventListener("mouseleave", handleMouseUp);
+      container.addEventListener("mouseleave", handleMouseUp); // Para quando o mouse sai da área
 
-      container.addEventListener("touchmove", handleMouseMove);
-      container.addEventListener("touchend", handleMouseUp);
+      // Eventos de touch para mobile - deixar o browser gerenciar com scroll snap
+      // removemos os listeners touchMove e touchEnd personalizados aqui para não interferir
+      // com o scroll snap no mobile, mas mantemos o onTouchStart no JSX.
     }
 
     return () => {
@@ -82,9 +100,6 @@ export const Timeline: React.FC<TimelineProps> = ({
         container.removeEventListener("mousemove", handleMouseMove);
         container.removeEventListener("mouseup", handleMouseUp);
         container.removeEventListener("mouseleave", handleMouseUp);
-
-        container.removeEventListener("touchmove", handleMouseMove);
-        container.removeEventListener("touchend", handleMouseUp);
       }
     };
   }, [handleMouseMove, handleMouseUp]);
@@ -166,7 +181,7 @@ export const Timeline: React.FC<TimelineProps> = ({
     <div className="w-full bg-white dark:bg-neutral-950 font-sans py-10">
       {/* Cabeçalho da Seção (Opcional) */}
       {(sectionHeaderTitle || sectionHeaderDescription) && (
-        <div className="flex flex-col text-center w-full items-center justify-center gap-2 mb-10 px-[5%]">
+        <div className="flex flex-col text-center w-full items-center justify-center gap-2 lg:mb-10 px-[5%]">
           {sectionHeaderTitle && (
             <h2 className="text-3xl md:text-4xl font-bold text-neutral-800 dark:text-white">
               {sectionHeaderTitle}
@@ -180,15 +195,14 @@ export const Timeline: React.FC<TimelineProps> = ({
         </div>
       )}
 
-      {/* Contêiner da Timeline Arrastável */}
+      {/* Contêiner da Timeline com Lógicas de Scroll Responsivas */}
       <div
         ref={scrollContainerRef}
-        className={`relative flex flex-row overflow-x-scroll pb-10 scroll-smooth select-none
-                   scroll-pl-[calc(50vw-110px)] 
-                   scroll-pr-10 md:scroll-pr-20 lg:scroll-pr-40`} // <--- Mudei para crases (backticks) aqui!
+        className={`relative flex flex-row overflow-x-scroll lg:pb-10 scroll-smooth select-none
+                   snap-x snap-mandatory lg:snap-none`} // snap-x snap-mandatory apenas para mobile, lg:snap-none para desktop
         style={{ cursor: "grab" }}
-        onMouseDown={handleMouseDown}
-        onTouchStart={handleMouseDown}
+        onMouseDown={handleMouseDown} // Ativado para mouse (desktop)
+        onTouchStart={handleMouseDown} // Ativado para touch (mobile), mas o JS de arrasto será desativado em handleMouseDown
       >
         {/* Linha de fundo da timeline */}
         <div
@@ -209,8 +223,7 @@ export const Timeline: React.FC<TimelineProps> = ({
             ref={(el) => {
               itemRefs.current[index] = el;
             }}
-            // min-w para larguras responsivas dos cards
-            className="flex flex-col items-center justify-center min-w-[220px] md:min-w-[300px] lg:min-w-[400px] p-6 relative flex-shrink-0 flex-grow-0"
+            className={`flex flex-col items-center justify-center min-w-[220px] md:min-w-[300px] lg:min-w-[400px] p-6 relative flex-shrink-0 flex-grow-0 snap-center lg:snap-none`}
           >
             {/* Círculo da timeline (a "bolinha") */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-8 w-8 rounded-full bg-white dark:bg-black flex items-center justify-center z-0">
@@ -235,7 +248,7 @@ export const Timeline: React.FC<TimelineProps> = ({
         ))}
       </div>
 
-      {/* Bloco de estilo JSX para ocultar a barra de rolagem de forma robusta */}
+      {/* Bloco de estilo JSX para ocultar a barra de rolagem de forma robusta e definir scroll-padding */}
       <style jsx>{`
         .overflow-x-scroll::-webkit-scrollbar {
           display: none; /* For Chrome, Safari, and Opera */
@@ -243,6 +256,33 @@ export const Timeline: React.FC<TimelineProps> = ({
         .overflow-x-scroll {
           -ms-overflow-style: none; /* For Internet Explorer and Edge */
           scrollbar-width: none; /* For Firefox */
+        }
+
+        /* Scroll padding para Mobile (aplicado por padrão, ou seja, em telas menores que 'md') */
+        .scroll-container-padding {
+          padding-left: calc(
+            50vw - 110px
+          ); /* 50% da viewport menos metade da largura do card (220px/2) */
+          padding-right: calc(
+            50vw - 110px
+          ); /* Mesma lógica para o lado direito */
+        }
+
+        /* Scroll padding para Desktop (a partir de 'md' e 'lg') */
+        @media (min-width: 768px) {
+          /* md */
+          .scroll-container-padding {
+            padding-left: 1rem; /* Um padding fixo, ou o que você tinha antes para desktop */
+            padding-right: 1rem; /* Um padding fixo, ou o que você tinha antes para desktop */
+          }
+        }
+
+        @media (min-width: 1024px) {
+          /* lg */
+          .scroll-container-padding {
+            padding-left: 2rem; /* Exemplo de padding maior para LG, ajuste conforme necessário */
+            padding-right: 2rem;
+          }
         }
       `}</style>
     </div>
