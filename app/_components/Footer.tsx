@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
-import { Instagram, Linkedin, Mail } from "lucide-react";
+import { Instagram, MapPin, Phone } from "lucide-react";
 import Image from "next/image";
 
 export default function Footer() {
@@ -14,28 +14,42 @@ export default function Footer() {
           className="mb-2 w-[120px] h-fit"
         />
 
-        <div className="flex flex-col gap-4 mt-8 md:mt-0 min-w-[180px] w-3/4 sm:w-1/2 lg:w-fit">
+        <div className="flex flex-col gap-4 mt-8 md:mt-0 min-w-[180px] w-3/4 sm:w-1/2 lg:w-1/3">
           <span className="font-bold text-white">
             Simplifique sua rotina com uma
             <br />
             plataforma completa!
           </span>
 
-          <div className="flex flex-row gap-2">
-            <Mail />
-            contato@isatech.com.br
-          </div>
           <a
             href="https://www.instagram.com/isatechbr/"
             className="flex flex-row gap-2"
           >
-            <Instagram />
-            @isatechbr
+            <div className="flex">
+              <Instagram />
+            </div>
+            <p className="text-sm underline">@isatechbr</p>
           </a>
-          <div className="flex flex-row gap-2">
-            <Linkedin />
-            in.isatechbr
-          </div>
+
+          <a href="wa.me/+5581983501757" className="flex flex-row gap-2">
+            <div className="flex">
+              <Phone />
+            </div>
+            <p className="text-sm underline">(81) 98350-1757</p>
+          </a>
+
+          <a
+            href="https://maps.app.goo.gl/5SvZZ5rZaoDLijeh7"
+            className="flex flex-row gap-2"
+          >
+            <div className="flex">
+              <MapPin />
+            </div>
+            <p className="text-sm underline">
+              Av. República do Líbano, nº 251 - Sala 1907 Torre A - Pina -
+              Recife/PE
+            </p>
+          </a>
         </div>
 
         <div className="flex flex-col gap-2 mt-8 md:mt-0 min-w-[180px] w-3/4 sm:w-1/2 lg:w-fit">
