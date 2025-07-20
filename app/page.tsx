@@ -8,6 +8,7 @@ import FadeCarrossel from "./_components/FadeCarrossel";
 import Motion from "./_components/Motion";
 import NewFeedbackCard from "./_components/NewFeedbackCard";
 import SectionHeader from "./_components/SectionHeader";
+import AnimatedPointer from "./_components/AnimatedPointerClick";
 
 export default function Home() {
   return (
@@ -210,6 +211,8 @@ export default function Home() {
 
         <FadeCarrossel />
 
+        <AnimatedPointer />
+
         <p className="text-center mt-4 lg:hidden w-4/5 items-center">
           <strong className="text-verde-musgo">Deslize</strong> para o lado e{" "}
           <strong className="text-lavanda-escuro">clique</strong> em uma das
@@ -270,7 +273,7 @@ export default function Home() {
       >
         <SectionHeader pipeColor="bg-lavanda" title="Depoimentos" />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:flex flex-row flex-wrap items-start justify-center gap-6 lg:gap-8 mx-auto px-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 mt-6 lg:flex flex-row flex-wrap items-start justify-center gap-6 lg:gap-8 mx-auto px-12">
           {feedbacks.map((feedback, index) => (
             <Motion
               direction="top" // Você pode ajustar a direção se quiser animações diferentes

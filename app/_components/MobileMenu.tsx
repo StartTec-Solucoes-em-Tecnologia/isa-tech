@@ -40,17 +40,20 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
           <a href="/" onClick={onClose}>
             Início
           </a>
-          {/* <MobileDropdown label="Produtos e serviços">
-            <a href="#" className="block py-2">
-              ISA Tech
+          <MobileDropdown label="Produtos e serviços">
+            <a href="/products" className="block py-2">
+              Nossos produtos
             </a>
-            <a href="#" className="block py-2">
-              ISA Clinic
+            <a href="/products" className="block py-2">
+              Funcionalidades
             </a>
-            <a href="#" className="block py-2">
-              ISA GO
+            <a href="/products" className="block py-2">
+              Por que nos escolher
             </a>
-          </MobileDropdown> */}
+            <a href="/products" className="block py-2">
+              Nossos serviços
+            </a>
+          </MobileDropdown>
           <MobileDropdown label="Sobre nós">
             <a onClick={onClose} href="/about#hero" className="block py-2">
               Início

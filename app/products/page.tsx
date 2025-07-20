@@ -49,34 +49,50 @@ interface FeatureItem {
 // Dados para a seção de Produtos
 const productsData: ProductItem[] = [
   {
-    id: 1,
-    title: "Sistema de Gestão Completo",
+    id: 4,
+    title: "Isa Bot",
     description:
-      "O ISA Tech é a sua solução definitiva para a gestão de clínicas e consultórios médicos. Centralize agendamentos, prontuários eletrônicos, gestão financeira, faturamento TISS, comunicação interna e controle de estoque em uma única plataforma intuitiva.",
+      "Automatize mensagens, agendamentos e check-ins. Atenda 24h com o nosso chatbot.",
     imageUrl: "",
-    linkText: "Ver Funcionalidades",
-    linkHref: "/#funcionalidades-detalhe",
+    linkText: "Conhecer Isa Bot",
+    linkHref: "#", // Link a ser definido
   },
   {
-    id: 2,
-    title: "Acesso Remoto e Mobile",
+    id: 5,
+    title: "Isa Go",
     description:
-      "Acesse seu sistema de gestão de qualquer lugar, a qualquer hora. Com o ISA Tech, você tem total flexibilidade para gerenciar sua clínica pelo computador, tablet ou smartphone, garantindo que você nunca perca o controle.",
+      "O app médico que te dá mobilidade, controle e praticidade — onde você estiver.",
     imageUrl: "",
-    linkText: "Acessar Plataforma",
-    linkHref: "https://isa-tech-pied.vercel.app/#acessar-plataforma", // Link para a plataforma
+    linkText: "Baixar App",
+    linkHref: "#", // Link a ser definido
   },
   {
-    id: 3,
-    title: "Segurança e Conformidade",
-    description:
-      "Garantimos a proteção dos dados dos seus pacientes com tecnologia de ponta e total conformidade com a LGPD. Sua segurança e a privacidade das informações são nossas prioridades máximas no ISA Tech.",
+    id: 6,
+    title: "Isa Clinic",
+    description: "Gestão completa para sua clínica. Tudo em um só lugar.",
     imageUrl: "",
     linkText: "Saber Mais",
-    linkHref: "https://isa-tech-pied.vercel.app/#diferenciais",
+    linkHref: "#", // Link a ser definido
+  },
+  {
+    id: 7,
+    title: "Isa Cont",
+    description:
+      "Contabilidade integrada com as soluções ISA. Menos dor de cabeça, mais controle.",
+    imageUrl: "",
+    linkText: "Conhecer Isa Cont",
+    linkHref: "#", // Link a ser definido
+  },
+  {
+    id: 8,
+    title: "Isa Consult",
+    description:
+      "Consultoria para sua clínica crescer com eficiência: reduza custos, aumente lucros.",
+    imageUrl: "",
+    linkText: "Solicitar Consultoria",
+    linkHref: "#", // Link a ser definido
   },
 ];
-
 // Dados para a seção de Serviços
 const servicesData: ServiceItem[] = [
   {
@@ -338,7 +354,8 @@ const ProductsAndServices: React.FC = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-center py-16 px-4 sm:py-20 bg-verde-musgo rounded-b-2xl shadow-xl mb-16 sm:mb-20"
+          id="hero"
+          className="text-center py-16 px-4 sm:py-20 mt-[80px] xl:mt-[120px] bg-verde-musgo rounded-2xl shadow-xl mb-16 sm:mb-20"
         >
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 sm:mb-6 leading-tight text-limao">
             Soluções Completas para a Sua Clínica

@@ -131,7 +131,7 @@ export default function FadeCarrossel() {
       </div>
 
       {/* Mobile view - also updated for hover behavior if desired for smaller screens */}
-      <div className="lg:hidden flex gap-4 w-full overflow-y-auto flex-row relative pl-6 py-4 -mt-6 sm:mt-2 lg:mt-0">
+      <div className="lg:hidden flex gap-4 w-full overflow-y-auto flex-row relative pl-6 py-4 -mt-12 sm:mt-2 lg:mt-0">
         {featureCards.map((item, index) => (
           <div
             className={cn(

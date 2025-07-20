@@ -1,6 +1,6 @@
 "use client";
 
-import { Grab, Pointer } from "lucide-react";
+import { ArrowLeft, Grab, Pointer } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function AnimatedPointer() {
@@ -15,12 +15,12 @@ export default function AnimatedPointer() {
       // 2s depois, troca ícone
       setTimeout(() => {
         setShowPointer(false);
-      }, 2000);
+      }, 1000);
 
       // 3s depois do início, inicia movimento
-      setTimeout(() => {
-        setStartAnimation(true);
-      }, 3000);
+      // setTimeout(() => {
+      //   setStartAnimation(true);
+      // }, 3000);
     }, 4000); // loop total dura 4s
 
     return () => clearInterval(interval);
@@ -29,7 +29,7 @@ export default function AnimatedPointer() {
   return (
     <div
       className={`flex w-full justify-center items-center relative h-10 ${
-        startAnimation ? "" : ""
+        startAnimation ? "switchToLeft" : ""
       }`}
     >
       <div
@@ -44,6 +44,7 @@ export default function AnimatedPointer() {
           showPointer ? "opacity-0" : "opacity-100"
         }`}
       >
+        <ArrowLeft size={16} className="text-verde-musgo" />
         <Grab size={24} className="text-verde-musgo" />
       </div>
     </div>
