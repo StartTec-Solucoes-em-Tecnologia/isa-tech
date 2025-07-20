@@ -356,7 +356,7 @@ export default function AboutPage() {
 
       <section
         id="timeline"
-        className="h-fit w-full flex flex-row lg:px-[5%] items-center justify-between pt-12 md:pt-[120px]"
+        className="h-fit w-full flex flex-row items-center justify-between pt-12 md:pt-[120px]"
       >
         <TimelineDemo />
       </section>
@@ -367,11 +367,11 @@ export default function AboutPage() {
       >
         <div className="max-w-7xl lg:w-11/12 xl:w-4/5 mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center z-10 relative">
           <div>
-            <h2 className="text-4xl font-extrabold mb-6 leading-tight text-transparent bg-clip-text bg-gradient-to-r from-[#274F4A] to-[#E6ECC0] dark:from-[#E6ECC0] dark:to-[#274F4A]">
+            <h2 className="text-3xl 2xl:text-4xl text-gray-700 text-start">
               Acreditamos que a boa medicina começa com tempo e clareza.
             </h2>
 
-            <p className="text-neutral-700 dark:text-neutral-300 leading-relaxed mb-8">
+            <p className="text-neutral-700 dark:text-neutral-300 leading-relaxed my-8">
               Para cuidar bem, é preciso ter espaço para pensar, respirar e se
               conectar com as pessoas.
               <br />

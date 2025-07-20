@@ -264,3 +264,16 @@ html {
 .animation-delay-2000 {
   animation-delay: 2s;
 }
+
+.switchToLeft {
+  animation: deslizarParaEsquerda 1s ease-in-out;
+}
+
+@keyframes deslizarParaEsquerda {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-15px);
+  }
+}

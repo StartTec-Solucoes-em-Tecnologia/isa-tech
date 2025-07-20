@@ -5,8 +5,8 @@ import { cn, feedbacks, highlightCards } from "@/lib/utils";
 import * as motion from "motion/react-client";
 import Image from "next/image";
 import FadeCarrossel from "./_components/FadeCarrossel";
-import FeedbackCard from "./_components/FeedbackCard";
 import Motion from "./_components/Motion";
+import NewFeedbackCard from "./_components/NewFeedbackCard";
 import SectionHeader from "./_components/SectionHeader";
 
 export default function Home() {
@@ -277,7 +277,7 @@ export default function Home() {
               identifier={index} // Use o índice como identificador único
               key={index} // Use o índice como key para renderização de lista
             >
-              <FeedbackCard {...feedback} />
+              <NewFeedbackCard {...feedback} />
             </Motion>
           ))}
         </div>

@@ -1,5 +1,9 @@
+"use client";
+
 // Exemplo: src/app/_components/TimelineDemo.tsx (ou onde você quiser usar)
 import { Timeline } from "@/components/ui/timeline"; // Importe o componente e a interface
+import { useEffect, useState } from "react";
+import { Pointer, Grab, ArrowLeft } from "lucide-react";
 
 export function TimelineDemo() {
   const data = [
@@ -64,6 +68,63 @@ export function TimelineDemo() {
         sectionHeaderTitle="Nossa jornada até aqui — e além"
         sectionHeaderDescription="A ISA TECH nasceu do desejo de mudar a experiência da gestão médica. Veja como essa ideia se transformou em realidade."
       />
+
+      <AnimatedPointer />
+
+      <p className="text-center mt-4 w-full items-center">
+        <strong className="text-verde-musgo">
+          Clique e arraste para o lado
+        </strong>{" "}
+        para ver mais informações sobre nossa linha do tempo{" "}
+      </p>
+    </div>
+  );
+}
+
+function AnimatedPointer() {
+  const [showPointer, setShowPointer] = useState(true);
+  const [startAnimation, setStartAnimation] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setShowPointer(true);
+      setStartAnimation(false);
+
+      // 2s depois, troca ícone
+      setTimeout(() => {
+        setShowPointer(false);
+      }, 2000);
+
+      // 3s depois do início, inicia movimento
+      setTimeout(() => {
+        setStartAnimation(true);
+      }, 3000);
+    }, 4000); // loop total dura 4s
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div
+      className={`flex w-full justify-center items-center relative h-10 ${
+        startAnimation ? "switchToLeft" : ""
+      }`}
+    >
+      <div
+        className={`absolute transition-opacity duration-500 ${
+          showPointer ? "opacity-100" : "opacity-0"
+        }`}
+      >
+        <Pointer size={24} className="text-verde-musgo" />
+      </div>
+      <div
+        className={`absolute flex flex-row gap-2 -ml-6 transition-opacity duration-500 ${
+          showPointer ? "opacity-0" : "opacity-100"
+        }`}
+      >
+        <ArrowLeft size={16} className="text-verde-musgo" />
+        <Grab size={24} className="text-verde-musgo" />
+      </div>
     </div>
   );
 }
