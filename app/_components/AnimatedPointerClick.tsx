@@ -3,7 +3,11 @@
 import { ArrowLeft, Grab, Pointer } from "lucide-react";
 import { useEffect, useState } from "react";
 
-export default function AnimatedPointer() {
+interface AnimatedProps {
+  hiddenLg?: boolean;
+}
+
+export default function AnimatedPointer({ hiddenLg }: AnimatedProps) {
   const [showPointer, setShowPointer] = useState(true);
   const [startAnimation, setStartAnimation] = useState(false);
 
@@ -30,7 +34,7 @@ export default function AnimatedPointer() {
     <div
       className={`flex w-full justify-center items-center relative h-10 ${
         startAnimation ? "switchToLeft" : ""
-      }`}
+      } ${hiddenLg ? "lg:hidden" : ""}`}
     >
       <div
         className={`absolute transition-opacity duration-500 ${

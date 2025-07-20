@@ -2,6 +2,7 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
 import { X } from "lucide-react";
+import { Products } from "./NavigationBar";
 
 interface MobileMenuProps {
   open: boolean;
@@ -41,18 +42,16 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
             Início
           </a>
           <MobileDropdown label="Produtos e serviços">
-            <a href="/products" className="block py-2">
-              Nossos produtos
-            </a>
-            <a href="/products" className="block py-2">
-              Funcionalidades
-            </a>
-            <a href="/products" className="block py-2">
-              Por que nos escolher
-            </a>
-            <a href="/products" className="block py-2">
-              Nossos serviços
-            </a>
+            {Products.map((item, index) => (
+              <a
+                href={item.link}
+                onClick={onClose}
+                className="block py-2"
+                key={index}
+              >
+                {item.title}
+              </a>
+            ))}
           </MobileDropdown>
           <MobileDropdown label="Sobre nós">
             <a onClick={onClose} href="/about#hero" className="block py-2">

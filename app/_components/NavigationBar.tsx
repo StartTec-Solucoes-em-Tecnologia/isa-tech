@@ -19,30 +19,35 @@ import "../globals.css";
 import "./NavigationBar.css";
 import { Link } from "@/components/ui/link";
 
-const productsAndServices = [
+export const Products = [
   {
-    title: "Isa Bot",
+    title: "Início",
     description:
-      "Automatize mensagens, agendamentos e check-ins. Atenda 24h com o nosso chatbot.",
+      "Descubra como o ISA Tech pode transformar a gestão do seu consultório",
+    link: "/products#hero",
   },
   {
-    title: "Isa Go",
+    title: "Nossos produtos",
     description:
       "O app médico que te dá mobilidade, controle e praticidade — onde você estiver.",
+    link: "/products#products",
   },
   {
-    title: "Isa Clinic",
+    title: "Funcionalidades",
     description: "Gestão completa para sua clínica. Tudo em um só lugar.",
+    link: "/products#features",
   },
   {
-    title: "Isa Cont",
+    title: "Por que escolher ISA",
     description:
       "Contabilidade integrada com as soluções ISA. Menos dor de cabeça, mais controle.",
+    link: "/products#choose",
   },
   {
-    title: "Isa Consult",
+    title: "Nossos serviços",
     description:
       "Consultoria para sua clínica crescer com eficiência: reduza custos, aumente lucros.",
+    link: "/products#services",
   },
 ];
 
@@ -85,11 +90,11 @@ export function NavigationBar() {
                       />
                     </NavigationMenuLink>
                     <ul className="grid grid-cols-2 w-[550px] xl:w-[650px] py-2">
-                      {productsAndServices.map((item, index) => (
+                      {Products.map((item, index) => (
                         <li key={index} className="px-4">
                           <a
                             className="py-2 w-full"
-                            href="#" // Substitua '#' pela rota real do seu produto/serviço
+                            href={item.link} // Substitua '#' pela rota real do seu produto/serviço
                           >
                             <div className="block text-sm leading-none font-semibold text-texto hover:text-verde-musgo transition-colors">
                               {item.title}

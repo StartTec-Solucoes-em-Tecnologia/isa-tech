@@ -211,7 +211,7 @@ export default function Home() {
 
         <FadeCarrossel />
 
-        <AnimatedPointer />
+        <AnimatedPointer hiddenLg />
 
         <p className="text-center mt-4 lg:hidden w-4/5 items-center">
           <strong className="text-verde-musgo">Deslize</strong> para o lado e{" "}

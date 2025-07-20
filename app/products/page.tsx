@@ -279,7 +279,7 @@ const Card: React.FC<CardProps> = ({
       animate={inView ? "visible" : "hidden"}
       variants={cardVariants}
       transition={{ duration: 0.5 }}
-      className="bg-white rounded-xl shadow-lg hover:shadow-xl  p-6 sm:p-8 flex flex-col items-center text-center h-full border border-gray-100"
+      className="bg-white rounded-xl shadow-lg hover:shadow-xl p-6 sm:p-8 flex flex-col items-center text-center h-full border border-gray-100"
     >
       {imageUrl && (
         <div className="relative w-20 h-20 sm:w-24 sm:h-24 mb-4 sm:mb-6">
@@ -351,10 +351,10 @@ const ProductsAndServices: React.FC = () => {
       <main className="container mx-auto px-4 py-8 sm:py-12">
         {/* Seção Hero/Introdução */}
         <motion.section
+          id="hero"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          id="hero"
           className="text-center py-16 px-4 sm:py-20 mt-[80px] xl:mt-[120px] bg-verde-musgo rounded-2xl shadow-xl mb-16 sm:mb-20"
         >
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 sm:mb-6 leading-tight text-limao">
@@ -385,7 +385,7 @@ const ProductsAndServices: React.FC = () => {
 
         {/* Seção Nossas Funcionalidades em Detalhe */}
         <section
-          id="funcionalidades-detalhe"
+          id="features"
           className="py-12 sm:py-16 px-4 bg-limao/30 rounded-2xl mb-16 sm:mb-20 shadow-inner"
         >
           <SectionTitle>
@@ -404,7 +404,7 @@ const ProductsAndServices: React.FC = () => {
         </section>
 
         {/* Seção Por Que Escolher ISA Tech? */}
-        <section id="why-isa-tech" className="py-12 sm:py-16">
+        <section id="choose" className="py-12 sm:py-16">
           <SectionTitle>Por Que Escolher ISA Tech?</SectionTitle>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 items-center">
             <motion.div
@@ -468,7 +468,7 @@ const ProductsAndServices: React.FC = () => {
 
         {/* Seção Depoimentos (Simplificada) */}
         <section
-          id="testimonials-brief"
+          id="services"
           className="py-12 sm:py-16 bg-verde-musgo/10 rounded-2xl mb-16 sm:mb-20 shadow-inner"
         >
           <SectionTitle>O Que Nossos Clientes Dizem</SectionTitle>

@@ -32,13 +32,13 @@ const NewFeedbackCard: React.FC<TestimonialProps> = ({ text }) => {
       animate={inView ? "visible" : "hidden"}
       variants={cardVariants}
       transition={{ duration: 0.5 }}
-      className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out p-6 sm:p-8 flex flex-col items-center text-center h-full border border-gray-100 w-full max-w-sm mx-auto sm:min-h-[420px] lg:h-[320px]"
+      className="bg-white rounded-xl shadow-lg hover:shadow-xl p-6 sm:p-8 flex flex-col items-center text-center h-full border border-gray-100 w-full max-w-sm mx-auto sm:min-h-[352px] md:min-h-[275px] lg:min-h-[248px]"
     >
       {/* Imagem do autor do depoimento (REMOVIDA conforme solicitação) */}
       {/* Nome e cargo do autor (REMOVIDOS conforme solicitação) */}
 
       {/* Texto do depoimento */}
-      <p className="italic text-gray-700 leading-relaxed flex-grow mb-4">
+      <p className="italic text-gray-700 leading-relaxed flex-grow">
         {`"${text}"`}
       </p>
     </motion.div>

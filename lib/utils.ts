@@ -219,30 +219,29 @@ export const aboutTab = [
     pipeColor: "bg-limao",
   },
 ];
-
 export const feedbacks = [
   {
     name: "Dr. Pedro Rodrigues",
     postData: "17/05/2024",
     image: "/images/feedbacks/dr-pedro-rodrigues.webp",
-    text: "Trabalhamos com o ISA Tech há mais de 5 anos e a evolução é constante, com atualizações e facilidades que nos dão agilidade e credibilidade. O aplicativo gratuito auxilia fora do consultório, e a assistência é impecável. Essas melhorias tornam o sistema ainda mais fluido e confiável.",
+    text: "Há 5 anos com ISA Tech, a evolução é constante. Atualizações e facilidades nos dão agilidade e credibilidade. O aplicativo gratuito ajuda fora do consultório, e a assistência é impecável. Um sistema fluido e confiável.",
   },
   {
     name: "Dra. Luciana Rocha",
     postData: "24/08/2024",
     image: "/images/feedbacks/dra-luciana.webp",
-    text: "O ISA Tech é um sistema completo e fácil de operar. A assistência técnica é perfeita, e a gestão financeira é uma ótima adição. Com atualizações frequentes, ganhamos agilidade e credibilidade. O aplicativo também é essencial, aprimorando nossas práticas e o serviço de excelência aos pacientes.",
+    text: "ISA Tech é completo e fácil de usar. Assistência técnica perfeita e gestão financeira ótima. Atualizações frequentes trazem agilidade e credibilidade. O aplicativo é essencial para aprimorar nossas práticas.",
   },
   {
     name: "Mônica Pereira",
     postData: "11/02/2025",
     image: "/images/feedbacks/interne-prime.webp",
-    text: "Parabenizo a equipe ISA Tech pelo atendimento de excelência em todas as etapas. Com uma plataforma flexível e adequada a cada cliente, demonstram exclusividade e um olhar diferenciado para as necessidades, entregando valor em cada atendimento.",
+    text: "Parabenizo a equipe ISA Tech pelo atendimento de excelência. A plataforma é flexível e adequada a cada cliente, demonstrando exclusividade e um olhar diferenciado, entregando valor em cada interação.",
   },
   {
     name: "Dr. Rilcon Coelho",
     postData: "12/06/2025",
     image: "/images/feedbacks/dr-rilcon-coelho.webp",
-    text: "Com grande satisfação, expresso minha admiração pelo programa de prontuário eletrônico ISA Tech. Como oftalmologista, valorizo ferramentas eficientes na gestão de informações médicas. O ISA Tech simplifica o registro de dados e otimiza o fluxo de trabalho. Sua abordagem abrangente e recursos personalizáveis mostram um compromisso com a excelência na assistência médica. Parabéns à equipe!",
+    text: "Com grande satisfação, admiro o prontuário eletrônico ISA Tech. Como oftalmologista, valorizo ferramentas eficientes. Simplifica o registro de dados e otimiza o fluxo de trabalho. Sua abordagem e recursos mostram compromisso com a excelência. Parabéns!",
   },
 ];
