@@ -69,6 +69,8 @@ export default function FadeCarrossel() {
             className="absolute top-14 left-[50%] w-[24px] h-[24px] text-gray-600"
             size={18}
           />
+
+          {/* <AnimatedPointer /> */}
         </div>
 
         <div className="flex relative w-full lg:w-2/4 h-full items-center">

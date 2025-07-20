@@ -84,9 +84,9 @@ export default function Footer() {
           <a href="/" className="hover:underline text-gray-100 text-sm">
             Início
           </a>
-          {/* <a href="#" className="hover:underline text-gray-100 text-sm">
+          <a href="#" className="hover:underline text-gray-100 text-sm">
             Produtos e serviços
-          </a> */}
+          </a>
           <a href="/about" className="hover:underline text-gray-100 text-sm">
             Sobre nós
           </a>

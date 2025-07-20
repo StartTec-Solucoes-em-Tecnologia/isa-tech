@@ -19,32 +19,32 @@ import "../globals.css";
 import "./NavigationBar.css";
 import { Link } from "@/components/ui/link";
 
-// const productsAndServices = [
-//   {
-//     title: "Isa Bot",
-//     description:
-//       "Automatize mensagens, agendamentos e check-ins. Atenda 24h com o nosso chatbot.",
-//   },
-//   {
-//     title: "Isa Go",
-//     description:
-//       "O app médico que te dá mobilidade, controle e praticidade — onde você estiver.",
-//   },
-//   {
-//     title: "Isa Clinic",
-//     description: "Gestão completa para sua clínica. Tudo em um só lugar.",
-//   },
-//   {
-//     title: "Isa Cont",
-//     description:
-//       "Contabilidade integrada com as soluções ISA. Menos dor de cabeça, mais controle.",
-//   },
-//   {
-//     title: "Isa Consult",
-//     description:
-//       "Consultoria para sua clínica crescer com eficiência: reduza custos, aumente lucros.",
-//   },
-// ];
+const productsAndServices = [
+  {
+    title: "Isa Bot",
+    description:
+      "Automatize mensagens, agendamentos e check-ins. Atenda 24h com o nosso chatbot.",
+  },
+  {
+    title: "Isa Go",
+    description:
+      "O app médico que te dá mobilidade, controle e praticidade — onde você estiver.",
+  },
+  {
+    title: "Isa Clinic",
+    description: "Gestão completa para sua clínica. Tudo em um só lugar.",
+  },
+  {
+    title: "Isa Cont",
+    description:
+      "Contabilidade integrada com as soluções ISA. Menos dor de cabeça, mais controle.",
+  },
+  {
+    title: "Isa Consult",
+    description:
+      "Consultoria para sua clínica crescer com eficiência: reduza custos, aumente lucros.",
+  },
+];
 
 export function NavigationBar() {
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -69,7 +69,7 @@ export function NavigationBar() {
               <NavigationMenuList>
                 <NavigationMenuLink href="/">Início</NavigationMenuLink>
 
-                {/* <NavigationMenuItem>
+                <NavigationMenuItem>
                   <NavigationMenuTrigger>
                     Produtos e serviços
                   </NavigationMenuTrigger>
@@ -86,22 +86,23 @@ export function NavigationBar() {
                     </NavigationMenuLink>
                     <ul className="grid grid-cols-2 w-[550px] xl:w-[650px] py-2">
                       {productsAndServices.map((item, index) => (
-                        <li key={index} className="px-4 py-2 w-full">
-                        
+                        <li key={index} className="px-4">
                           <a
+                            className="py-2 w-full"
                             href="#" // Substitua '#' pela rota real do seu produto/serviço
-                            className="block text-sm leading-none font-semibold text-texto hover:text-verde-musgo transition-colors"
                           >
-                            {item.title}
+                            <div className="block text-sm leading-none font-semibold text-texto hover:text-verde-musgo transition-colors">
+                              {item.title}
+                            </div>
+                            <p className="text-muted-foreground line-clamp-2 text-sm leading-snug mt-1">
+                              {item.description}
+                            </p>
                           </a>
-                          <p className="text-muted-foreground line-clamp-2 text-sm leading-snug mt-1">
-                            {item.description}
-                          </p>
                         </li>
                       ))}
                     </ul>
                   </NavigationMenuContent>
-                </NavigationMenuItem>  */}
+                </NavigationMenuItem>
 
                 <NavigationMenuItem>
                   <NavigationMenuTrigger>Sobre nós</NavigationMenuTrigger>
