@@ -485,9 +485,9 @@ const ProductsAndServices: React.FC = () => {
                 intuitivo e o suporte é impecável. Recomendo a todos os
                 colegas!"`}
               </p>
-              <p className="font-semibold text-verde-musgo text-base sm:text-lg">
+              {/* <p className="font-semibold text-verde-musgo text-base sm:text-lg">
                 - Dra. Ana Paula, Cardiologista
-              </p>
+              </p> */}
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 50 }}
@@ -501,9 +501,9 @@ const ProductsAndServices: React.FC = () => {
                 atendimentos e oferecer mais comodidade aos pacientes. É a
                 ferramenta que faltava!"`}
               </p>
-              <p className="font-semibold text-verde-musgo text-base sm:text-lg">
+              {/* <p className="font-semibold text-verde-musgo text-base sm:text-lg">
                 - Dr. Carlos Eduardo, Clínico Geral
-              </p>
+              </p> */}
             </motion.div>
           </div>
         </section>
