@@ -8,7 +8,6 @@ import {
   MessageSquareText,
   ScrollText,
   Sofa,
-  UsersRound,
   Zap,
 } from "lucide-react";
 import { twMerge } from "tailwind-merge";
@@ -169,7 +168,7 @@ export const featureCards = [
 
 export const aboutTab = [
   {
-    title: "Início",
+    title: "Quem somos",
     href: "/about#hero",
     icon: HouseIcon,
     description: "Muito além de um sistema: somos parceiros da boa medicina.",
@@ -178,16 +177,17 @@ export const aboutTab = [
     bgColor: "bg-verde-musgo",
     pipeColor: "bg-limao",
   },
-  {
-    title: "Nosso time",
-    href: "/about#feedbacks",
-    icon: UsersRound,
-    description: "Pessoas reais. Suporte de verdade.",
+  // {
+  //   title: "Nosso time",
+  //   href: "/about#feedbacks",
+  //   icon: UsersRound,
+  //   description: "Pessoas reais. Suporte de verdade.",
 
-    textColor: "text-verde-musgo",
-    bgColor: "bg-lavanda",
-    pipeColor: "bg-limao",
-  },
+  //   textColor: "text-verde-musgo",
+  //   bgColor: "bg-lavanda",
+  //   pipeColor: "bg-limao",
+  // },
+
   {
     title: "Missão, visão e valores",
     href: "/about#principles",
@@ -199,16 +199,6 @@ export const aboutTab = [
     pipeColor: "bg-lavanda",
   },
   {
-    title: "O que nos move",
-    href: "/about#timeline",
-    icon: Zap,
-    description:
-      "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
-    textColor: "text-limao",
-    bgColor: "bg-verde-musgo",
-    pipeColor: "bg-lavanda",
-  },
-  {
     title: "Nossa história",
     href: "/about#timeline",
     icon: Lightbulb,
@@ -217,6 +207,16 @@ export const aboutTab = [
     textColor: "text-verde-musgo",
     bgColor: "bg-lavanda",
     pipeColor: "bg-limao",
+  },
+  {
+    title: "O que nos move",
+    href: "/about#motivation",
+    icon: Zap,
+    description:
+      "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+    textColor: "text-limao",
+    bgColor: "bg-verde-musgo",
+    pipeColor: "bg-lavanda",
   },
 ];
 export const feedbacks = [

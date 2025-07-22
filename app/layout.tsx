@@ -44,9 +44,10 @@ export default function RootLayout({
         <Footer />
 
         <a
-          href={`http://wa.me/558198101171?text=${encodeURIComponent(
+          href={`http://wa.me/5581983501757?text=${encodeURIComponent(
             `Olá! Venho do site da ISA Tech e gostaria de fazer um orçamento.`
           )}`}
+          target="_blank"
           className="fixed bottom-24 right-4 rounded-full p-4 bg-verde-musgo z-30"
         >
           <Image

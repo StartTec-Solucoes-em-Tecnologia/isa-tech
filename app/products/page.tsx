@@ -17,6 +17,7 @@ import {
   MessageSquare,
   Smartphone,
   Video,
+  Bot,
 } from "lucide-react";
 import { useInView } from "motion/react";
 
@@ -53,7 +54,7 @@ const productsData: ProductItem[] = [
     title: "Isa Bot",
     description:
       "Automatize mensagens, agendamentos e check-ins. Atenda 24h com o nosso chatbot.",
-    imageUrl: "",
+    imageUrl: "/images/logos/bot.png",
     linkText: "Conhecer Isa Bot",
     linkHref: "#", // Link a ser definido
   },
@@ -62,7 +63,7 @@ const productsData: ProductItem[] = [
     title: "Isa Go",
     description:
       "O app médico que te dá mobilidade, controle e praticidade — onde você estiver.",
-    imageUrl: "",
+    imageUrl: "/images/logos/go.png",
     linkText: "Baixar App",
     linkHref: "#", // Link a ser definido
   },
@@ -70,7 +71,7 @@ const productsData: ProductItem[] = [
     id: 6,
     title: "Isa Clinic",
     description: "Gestão completa para sua clínica. Tudo em um só lugar.",
-    imageUrl: "",
+    imageUrl: "/images/logos/clinic.png",
     linkText: "Saber Mais",
     linkHref: "#", // Link a ser definido
   },
@@ -79,7 +80,7 @@ const productsData: ProductItem[] = [
     title: "Isa Cont",
     description:
       "Contabilidade integrada com as soluções ISA. Menos dor de cabeça, mais controle.",
-    imageUrl: "",
+    imageUrl: "/images/logos/count.png",
     linkText: "Conhecer Isa Cont",
     linkHref: "#", // Link a ser definido
   },
@@ -88,7 +89,7 @@ const productsData: ProductItem[] = [
     title: "Isa Consult",
     description:
       "Consultoria para sua clínica crescer com eficiência: reduza custos, aumente lucros.",
-    imageUrl: "",
+    imageUrl: "/images/logos/consult.png",
     linkText: "Solicitar Consultoria",
     linkHref: "#", // Link a ser definido
   },
@@ -203,6 +204,13 @@ const detailedFeaturesData: FeatureItem[] = [
       "Ofereça consultas remotas ilimitadas de qualidade. Amplie seu alcance, mantenha o cuidado à distância e proporcione comodidade aos pacientes com a telemedicina. Acesse os prontuários durante as consultas online.",
     icon: <Video className="w-12 h-12 text-verde-musgo" />,
   },
+  {
+    id: 12,
+    title: "Inteligência Artificial",
+    description:
+      "Revolucione sua prática clínica com a ISA, nossa Inteligência Artificial avançada. Ela oferece suporte inteligente durante as consultas, otimiza tarefas administrativas, auxilia na análise de dados complexos e fornece insights valiosos para um atendimento ainda mais preciso e eficiente.",
+    icon: <Bot className="w-12 h-12 text-verde-musgo" />,
+  },
 ];
 
 // Interface de props para o componente SectionTitle
@@ -282,10 +290,14 @@ const Card: React.FC<CardProps> = ({
       className="bg-white rounded-xl shadow-lg hover:shadow-xl p-6 sm:p-8 flex flex-col items-center text-center h-full border border-gray-100"
     >
       {imageUrl && (
-        <div className="relative w-20 h-20 sm:w-24 sm:h-24 mb-4 sm:mb-6">
-          {/* Usando o componente Image do Next.js para otimização */}
-          <Image src={imageUrl} alt={title} layout="fill" objectFit="contain" />
-        </div>
+        <Image
+          src={imageUrl}
+          alt={title}
+          height={400}
+          width={600}
+          objectFit="contain"
+          className="w-[150px] xl:w-[200px] 2xl:w-[250px]"
+        />
       )}
       <h3 className="text-xl sm:text-2xl font-bold text-verde-musgo mb-3 sm:mb-4">
         {title}
@@ -348,14 +360,14 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
 const ProductsAndServices: React.FC = () => {
   return (
     <div className="bg-gray-50 min-h-screen">
-      <main className="container mx-auto px-4 py-8 sm:py-12">
+      <main className="container mx-auto px-4 py-8 sm:py-12 pt-[80px] xl:pt-[120px]">
         {/* Seção Hero/Introdução */}
         <motion.section
           id="hero"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-center py-16 px-4 sm:py-20 mt-[80px] xl:mt-[120px] bg-verde-musgo rounded-2xl shadow-xl mb-16 sm:mb-20"
+          className="text-center py-16 px-4 sm:py-20 bg-verde-musgo rounded-2xl shadow-xl mb-16 sm:mb-20"
         >
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 sm:mb-6 leading-tight text-limao">
             Soluções Completas para a Sua Clínica

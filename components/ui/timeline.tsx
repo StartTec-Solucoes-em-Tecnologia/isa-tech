@@ -198,7 +198,7 @@ export const Timeline: React.FC<TimelineProps> = ({
       {/* Contêiner da Timeline com Lógicas de Scroll Responsivas */}
       <div
         ref={scrollContainerRef}
-        className={`relative flex flex-row overflow-x-scroll lg:pb-10 scroll-smooth select-none
+        className={`relative flex flex-row overflow-x-scroll scroll-smooth select-none
                    snap-x snap-mandatory lg:snap-none`} // snap-x snap-mandatory apenas para mobile, lg:snap-none para desktop
         style={{ cursor: "grab" }}
         onMouseDown={handleMouseDown} // Ativado para mouse (desktop)
@@ -238,7 +238,7 @@ export const Timeline: React.FC<TimelineProps> = ({
             </div>
 
             {/* Conteúdo do item da timeline (o card de texto) */}
-            <div className="mt-8 pt-4 pb-4 w-80 flex-col text-center relative z-10 bg-white dark:bg-neutral-800 rounded-lg p-4 shadow-lg h-full flex items-center justify-center">
+            <div className="pt-4 pb-4 w-80 flex-col text-center relative z-10 bg-white dark:bg-neutral-800 rounded-lg p-4 shadow-lg h-full flex items-center justify-center">
               <h3 className="text-xl md:text-3xl font-bold text-verde-musgo dark:text-neutral-500 mb-4">
                 {item.title}
               </h3>

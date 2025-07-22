@@ -62,7 +62,7 @@ export function TimelineDemo() {
     },
   ];
   return (
-    <div className="w-full">
+    <div className="w-full flex flex-col gap-0">
       <Timeline
         data={data}
         sectionHeaderTitle="Nossa jornada até aqui — e além"
@@ -71,7 +71,7 @@ export function TimelineDemo() {
 
       <AnimatedPointer />
 
-      <p className="text-center mt-4 w-full items-center">
+      <p className="text-center w-full items-center">
         <strong className="text-verde-musgo">
           Clique e arraste para o lado
         </strong>{" "}
@@ -106,7 +106,7 @@ function AnimatedPointer() {
 
   return (
     <div
-      className={`flex w-full justify-center items-center relative h-10 ${
+      className={`flex w-full justify-center items-center relative h-8 mb-2 ${
         startAnimation ? "switchToLeft" : ""
       }`}
     >

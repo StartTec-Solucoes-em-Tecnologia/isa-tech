@@ -130,7 +130,8 @@ export default function Home() {
 
             <div className="flex flex-row items-center w-full sm:w-fit sm:gap-4 justify-evenly">
               <a
-                href="#"
+                href="https://apps.apple.com/br/app/stdoctor/id1463715996"
+                target="_blank"
                 className="underline flex flex-row items-center gap-3"
               >
                 <Image
@@ -145,7 +146,8 @@ export default function Home() {
               </a>
 
               <a
-                href="#"
+                href="https://play.google.com/store/apps/details?id=br.com.starttec.stdoctor&hl=pt_BR"
+                target="_blank"
                 className="underline flex flex-row items-center gap-3"
               >
                 <Image

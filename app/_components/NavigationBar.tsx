@@ -1,7 +1,6 @@
 "use client";
 
 import { HouseIcon, MenuIcon } from "lucide-react";
-import NextLink from "next/link";
 import * as React from "react";
 
 import {
@@ -18,10 +17,11 @@ import { MobileMenu } from "./MobileMenu";
 import "../globals.css";
 import "./NavigationBar.css";
 import { Link } from "@/components/ui/link";
+import NextLink from "next/link";
 
 export const Products = [
   {
-    title: "Início",
+    title: "Soluções completas",
     description:
       "Descubra como o ISA Tech pode transformar a gestão do seu consultório",
     link: "/products#hero",
@@ -62,13 +62,15 @@ export function NavigationBar() {
       <nav className="navbar-content">
         <div className="w-4/5 items-center justify-between hidden lg:flex">
           <div className="flex flex-row gap-6 text-verde-musgo">
-            <Image
-              alt="Logomarca da navbar"
-              src={"/svg/nav-logo.svg"}
-              width={400}
-              height={400}
-              className="w-[120px] h-full"
-            />
+            <NextLink href="/">
+              <Image
+                alt="Logomarca da navbar"
+                src={"/svg/nav-logo.svg"}
+                width={800}
+                height={800}
+                className="w-[120px] h-full"
+              />
+            </NextLink>
 
             <NavigationMenu viewport={false}>
               <NavigationMenuList>
@@ -203,7 +205,7 @@ function ListItem({
                 {title}
               </p>
 
-              <p className="text-muted-foreground line-clamp-2 text-sm leading-snug">
+              <p className="text-muted-foreground line-clamp-3 text-sm leading-snug">
                 {children}
               </p>
             </div>

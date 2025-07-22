@@ -22,6 +22,7 @@ export default function Footer() {
           </span>
 
           <a
+            target="blank"
             href="https://www.instagram.com/isatechbr/"
             className="flex flex-row gap-2"
           >
@@ -31,7 +32,11 @@ export default function Footer() {
             <p className="text-sm underline">@isatechbr</p>
           </a>
 
-          <a href="wa.me/+5581983501757" className="flex flex-row gap-2">
+          <a
+            target="blank"
+            href="whttps://wa.me/+5581983501757"
+            className="flex flex-row gap-2"
+          >
             <div className="flex">
               <Phone />
             </div>
@@ -39,6 +44,7 @@ export default function Footer() {
           </a>
 
           <a
+            target="blank"
             href="https://maps.app.goo.gl/5SvZZ5rZaoDLijeh7"
             className="flex flex-row gap-2"
           >
@@ -74,7 +80,7 @@ export default function Footer() {
           >
             Depoimentos
           </a>
-          {/* <a href="#plans" className="hover:underline text-gray-100 text-sm">
+          {/* <a target="blank" href="#plans" className="hover:underline text-gray-100 text-sm">
             Planos
           </a> */}
         </div>
@@ -90,7 +96,7 @@ export default function Footer() {
           <a href="/about" className="hover:underline text-gray-100 text-sm">
             Sobre nós
           </a>
-          {/* <a href="#" className="hover:underline text-gray-100 text-sm">
+          {/* <a target="blank" href="#" className="hover:underline text-gray-100 text-sm">
             Valores
           </a> */}
         </div>
