@@ -26,7 +26,7 @@ interface ProductItem {
   id: number;
   title: string;
   description: string;
-  imageUrl: "";
+  imageUrl: string;
   linkText: string;
   linkHref: string;
 }
