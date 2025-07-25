@@ -355,7 +355,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
     >
       <div
         className={cn(
-          "flex w-12 h-12 items-center justify-center rounded-full p-2",
+          "flex w-12 h-12 items-center justify-center rounded-full p-3",
           variant === 1
             ? "bg-lavanda"
             : variant === 2
