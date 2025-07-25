@@ -1,5 +1,4 @@
 import { TimelineDemo } from "../_components/Timeline";
-import HeroImageFade from "../_components/HeroImageFade";
 import SectionHeader from "../_components/SectionHeader";
 import {
   Briefcase,
@@ -95,45 +94,67 @@ export default function AboutPage() {
           id="hero"
           className="pb-12 sm:h-[90vh] w-full flex flex-col sm:flex-row px-[5%] items-center justify-evenly pt-[120px] overflow-hidden"
         >
-          <div className="flex sm:grid sm:grid-cols-2 w-full sm:w-1/2 gap-6 h-full sm:h-auto justify-center">
-            <div className="flex-col gap-12 -pt282 hidden sm:flex">
-              {muralConfigs.slice(0, 3).map((cfg, index) => (
-                <HeroImageFade
-                  key={index}
-                  images={imagesPerSlot[index]}
-                  initialIndex={0}
-                  delay={cfg.delay}
-                  transitionInterval={cfg.transitionInterval}
-                />
-              ))}
-            </div>
+          <div className="flex relative w-full lg:w-1/3 lg:ml-[5%] lg:xl:ml-[8%] justify-center lg:justify-start">
+            <Image
+              alt="Imagem da hero"
+              src="/images/about/woman-looking-to-me.png"
+              width={800}
+              height={800}
+              // sizes="(max-width: 768px) 320px, (max-width: 1536px) 533px, 700px"
+              className="z-20 w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] xl:w-[350px] xl:h-[350px] 2xl:w-[450px] 2xl:h-[450px] object-contain"
+              priority
+            />
+            <Image
+              alt="Imagem da hero"
+              src="/images/hero/chat.png"
+              width={400}
+              height={400}
+              // sizes="(max-width: 768px) 320px, (max-width: 1536px) 533px, 700px"
+              className="floating-bottom z-20 w-[120px] h-[120px] sm:w-[94px] sm:h-[132px] 2xl:w-[129px] 2xl:h-[181px] object-contain absolute -top-[12%] left-[8%] sm:left-[18%] md:left-[25%] lg:-top-[12%] lg:-left-[8%] xl:left-0"
+              priority
+            />
+            <Image
+              alt="Imagem da hero"
+              src="/images/hero/dra.png"
+              width={200}
+              height={200}
+              // sizes="(max-width: 768px) 320px, (max-width: 1536px) 533px, 700px"
+              className="floating-top z-20 w-[60px] h-[60px] sm:w-[84px] sm:h-[84px] 2xl:w-[129px] 2xl:h-[129px] object-contain absolute bottom-[10%] left-[3%] sm:bottom-[25%] sm:left-[7%] lg:bottom-[34%] lg:-left-[28%]"
+              priority
+            />
 
-            <div className="sm:flex hidden flex-col gap-12 pt-28">
-              {muralConfigs.slice(3).map((cfg, index) => (
-                <HeroImageFade
-                  key={index + 3}
-                  images={imagesPerSlot[index + 3]}
-                  initialIndex={0}
-                  delay={cfg.delay}
-                  transitionInterval={cfg.transitionInterval}
-                />
-              ))}
-            </div>
+            <Image
+              alt="Imagem da hero"
+              src="/images/hero/graphic.png"
+              width={600}
+              height={600}
+              // sizes="(max-width: 768px) 320px, (max-width: 1536px) 533px, 700px"
+              className="floating-bottom z-20 w-[140px] h-[140px] sm:w-[194px] sm:h-[125px] 2xl:w-[266px] 2xl:h-[172px] object-contain absolute -bottom-[40%] left-[20%] sm:-bottom-[20%] lg:-bottom-[20%] lg:-left-[28%] xl:-left-[18%]"
+              priority
+            />
 
-            <div className="flex flex-row gap-3 sm:hidden">
-              {muralConfigs.map((cfg, index) => (
-                <HeroImageFade
-                  key={index}
-                  images={imagesPerSlot[index]}
-                  initialIndex={0}
-                  delay={cfg.delay}
-                  transitionInterval={cfg.transitionInterval}
-                />
-              ))}
-            </div>
+            <Image
+              alt="Imagem da hero"
+              src="/images/hero/patient.png"
+              width={200}
+              height={200}
+              // sizes="(max-width: 768px) 320px, (max-width: 1536px) 533px, 700px"
+              className="floating-top z-20 w-[50px] h-[50px] sm:w-[60px] sm:h-[60px] 2xl:w-[100px] 2xl:h-[100px] object-contain absolute -bottom-[30%] right-[25%] lg:-bottom-[32%] lg:right-[38%]"
+              priority
+            />
+
+            <Image
+              alt="Imagem da hero"
+              src="/images/hero/dashboard.png"
+              width={600}
+              height={600}
+              // sizes="(max-width: 768px) 320px, (max-width: 1536px) 533px, 700px"
+              className="floating-bottom z-20 w-[125px] h-[125px] sm:w-[242px] sm:h-[125px] 2xl:w-[277px] 2xl:h-[179px] object-contain absolute bottom-[5%] right-[4%] lg:-bottom-[6%] lg:-right-[22%] xl:-right-[12%] 2xl:-right-[5%]"
+              priority
+            />
           </div>
 
-          <div className="flex w-full sm:w-1/2 flex-col gap-6 pt-6 sm:pt-0 text-verde-musgo">
+          <div className="flex w-full sm:w-2/5 flex-col gap-6 pt-6 sm:pt-0 text-verde-musgo">
             <TextGenerateEffect
               duration={2}
               filter={false}
