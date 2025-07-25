@@ -229,49 +229,7 @@ const detailedFeaturesData: FeatureItem[] = [
   },
 ];
 
-// Interface de props para o componente SectionTitle
-interface SectionTitleProps {
-  children: React.ReactNode;
-}
-
-// Componente SectionTitle com animação
-const SectionTitle: React.FC<SectionTitleProps> = ({ children }) => {
-  const ref = useRef(null);
-  const inView = useInView(ref, { amount: 0.5, once: true });
-
-  const titleVariants = {
-    hidden: { opacity: 0, y: -50 },
-    visible: { opacity: 1, y: 0 },
-  };
-
-  const spanVariants = {
-    hidden: { width: 0 },
-    visible: { width: 80 },
-  };
-
-  return (
-    <motion.h2
-      ref={ref}
-      initial="hidden"
-      animate={inView ? "visible" : "hidden"}
-      variants={titleVariants}
-      transition={{ duration: 0.6 }}
-      // Ajuste de tamanhos de fonte responsivos
-      className="text-center text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-800 mb-8 pt-12 relative"
-    >
-      {children}
-      <motion.span
-        initial="hidden"
-        animate={inView ? "visible" : "hidden"}
-        variants={spanVariants}
-        transition={{ duration: 0.8, delay: 0.3 }}
-        className="block h-1.5 bg-verde-musgo mx-auto mt-3 rounded"
-      ></motion.span>
-    </motion.h2>
-  );
-};
-
-// Interface de props para o componente Card
+// Interface de props para o componente Card (Mantido para outras seções, mas não usado em "Nossos Produtos")
 interface CardProps {
   title: string;
   description: string;
@@ -315,10 +273,10 @@ const Card: React.FC<CardProps> = ({
           className="w-[150px] xl:w-[200px] 2xl:w-[250px]"
         />
       )}
-      <h3 className="text-xl sm:text-2xl font-bold text-verde-musgo mb-3 sm:mb-4 opacity-0">
+      <h3 className="text-xl sm:text-2xl font-bold text-verde-musgo mb-3 sm:mb-4">
         {title}
       </h3>
-      <p className="text-base sm:text-lg leading-relaxed flex-grow text-gray-600 -mt-4">
+      <p className="text-base sm:text-lg leading-relaxed flex-grow text-gray-600">
         {description}
       </p>
       <a
@@ -378,6 +336,69 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
   );
 };
 
+// --- NOVO COMPONENTE: ProductShowcaseItem ---
+interface ProductShowcaseItemProps extends ProductItem {
+  isEven: boolean; // Propriedade para controlar a ordem da imagem/texto
+}
+
+const ProductShowcaseItem: React.FC<ProductShowcaseItemProps> = ({
+  title,
+  description,
+  imageUrl,
+  linkText,
+  linkHref,
+  isEven,
+}) => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { amount: 0.4, once: true });
+
+  const slideInVariants = {
+    hidden: { opacity: 0, x: isEven ? 100 : -100 },
+    visible: { opacity: 1, x: 0 },
+  };
+
+  return (
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={inView ? "visible" : "hidden"}
+      variants={slideInVariants}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+      className={cn(
+        "flex flex-col md:flex-row items-center p-6 sm:p-10 mb-12 sm:mb-16",
+        isEven ? "md:flex-row-reverse" : "" // Inverte a ordem para itens pares
+      )}
+    >
+      {/* Coluna da Imagem */}
+      <div className="w-full md:w-1/2 flex justify-center items-center p-4">
+        <Image
+          src={imageUrl}
+          alt={title}
+          width={400} // Tamanho da imagem
+          height={400}
+          className="object-contain w-3/4 max-w-[300px] md:max-w-full" // Ajuste de tamanho responsivo
+        />
+      </div>
+
+      {/* Coluna do Texto */}
+      <div className="w-full md:w-1/2 text-center md:text-left mt-6 md:mt-0 p-4">
+        <h3 className="text-3xl sm:text-4xl font-bold text-verde-musgo mb-4">
+          {title}
+        </h3>
+        <p className="text-base sm:text-lg leading-relaxed text-gray-700 mb-6">
+          {description}
+        </p>
+        <a
+          href={linkHref}
+          className="inline-block px-8 sm:px-10 py-3 sm:py-4 bg-limao text-verde-musgo text-lg sm:text-xl font-bold rounded-full shadow-lg hover:bg-verde-musgo hover:text-limao transition-colors duration-300 transform hover:scale-105"
+        >
+          {linkText}
+        </a>
+      </div>
+    </motion.div>
+  );
+};
+
 // Componente Principal da Página de Produtos e Serviços
 const ProductsAndServices: React.FC = () => {
   return (
@@ -407,15 +428,20 @@ const ProductsAndServices: React.FC = () => {
           </a>
         </motion.section>
 
-        {/* Seção Nossos Produtos */}
+        {/* Seção Nossos Produtos (NOVO LAYOUT) */}
         <section
           id="products"
-          className="flex lg:mx-16 flex-col items-center justify-center"
+          className="flex lg:mx-16 flex-col items-center justify-center px-4"
         >
-          <SectionTitle>Nossos Produtos</SectionTitle>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 pb-12 sm:pb-16">
-            {productsData.map((product) => (
-              <Card key={product.id} {...product} />
+          <SectionHeader title="Nossos Produtos" />
+          <div className="w-full max-w-6xl">
+            {/* Iterar sobre os produtos e usar o novo componente */}
+            {productsData.map((product, index) => (
+              <ProductShowcaseItem
+                key={product.id}
+                {...product}
+                isEven={index % 2 === 1} // Passa se o índice é ímpar (para alternar a ordem)
+              />
             ))}
           </div>
         </section>
@@ -447,8 +473,9 @@ const ProductsAndServices: React.FC = () => {
           id="choose"
           className="py-12 sm:py-16 flex flex-col items-center justify-center lg:mx-16"
         >
-          <SectionTitle>Por Que Escolher ISA Tech?</SectionTitle>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 items-center">
+          <SectionHeader title="Por Que Escolher ISA Tech?" />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 items-center mt-12">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -553,7 +580,7 @@ const ProductsAndServices: React.FC = () => {
 
         {/* Seção Nossos Serviços */}
         <section id="services">
-          <SectionTitle>Nossos Serviços</SectionTitle>
+          <SectionHeader title="Nossos Serviços" />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 pb-12 sm:pb-16 lg:mx-16">
             {servicesData.map((service) => (
               <Card key={service.id} {...service} />

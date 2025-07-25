@@ -15,71 +15,7 @@ import Motion from "../_components/Motion";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import Image from "next/image";
 
-const usersImages = [
-  "/images/about/user1.png",
-  "/images/about/user2.png",
-  "/images/about/user3.jpg",
-  "/images/about/user4.jpg",
-  "/images/about/user5.jpg",
-  "/images/about/user6.jpg",
-  "/images/about/user7.jpg",
-  "/images/about/user8.jpg",
-  "/images/about/user9.jpg",
-  "/images/about/user10.jpg",
-  "/images/about/user11.jpg",
-];
-
-function getRandomDelay(min: number, max: number) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-function getRandomInterval(min: number, max: number) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-function rotateArray<T>(arr: T[], positions: number): T[] {
-  return arr.slice(positions).concat(arr.slice(0, positions));
-}
-
 export default function AboutPage() {
-  // Definindo configurações para cada "slot" do mural
-  const muralConfigs = [
-    {
-      initialIndex: 0,
-      delay: getRandomDelay(0, 800),
-      transitionInterval: getRandomInterval(3200, 5200),
-    },
-    {
-      initialIndex: 1,
-      delay: getRandomDelay(400, 1200),
-      transitionInterval: getRandomInterval(3500, 6000),
-    },
-    {
-      initialIndex: 2,
-      delay: getRandomDelay(800, 1600),
-      transitionInterval: getRandomInterval(4000, 7000),
-    },
-    {
-      initialIndex: 3,
-      delay: getRandomDelay(1200, 2000),
-      transitionInterval: getRandomInterval(3700, 6500),
-    },
-    {
-      initialIndex: 4,
-      delay: getRandomDelay(1600, 2400),
-      transitionInterval: getRandomInterval(3300, 6000),
-    },
-    {
-      initialIndex: 5,
-      delay: getRandomDelay(2000, 3000),
-      transitionInterval: getRandomInterval(4200, 8000),
-    },
-  ];
-
-  // Gera arrays rotacionados para cada slot
-  const imagesPerSlot = muralConfigs.map((cfg, idx) =>
-    rotateArray(usersImages, idx)
-  );
-
   return (
     <main className="h-full w-full bg-white">
       <motion.div
@@ -92,9 +28,9 @@ export default function AboutPage() {
       >
         <section
           id="hero"
-          className="pb-12 sm:h-[90vh] w-full flex flex-col sm:flex-row px-[5%] items-center justify-evenly pt-[120px] overflow-hidden"
+          className="h-full min-h-[90vh] pb-12 items-center flex-col justify-center flex w-full pt-[120px] sm:pt-[160px] lg:pt-[80px] lg:flex-row lg:justify-evenly z-20"
         >
-          <div className="flex relative w-full lg:w-1/3 lg:ml-[5%] lg:xl:ml-[8%] justify-center lg:justify-start">
+          <div className="flex relative w-full lg:w-1/3 lg:ml-[5%] lg:xl:ml-[8%] justify-center lg:justify-start lg:-mt-24">
             <Image
               alt="Imagem da hero"
               src="/images/about/woman-looking-to-me.png"
@@ -154,7 +90,7 @@ export default function AboutPage() {
             />
           </div>
 
-          <div className="flex w-full sm:w-2/5 flex-col gap-6 pt-6 sm:pt-0 text-verde-musgo">
+          <div className="flex w-full sm:w-4/5 lg:w-2/5 flex-col gap-6 pt-6 sm:pt-0 text-verde-musgo mt-24 px-4">
             <TextGenerateEffect
               duration={2}
               filter={false}

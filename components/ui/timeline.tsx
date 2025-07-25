@@ -1,5 +1,6 @@
 "use client";
 
+import SectionHeader from "@/app/_components/SectionHeader";
 import React, { useEffect, useRef, useState, useCallback } from "react";
 import type { ReactNode } from "react";
 
@@ -182,11 +183,7 @@ export const Timeline: React.FC<TimelineProps> = ({
       {/* Cabeçalho da Seção (Opcional) */}
       {(sectionHeaderTitle || sectionHeaderDescription) && (
         <div className="flex flex-col text-center w-full items-center justify-center gap-2 lg:mb-10 px-[5%]">
-          {sectionHeaderTitle && (
-            <h2 className="text-3xl md:text-4xl font-bold text-neutral-800 dark:text-white">
-              {sectionHeaderTitle}
-            </h2>
-          )}
+          {sectionHeaderTitle && <SectionHeader title={sectionHeaderTitle} />}
           {sectionHeaderDescription && (
             <p className="text-neutral-700 dark:text-neutral-300 max-w-2xl">
               {sectionHeaderDescription}
