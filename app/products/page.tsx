@@ -389,7 +389,7 @@ const ProductsAndServices: React.FC = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-center py-16 px-4 sm:py-20 bg-verde-musgo rounded-2xl shadow-xl mb-16 sm:mb-20"
+          className="text-center py-16 px-4 sm:py-20 bg-verde-musgo rounded-2xl shadow-xl mb-16 sm:mb-20 lg:mx-16"
         >
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 sm:mb-6 leading-tight text-limao">
             Soluções Completas para a Sua Clínica
@@ -408,7 +408,10 @@ const ProductsAndServices: React.FC = () => {
         </motion.section>
 
         {/* Seção Nossos Produtos */}
-        <section id="products">
+        <section
+          id="products"
+          className="flex lg:mx-16 flex-col items-center justify-center"
+        >
           <SectionTitle>Nossos Produtos</SectionTitle>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 pb-12 sm:pb-16">
             {productsData.map((product) => (
@@ -440,7 +443,10 @@ const ProductsAndServices: React.FC = () => {
         </section>
 
         {/* Seção Por Que Escolher ISA Tech? */}
-        <section id="choose" className="py-12 sm:py-16">
+        <section
+          id="choose"
+          className="py-12 sm:py-16 flex flex-col items-center justify-center lg:mx-16"
+        >
           <SectionTitle>Por Que Escolher ISA Tech?</SectionTitle>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 items-center">
             <motion.div
@@ -514,7 +520,7 @@ const ProductsAndServices: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5 }}
-              className="bg-white p-6 sm:p-8 rounded-xl shadow-md border border-gray-100"
+              className="bg-white p-6 sm:p-8 rounded-xl shadow-md border border-gray-100 max-w-2xl"
             >
               <p className="italic text-base sm:text-lg text-gray-700 mb-3 sm:mb-4">
                 {`"O ISA Tech revolucionou a gestão da minha clínica. O sistema é
@@ -525,12 +531,13 @@ const ProductsAndServices: React.FC = () => {
                   - Dra. Ana Paula, Cardiologista
                 </p> */}
             </motion.div>
+
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="bg-white p-6 sm:p-8 rounded-xl shadow-md border border-gray-100"
+              className="bg-white p-6 sm:p-8 rounded-xl shadow-md border border-gray-100 max-w-2xl"
             >
               <p className="italic text-base sm:text-lg text-gray-700 mb-3 sm:mb-4">
                 {`"A telemedicina do ISA Tech me permitiu expandir meus
@@ -547,7 +554,7 @@ const ProductsAndServices: React.FC = () => {
         {/* Seção Nossos Serviços */}
         <section id="services">
           <SectionTitle>Nossos Serviços</SectionTitle>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 pb-12 sm:pb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 pb-12 sm:pb-16 lg:mx-16">
             {servicesData.map((service) => (
               <Card key={service.id} {...service} />
             ))}
@@ -560,7 +567,7 @@ const ProductsAndServices: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.7 }}
-          className="text-center py-16 px-4 sm:py-20 bg-verde-musgo rounded-2xl shadow-xl"
+          className="text-center py-16 px-4 sm:py-20 bg-verde-musgo rounded-2xl shadow-xl lg:mx-16"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-limao mb-4 sm:mb-6 leading-tight">
             Pronto para Transformar Sua Rotina?
