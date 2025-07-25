@@ -20,6 +20,9 @@ import {
   Bot,
 } from "lucide-react";
 import { useInView } from "motion/react";
+import SectionHeader from "../_components/SectionHeader";
+import Motion from "../_components/Motion";
+import { cn } from "@/lib/utils";
 
 // Interfaces para as estruturas de dados
 interface ProductItem {
@@ -45,6 +48,7 @@ interface FeatureItem {
   title: string;
   description: string;
   icon: React.ReactNode;
+  variant: number;
 }
 
 // Dados para a seção de Produtos
@@ -133,6 +137,7 @@ const detailedFeaturesData: FeatureItem[] = [
     description:
       "Otimize a agenda da sua clínica de forma eficiente. Agende consultas com facilidade, evite conflitos de horário e ofereça um atendimento ágil e conveniente.",
     icon: <Calendar className="w-12 h-12 text-verde-musgo" />,
+    variant: 1,
   },
   {
     id: 2,
@@ -140,13 +145,15 @@ const detailedFeaturesData: FeatureItem[] = [
     description:
       "Encante os pacientes desde o primeiro momento. Nossa equipe de recepção está pronta para oferecer um acolhimento caloroso e uma experiência memorável.",
     icon: <Users className="w-12 h-12 text-verde-musgo" />,
+    variant: 2,
   },
   {
     id: 3,
     title: "Prontuário Eletrônico",
     description:
       "Mantenha os registros de saúde dos seus pacientes de forma segura e acessível. Tenha todas as informações necessárias ao alcance para um atendimento personalizado e eficaz.",
-    icon: <FileText className="w-12 h-12 text-verde-musgo" />,
+    icon: <FileText className="w-12 h-12 text-limao" />,
+    variant: 3,
   },
   {
     id: 4,
@@ -154,13 +161,15 @@ const detailedFeaturesData: FeatureItem[] = [
     description:
       "Simplifique a parte financeira da sua clínica. Lidamos com o faturamento TISS, garantindo conformidade e permitindo que você foque na saúde dos pacientes.",
     icon: <DollarSign className="w-12 h-12 text-verde-musgo" />,
+    variant: 2,
   },
   {
     id: 5,
     title: "Prescrição Digital",
     description:
       "Modernize suas prescrições médicas. Ofereça tratamentos avançados com prescrições digitais precisas e integradas ao histórico do paciente.",
-    icon: <ClipboardList className="w-12 h-12 text-verde-musgo" />,
+    icon: <ClipboardList className="w-12 h-12 text-limao" />,
+    variant: 3,
   },
   {
     id: 6,
@@ -168,13 +177,15 @@ const detailedFeaturesData: FeatureItem[] = [
     description:
       "Decisões baseadas em dados para otimizar sua clínica. Visualize informações relevantes de forma clara e tome decisões informadas para um gerenciamento eficaz.",
     icon: <BarChart2 className="w-12 h-12 text-verde-musgo" />,
+    variant: 1,
   },
   {
     id: 7,
     title: "Financeiro",
     description:
       "Mantenha as finanças da sua clínica organizadas. Gerencie pagamentos, receitas e despesas de forma simples, garantindo estabilidade e crescimento.",
-    icon: <Wallet className="w-12 h-12 text-verde-musgo" />,
+    icon: <Wallet className="w-12 h-12 text-limao" />,
+    variant: 3,
   },
   {
     id: 8,
@@ -182,6 +193,7 @@ const detailedFeaturesData: FeatureItem[] = [
     description:
       "Otimização no atendimento. Utilize nosso painel de chamada para manter um fluxo contínuo e eficiente, garantindo que os pacientes sejam atendidos prontamente.",
     icon: <MonitorPlay className="w-12 h-12 text-verde-musgo" />,
+    variant: 2,
   },
   {
     id: 9,
@@ -189,6 +201,7 @@ const detailedFeaturesData: FeatureItem[] = [
     description:
       "Comunique-se de maneira direta e segura. Nosso chat interno permite uma comunicação eficiente entre a equipe médica, agilizando processos e decisões.",
     icon: <MessageSquare className="w-12 h-12 text-verde-musgo" />,
+    variant: 1,
   },
   {
     id: 10,
@@ -196,13 +209,15 @@ const detailedFeaturesData: FeatureItem[] = [
     description:
       "Tecnologia ao alcance do médico. Nosso aplicativo exclusivo oferece ferramentas personalizadas para otimizar sua prática, simplificando a rotina clínica.",
     icon: <Smartphone className="w-12 h-12 text-verde-musgo" />,
+    variant: 1,
   },
   {
     id: 11,
     title: "Telemedicina",
     description:
       "Ofereça consultas remotas ilimitadas de qualidade. Amplie seu alcance, mantenha o cuidado à distância e proporcione comodidade aos pacientes com a telemedicina. Acesse os prontuários durante as consultas online.",
-    icon: <Video className="w-12 h-12 text-verde-musgo" />,
+    icon: <Video className="w-12 h-12 text-limao" />,
+    variant: 3,
   },
   {
     id: 12,
@@ -210,6 +225,7 @@ const detailedFeaturesData: FeatureItem[] = [
     description:
       "Revolucione sua prática clínica com a ISA, nossa Inteligência Artificial avançada. Ela oferece suporte inteligente durante as consultas, otimiza tarefas administrativas, auxilia na análise de dados complexos e fornece insights valiosos para um atendimento ainda mais preciso e eficiente.",
     icon: <Bot className="w-12 h-12 text-verde-musgo" />,
+    variant: 2,
   },
 ];
 
@@ -299,10 +315,10 @@ const Card: React.FC<CardProps> = ({
           className="w-[150px] xl:w-[200px] 2xl:w-[250px]"
         />
       )}
-      <h3 className="text-xl sm:text-2xl font-bold text-verde-musgo mb-3 sm:mb-4">
+      <h3 className="text-xl sm:text-2xl font-bold text-verde-musgo mb-3 sm:mb-4 opacity-0">
         {title}
       </h3>
-      <p className="text-base sm:text-lg leading-relaxed flex-grow text-gray-600">
+      <p className="text-base sm:text-lg leading-relaxed flex-grow text-gray-600 -mt-4">
         {description}
       </p>
       <a
@@ -320,6 +336,7 @@ interface FeatureCardProps {
   title: string;
   description: string;
   icon: React.ReactNode;
+  variant: number;
 }
 
 // Componente FeatureCard para Funcionalidades Detalhadas
@@ -327,32 +344,37 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
   title,
   description,
   icon,
+  variant,
 }) => {
-  const ref = useRef(null);
-  const inView = useInView(ref, { amount: 0.3, once: true });
-
-  const featureCardVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0 },
-  };
-
   return (
-    <motion.div
-      ref={ref}
-      initial="hidden"
-      animate={inView ? "visible" : "hidden"}
-      variants={featureCardVariants}
-      transition={{ duration: 0.5 }}
-      className="bg-white rounded-xl shadow-md hover:shadow-lg  p-5 sm:p-6 flex flex-col items-center text-center h-full border border-gray-100"
+    <Motion
+      key={5}
+      direction="top"
+      identifier={5}
+      className="flex items-start gap-4 w-xs sm:w-md lg:w-xs my-4"
     >
-      <div className="mb-3 sm:mb-4 text-verde-musgo">{icon}</div>
-      <h4 className="text-lg sm:text-xl font-semibold text-verde-musgo mb-2 sm:mb-3">
-        {title}
-      </h4>
-      <p className="text-sm sm:text-base leading-relaxed text-gray-600">
-        {description}
-      </p>
-    </motion.div>
+      <div
+        className={cn(
+          "flex w-12 h-12 items-center justify-center rounded-full p-2",
+          variant === 1
+            ? "bg-lavanda"
+            : variant === 2
+            ? "bg-limao"
+            : "bg-verde-musgo"
+        )}
+      >
+        {icon}
+      </div>
+
+      <div className="w-2/3 sm:w-full md:w-2/3 xl:w-full">
+        <h3 className="text-lg font-semibold text-neutral-800 dark:text-white mb-1">
+          {title}
+        </h3>
+        <p className="text-sm text-neutral-600 dark:text-neutral-300">
+          {description}
+        </p>
+      </div>
+    </Motion>
   );
 };
 
@@ -360,7 +382,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
 const ProductsAndServices: React.FC = () => {
   return (
     <div className="bg-gray-50 min-h-screen">
-      <main className="container mx-auto px-4 py-8 sm:py-12 pt-[80px] xl:pt-[120px]">
+      <main className="mx-auto py-8 sm:py-12 pt-[80px] xl:pt-[120px]">
         {/* Seção Hero/Introdução */}
         <motion.section
           id="hero"
@@ -398,20 +420,22 @@ const ProductsAndServices: React.FC = () => {
         {/* Seção Nossas Funcionalidades em Detalhe */}
         <section
           id="features"
-          className="py-12 sm:py-16 px-4 bg-limao/30 rounded-2xl mb-16 sm:mb-20 shadow-inner"
+          className="flex flex-col items-center justify-center py-12 sm:py-16 bg-limao/30 sm:mb-20"
         >
-          <SectionTitle>
-            Funcionalidades que Impulsionam Sua Clínica
-          </SectionTitle>
-          <p className="text-base sm:text-lg md:text-xl text-center text-gray-700 max-w-4xl mx-auto mb-8 sm:mb-12">
-            O ISA Tech é construído com módulos poderosos para cobrir todas as
-            necessidades da sua gestão. Conheça cada uma das ferramentas que
-            farão a diferença no seu dia a dia:
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 px-4">
-            {detailedFeaturesData.map((feature) => (
-              <FeatureCard key={feature.id} {...feature} />
-            ))}
+          <div className="flex container flex-col items-center justify-center gap-8 px-12 xl:px-24 ">
+            <SectionHeader title="Funcionalidades que Impulsionam Sua Clínica" />
+
+            <p className="text-base sm:text-lg md:text-xl text-center text-gray-700 max-w-4xl mx-auto mb-8 sm:mb-12">
+              O ISA Tech é construído com módulos poderosos para cobrir todas as
+              necessidades da sua gestão. Conheça cada uma das ferramentas que
+              farão a diferença no seu dia a dia:
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-6 xl:gap-12">
+              {detailedFeaturesData.map((feature) => (
+                <FeatureCard key={feature.id} {...feature} />
+              ))}
+            </div>
           </div>
         </section>
 
@@ -481,9 +505,9 @@ const ProductsAndServices: React.FC = () => {
         {/* Seção Depoimentos (Simplificada) */}
         <section
           id="services"
-          className="py-12 sm:py-16 bg-verde-musgo/10 rounded-2xl mb-16 sm:mb-20 shadow-inner"
+          className="py-12 sm:py-16 bg-limao/30 mb-16 sm:mb-20 flex flex-col items-center gap-12 px-4 xl:px-12"
         >
-          <SectionTitle>O Que Nossos Clientes Dizem</SectionTitle>
+          <SectionHeader title="O Que Nossos Clientes Dizem" />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 px-4">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
@@ -494,12 +518,12 @@ const ProductsAndServices: React.FC = () => {
             >
               <p className="italic text-base sm:text-lg text-gray-700 mb-3 sm:mb-4">
                 {`"O ISA Tech revolucionou a gestão da minha clínica. O sistema é
-                intuitivo e o suporte é impecável. Recomendo a todos os
-                colegas!"`}
+                  intuitivo e o suporte é impecável. Recomendo a todos os
+                  colegas!"`}
               </p>
               {/* <p className="font-semibold text-verde-musgo text-base sm:text-lg">
-                - Dra. Ana Paula, Cardiologista
-              </p> */}
+                  - Dra. Ana Paula, Cardiologista
+                </p> */}
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 50 }}
@@ -510,12 +534,12 @@ const ProductsAndServices: React.FC = () => {
             >
               <p className="italic text-base sm:text-lg text-gray-700 mb-3 sm:mb-4">
                 {`"A telemedicina do ISA Tech me permitiu expandir meus
-                atendimentos e oferecer mais comodidade aos pacientes. É a
-                ferramenta que faltava!"`}
+                  atendimentos e oferecer mais comodidade aos pacientes. É a
+                  ferramenta que faltava!"`}
               </p>
               {/* <p className="font-semibold text-verde-musgo text-base sm:text-lg">
-                - Dr. Carlos Eduardo, Clínico Geral
-              </p> */}
+                  - Dr. Carlos Eduardo, Clínico Geral
+                </p> */}
             </motion.div>
           </div>
         </section>
