@@ -18,6 +18,7 @@ import "../globals.css";
 import "./NavigationBar.css";
 import { Link } from "@/components/ui/link";
 import NextLink from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 
 export const Products = [
   {
@@ -53,7 +54,8 @@ export const Products = [
 
 export function NavigationBar() {
   const [mobileOpen, setMobileOpen] = React.useState(false);
-
+  const pathname = usePathname(); // Obtém a rota atual
+  const router = useRouter();
   return (
     <>
       <div className="navbar-blur-wrapper">
@@ -74,10 +76,28 @@ export function NavigationBar() {
 
             <NavigationMenu viewport={false}>
               <NavigationMenuList>
-                <NavigationMenuLink href="/">Início</NavigationMenuLink>
+                <NavigationMenuLink
+                  href="/"
+                  className={cn(
+                    "cursor-pointer",
+                    pathname === "/"
+                      ? "border border-verde-musgo px-6 bg-limao/30"
+                      : ""
+                  )}
+                >
+                  Início
+                </NavigationMenuLink>
 
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger>
+                  <NavigationMenuTrigger
+                    onClick={() => router.push("/products")}
+                    className={cn(
+                      "cursor-pointer",
+                      pathname === "/products"
+                        ? "border border-verde-musgo pl-6 bg-limao/30 text-verde-musgo"
+                        : ""
+                    )}
+                  >
                     Produtos e serviços
                   </NavigationMenuTrigger>
 
@@ -112,7 +132,17 @@ export function NavigationBar() {
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger>Sobre nós</NavigationMenuTrigger>
+                  <NavigationMenuTrigger
+                    onClick={() => router.push("/about")}
+                    className={cn(
+                      "cursor-pointer",
+                      pathname === "/about"
+                        ? "border border-verde-musgo pl-6 bg-limao/30 text-verde-musgo"
+                        : ""
+                    )}
+                  >
+                    Sobre nós
+                  </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="grid gap-2 w-[500px] md:grid-cols-2">
                       {aboutTab.map((item) => (
