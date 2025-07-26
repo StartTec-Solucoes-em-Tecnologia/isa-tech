@@ -172,12 +172,14 @@ export function NavigationBar() {
         </div>
 
         <ul className="flex flex-row w-4/5 h-full items-center justify-between lg:hidden">
-          <Image
-            alt="Logomarca da navbar"
-            src={"/svg/nav-logo.svg"}
-            width={96}
-            height={47}
-          />
+          <NextLink href="/">
+            <Image
+              alt="Logomarca da navbar"
+              src={"/svg/nav-logo.svg"}
+              width={96}
+              height={47}
+            />
+          </NextLink>
 
           <button className="p-4" onClick={() => setMobileOpen(true)}>
             <MenuIcon className="text-verde-musgo" />
