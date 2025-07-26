@@ -330,7 +330,7 @@ export const Timeline: React.FC<TimelineProps> = ({
       {/* Contêiner da Timeline com Lógicas de Scroll Responsivas */}
       <div
         ref={scrollContainerRef}
-        className={`relative flex flex-row overflow-x-scroll px-16 select-none timeline-scroll-padding
+        className={`relative flex flex-row overflow-x-scroll lg:px-16 select-none timeline-scroll-padding
                    snap-x snap-mandatory lg:snap-none`}
         style={{ cursor: isDragging ? "grabbing" : "grab" }}
         onMouseDown={handleMouseDown}

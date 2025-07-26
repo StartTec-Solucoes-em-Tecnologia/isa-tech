@@ -320,11 +320,11 @@ export default function AboutPage() {
 
       <section
         id="motivation"
-        className="relative w-full py-6 md:py-32 -mb-8 overflow-hidden bg-gradient-to-br from-white via-white to-[#E6ECC0]/50 dark:from-neutral-950 dark:via-neutral-950 dark:to-[#274F4A]/30"
+        className="relative w-full py-6 md:py-32 mt-12 md:mt-0 -mb-8 overflow-hidden bg-gradient-to-br from-white via-white to-[#E6ECC0]/50 dark:from-neutral-950 dark:via-neutral-950 dark:to-[#274F4A]/30"
       >
         <div className="max-w-7xl lg:w-11/12 xl:w-4/5 mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center z-10 relative">
           <div>
-            <h2 className="text-3xl 2xl:text-4xl text-gray-700 text-start">
+            <h2 className="text-3xl 2xl:text-4xl text-gray-700 text-center sm:text-start">
               Acreditamos que a boa medicina começa com tempo e clareza.
             </h2>
 

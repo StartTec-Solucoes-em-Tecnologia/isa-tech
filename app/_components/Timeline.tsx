@@ -71,7 +71,7 @@ export function TimelineDemo() {
 
       <AnimatedPointer />
 
-      <p className="text-center w-full items-center">
+      <p className="text-center w-full items-center px-4 md:px-0">
         <strong className="text-verde-musgo">
           Clique e arraste para o lado
         </strong>{" "}
