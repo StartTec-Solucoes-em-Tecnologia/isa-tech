@@ -290,7 +290,11 @@ const Card: React.FC<CardProps> = ({
         href={linkHref}
         className={cn(
           "mt-4 sm:mt-6 px-6 sm:px-7 py-2 sm:py-3 font-semibold rounded-lg hover:bg-verde-musgo hover:text-limao transition-colors duration-300 shadow-md text-xs",
-          case2 ? "bg-verde-musgo text-limao" : "bg-limao text-verde-musgo"
+          case2
+            ? "bg-verde-musgo text-limao"
+            : case1
+            ? "bg-limao text-verde-musgo"
+            : "bg-verde-musgo text-limao"
         )}
       >
         {linkText}
@@ -516,7 +520,7 @@ const ProductsAndServices: React.FC = () => {
               />
             </div>
 
-            <div className="flex w-full sm:w-4/5 lg:w-2/5 flex-col gap-6 pt-6 sm:pt-0 text-verde-musgo px-4">
+            <div className="flex w-full sm:w-4/5 lg:w-2/5 flex-col gap-6 pt-6 sm:pt-0 text-verde-musgo px-4 mt-24 lg:mt-0">
               <TextGenerateEffect
                 duration={2}
                 filter={false}
@@ -579,7 +583,7 @@ const ProductsAndServices: React.FC = () => {
         {/* Seção Por Que Escolher ISA Tech? */}
         <section
           id="choose"
-          className="py-12 sm:py-16 flex flex-col items-center justify-center lg:mx-16"
+          className="py-12 sm:py-16 flex flex-col items-center justify-center lg:mx-16 px-8 lg:px-0"
         >
           <SectionHeader title="Por Que Escolher ISA Tech?" />
 
@@ -689,7 +693,7 @@ const ProductsAndServices: React.FC = () => {
         {/* Seção Nossos Serviços */}
         <section
           id="services"
-          className="flex flex-col items-center justify-center gap-12"
+          className="flex flex-col items-center justify-center gap-12 px-8"
         >
           <SectionHeader title="Nossos Serviços" />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 pb-12 sm:pb-16 lg:mx-16">
@@ -705,7 +709,7 @@ const ProductsAndServices: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.7 }}
-          className="text-center py-16 px-4 sm:py-20 bg-limao text-white rounded-2xl shadow-xl lg:mx-16 banner-background"
+          className="text-center py-16 px-4 mx-4 sm:py-20 bg-limao text-white rounded-2xl shadow-xl lg:mx-16 banner-background"
         >
           <h2 className="text-3xl font-bold mb-4 sm:mb-6 leading-tight">
             Pronto para Transformar Sua Rotina?
