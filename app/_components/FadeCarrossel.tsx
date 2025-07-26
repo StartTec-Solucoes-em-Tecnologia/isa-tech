@@ -14,6 +14,8 @@ export default function FadeCarrossel() {
     "/images/features/prontuario-eletronico.png",
     "/images/features/Faturamento-2.png",
     "/images/features/Chat-Interno-2.png",
+    "/images/features/Painel-dechamado.png",
+    "/images/features/ChatBot.png",
     "/images/features/Estoque-Movimentacao-2.png",
   ];
   const [selectedImage, setSelectedImage] = useState<number>(0);

@@ -1,5 +1,6 @@
 import { clsx, type ClassValue } from "clsx";
 import {
+  BotMessageSquare,
   Box,
   Calendar,
   HandCoins,
@@ -8,6 +9,7 @@ import {
   MessageSquareText,
   ScrollText,
   Sofa,
+  Tickets,
   Zap,
 } from "lucide-react";
 import { twMerge } from "tailwind-merge";
@@ -110,12 +112,12 @@ export const featureCards = [
     textColor: "text-lavanda-escuro",
     bgColor: "bg-lavanda",
   },
-  // {
-  //   title: "Gestão de filas",
-  //   icon: Tickets,
-  //   textColor: "text-verde-musgo",
-  //   bgColor: "bg-limao",
-  // },
+  {
+    title: "Gestão de filas",
+    icon: Tickets,
+    textColor: "text-verde-musgo",
+    bgColor: "bg-limao",
+  },
   // {
   //   title: "Aplicativo do Médico",
   //   icon: TabletSmartphone,
@@ -134,12 +136,12 @@ export const featureCards = [
   //   textColor: "text-verde-musgo",
   //   bgColor: "bg-lavanda",
   // },
-  // {
-  //   title: "ChatBot",
-  //   icon: BotMessageSquare,
-  //   textColor: "text-verde-musgo",
-  //   bgColor: "bg-limao",
-  // },
+  {
+    title: "ChatBot",
+    icon: BotMessageSquare,
+    textColor: "text-verde-musgo",
+    bgColor: "bg-limao",
+  },
   // {
   //   title: "I.A Inteligencia Artificial",
   //   icon: BrainCircuit,

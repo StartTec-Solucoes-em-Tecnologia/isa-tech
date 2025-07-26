@@ -76,7 +76,7 @@ const productsData: ProductItem[] = [
     id: 6,
     title: "Isa Clinic",
     description: "Gestão completa para sua clínica. Tudo em um só lugar.",
-    imageUrl: "/images/logos/clinic.png",
+    imageUrl: "/images/products/isaclinic.png",
     linkText: "Saber Mais",
     linkHref: "#", // Link a ser definido
   },
@@ -85,7 +85,7 @@ const productsData: ProductItem[] = [
     title: "Isa Cont",
     description:
       "Contabilidade integrada com as soluções ISA. Menos dor de cabeça, mais controle.",
-    imageUrl: "/images/logos/count.png",
+    imageUrl: "/images/products/isacount.png",
     linkText: "Conhecer Isa Cont",
     linkHref: "#", // Link a ser definido
   },
@@ -94,7 +94,7 @@ const productsData: ProductItem[] = [
     title: "Isa Consult",
     description:
       "Consultoria para sua clínica crescer com eficiência: reduza custos, aumente lucros.",
-    imageUrl: "/images/logos/consult.png",
+    imageUrl: "/images/products/isaconsult.png",
     linkText: "Solicitar Consultoria",
     linkHref: "#", // Link a ser definido
   },
