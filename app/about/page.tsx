@@ -30,7 +30,7 @@ export default function AboutPage() {
           id="hero"
           className="h-full min-h-[90vh] pb-12 items-center flex-col justify-center flex w-full pt-[120px] sm:pt-[160px] lg:pt-[80px] lg:flex-row lg:justify-evenly z-20"
         >
-          <div className="flex relative w-full lg:w-1/3 lg:ml-[5%] lg:xl:ml-[8%] justify-center lg:justify-start lg:-mt-24">
+          <div className="flex relative w-full lg:w-1/3 lg:ml-[5%] lg:xl:ml-[8%] justify-center lg:justify-start lg:-mt-12">
             <Image
               alt="Imagem da hero"
               src="/images/about/woman-looking-to-me.png"
@@ -96,7 +96,7 @@ export default function AboutPage() {
               filter={false}
               words={`Muito além de um sistema: somos parceiros da boa medicina.`}
             />
-            <p className="text-sm xl:text-base">
+            <p className="text-xs xl:text-base">
               A ISA TECH nasceu para transformar a forma como médicos e clínicas
               vivem a gestão.
               <br />

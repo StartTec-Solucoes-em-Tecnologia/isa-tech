@@ -23,6 +23,7 @@ import { useInView } from "motion/react";
 import SectionHeader from "../_components/SectionHeader";
 import Motion from "../_components/Motion";
 import { cn } from "@/lib/utils";
+import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 
 // Interfaces para as estruturas de dados
 interface ProductItem {
@@ -58,7 +59,7 @@ const productsData: ProductItem[] = [
     title: "Isa Bot",
     description:
       "Automatize mensagens, agendamentos e check-ins. Atenda 24h com o nosso chatbot.",
-    imageUrl: "/images/logos/bot.png",
+    imageUrl: "/images/products/isabot.png",
     linkText: "Conhecer Isa Bot",
     linkHref: "#", // Link a ser definido
   },
@@ -67,7 +68,7 @@ const productsData: ProductItem[] = [
     title: "Isa Go",
     description:
       "O app médico que te dá mobilidade, controle e praticidade — onde você estiver.",
-    imageUrl: "/images/logos/go.png",
+    imageUrl: "/images/highlights/gestao.png",
     linkText: "Baixar App",
     linkHref: "#", // Link a ser definido
   },
@@ -254,6 +255,9 @@ const Card: React.FC<CardProps> = ({
     visible: { opacity: 1, scale: 1 },
   };
 
+  const case1 = title === "Suporte Humanizado e Especializado";
+  const case2 = title === "Implantação e Treinamento";
+
   return (
     <motion.div
       ref={ref}
@@ -261,7 +265,14 @@ const Card: React.FC<CardProps> = ({
       animate={inView ? "visible" : "hidden"}
       variants={cardVariants}
       transition={{ duration: 0.5 }}
-      className="bg-white rounded-xl shadow-lg hover:shadow-xl p-6 sm:p-8 flex flex-col items-center text-center h-full border border-gray-100"
+      className={cn(
+        "p-6 rounded-xl sm:p-8 flex flex-col items-center text-center h-full",
+        case1
+          ? "bg-verde-musgo text-white"
+          : case2
+          ? "bg-lavanda text-verde-musgo"
+          : "bg-limao"
+      )}
     >
       {imageUrl && (
         <Image
@@ -273,15 +284,14 @@ const Card: React.FC<CardProps> = ({
           className="w-[150px] xl:w-[200px] 2xl:w-[250px]"
         />
       )}
-      <h3 className="text-xl sm:text-2xl font-bold text-verde-musgo mb-3 sm:mb-4">
-        {title}
-      </h3>
-      <p className="text-base sm:text-lg leading-relaxed flex-grow text-gray-600">
-        {description}
-      </p>
+      <h3 className="text-xl font-bold mb-3 sm:mb-4">{title}</h3>
+      <p className="text-sm leading-relaxed flex-grow">{description}</p>
       <a
         href={linkHref}
-        className="mt-4 sm:mt-6 px-6 sm:px-7 py-2 sm:py-3 bg-limao text-verde-musgo font-semibold rounded-lg hover:bg-verde-musgo hover:text-limao transition-colors duration-300 shadow-md text-base sm:text-lg"
+        className={cn(
+          "mt-4 sm:mt-6 px-6 sm:px-7 py-2 sm:py-3 font-semibold rounded-lg hover:bg-verde-musgo hover:text-limao transition-colors duration-300 shadow-md text-xs",
+          case2 ? "bg-verde-musgo text-limao" : "bg-limao text-verde-musgo"
+        )}
       >
         {linkText}
       </a>
@@ -376,7 +386,7 @@ const ProductShowcaseItem: React.FC<ProductShowcaseItemProps> = ({
           alt={title}
           width={400} // Tamanho da imagem
           height={400}
-          className="object-contain w-3/4 max-w-[300px] md:max-w-full" // Ajuste de tamanho responsivo
+          className="object-contain w-3/4 max-w-[300px] max-h-[300px] md:max-w-full rounded-3xl" // Ajuste de tamanho responsivo
         />
       </div>
 
@@ -402,31 +412,129 @@ const ProductShowcaseItem: React.FC<ProductShowcaseItemProps> = ({
 // Componente Principal da Página de Produtos e Serviços
 const ProductsAndServices: React.FC = () => {
   return (
-    <div className="bg-gray-50 min-h-screen">
-      <main className="mx-auto py-8 sm:py-12 pt-[80px] xl:pt-[120px]">
+    <div className="bg-white min-h-screen">
+      <main className="mx-auto py-8 sm:py-12">
         {/* Seção Hero/Introdução */}
-        <motion.section
+        {/* <section
           id="hero"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-center py-16 px-4 sm:py-20 bg-verde-musgo rounded-2xl shadow-xl mb-16 sm:mb-20 lg:mx-16"
+          className="h-full min-h-[80vh] items-center flex-col justify-center flex w-full lg:flex-row lg:justify-evenly z-20 banner-background"
         >
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 sm:mb-6 leading-tight text-limao">
-            Soluções Completas para a Sua Clínica
-          </h1>
-          <p className="text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto mb-6 sm:mb-8 text-white">
-            Descubra como o ISA Tech pode transformar a gestão do seu
-            consultório, oferecendo inteligência, segurança e leveza para sua
-            rotina médica.
-          </p>
-          <a
-            href="https://isa-tech-pied.vercel.app/#contato"
-            className="inline-block px-8 sm:px-10 py-3 sm:py-4 text-verde-musgo bg-limao text-lg sm:text-xl font-bold rounded-full shadow-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105"
+          <div className="flex w-full flex-col gap-6 pt-6 px-24 sm:pt-0 text-white items-center">
+            <TextGenerateEffect
+              className="font-bold"
+              duration={2}
+              filter={false}
+              words={`Soluções completas para a sua clínica.`}
+            />
+
+            <p className="text-sm text-center">
+              A ISA TECH nasceu para transformar a forma como médicos e clínicas
+              vivem a gestão.
+              <br />
+            </p>
+            <a
+              href="#products"
+              className="inline-block px-8 py-3 text-verde-musgo bg-limao rounded-full shadow-lg hover:opacity-80 transition-all duration-300 items-center justify-center font-semibold"
+            >
+              Conhecer produtos
+            </a>
+          </div>
+        </section> */}
+
+        <div className="bg-limao/30 w-full h-[280px] absolute top-[120px] left-0 z-0 lg:h-screen lg:top-0" />
+        <div className="hero_gradient w-full h-[280px] absolute top-[120px] left-0 z-0 lg:h-screen lg:top-0" />
+
+        <motion.div
+          initial={{ opacity: 0, y: -200 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.5,
+          }}
+          className="z-20"
+        >
+          <section
+            id="hero"
+            className="h-full min-h-[90vh] pb-12 items-center flex-col justify-center flex w-full pt-[120px] sm:pt-[160px] lg:pt-[80px] lg:flex-row lg:justify-evenly z-20"
           >
-            Fale com um Especialista
-          </a>
-        </motion.section>
+            <div className="flex relative w-full lg:w-1/3 lg:ml-[5%] lg:xl:ml-[8%] justify-center lg:justify-start lg:-mt-24">
+              <Image
+                alt="Imagem da hero"
+                src="/images/products_hero.jpg"
+                width={800}
+                height={800}
+                // sizes="(max-width: 768px) 320px, (max-width: 1536px) 533px, 700px"
+                className="z-20 w-[200px] h-[200px] rounded-xl sm:w-[300px] sm:h-[300px] xl:w-[350px] xl:h-[350px] 2xl:w-[450px] 2xl:h-[450px] object-contain"
+                priority
+              />
+              <Image
+                alt="Imagem da hero"
+                src="/images/hero/chat.png"
+                width={400}
+                height={400}
+                // sizes="(max-width: 768px) 320px, (max-width: 1536px) 533px, 700px"
+                className="floating-bottom z-20 w-[120px] h-[120px] sm:w-[94px] sm:h-[132px] 2xl:w-[129px] 2xl:h-[181px] object-contain absolute -top-[12%] left-[8%] sm:left-[18%] md:left-[25%] lg:-top-[12%] lg:-left-[8%] xl:left-0"
+                priority
+              />
+              <Image
+                alt="Imagem da hero"
+                src="/images/hero/dra.png"
+                width={200}
+                height={200}
+                // sizes="(max-width: 768px) 320px, (max-width: 1536px) 533px, 700px"
+                className="floating-top z-20 w-[60px] h-[60px] sm:w-[84px] sm:h-[84px] 2xl:w-[129px] 2xl:h-[129px] object-contain absolute bottom-[10%] left-[3%] sm:bottom-[25%] sm:left-[7%] lg:bottom-[34%] lg:-left-[28%]"
+                priority
+              />
+
+              <Image
+                alt="Imagem da hero"
+                src="/images/hero/graphic.png"
+                width={600}
+                height={600}
+                // sizes="(max-width: 768px) 320px, (max-width: 1536px) 533px, 700px"
+                className="floating-bottom z-20 w-[140px] h-[140px] sm:w-[194px] sm:h-[125px] 2xl:w-[266px] 2xl:h-[172px] object-contain absolute -bottom-[40%] left-[20%] sm:-bottom-[20%] lg:-bottom-[20%] lg:-left-[28%] xl:-left-[18%]"
+                priority
+              />
+
+              <Image
+                alt="Imagem da hero"
+                src="/images/hero/patient.png"
+                width={200}
+                height={200}
+                // sizes="(max-width: 768px) 320px, (max-width: 1536px) 533px, 700px"
+                className="floating-top z-20 w-[50px] h-[50px] sm:w-[60px] sm:h-[60px] 2xl:w-[100px] 2xl:h-[100px] object-contain absolute -bottom-[30%] right-[25%] lg:-bottom-[32%] lg:right-[38%]"
+                priority
+              />
+
+              <Image
+                alt="Imagem da hero"
+                src="/images/hero/dashboard.png"
+                width={600}
+                height={600}
+                // sizes="(max-width: 768px) 320px, (max-width: 1536px) 533px, 700px"
+                className="floating-bottom z-20 w-[125px] h-[125px] sm:w-[242px] sm:h-[125px] 2xl:w-[277px] 2xl:h-[179px] object-contain absolute bottom-[5%] right-[4%] lg:-bottom-[6%] lg:-right-[22%] xl:-right-[12%] 2xl:-right-[5%]"
+                priority
+              />
+            </div>
+
+            <div className="flex w-full sm:w-4/5 lg:w-2/5 flex-col gap-6 pt-6 sm:pt-0 text-verde-musgo px-4">
+              <TextGenerateEffect
+                duration={2}
+                filter={false}
+                words={`O futuro do prontuário chegou, aumente a qualidade do seu serviços utilizando nossos produtos`}
+              />
+              <p className="text-base xl:text-lg">
+                A ISA TECH nasceu para transformar a forma como médicos e
+                clínicas vivem a gestão.
+                <br />
+                <br />
+                Com uma plataforma completa, suporte real e foco no que importa,
+                tornamos os bastidores da rotina médica mais leves, organizados
+                e seguros.
+                <br />
+              </p>
+            </div>
+          </section>
+        </motion.div>
 
         {/* Seção Nossos Produtos (NOVO LAYOUT) */}
         <section
@@ -579,7 +687,10 @@ const ProductsAndServices: React.FC = () => {
         </section>
 
         {/* Seção Nossos Serviços */}
-        <section id="services">
+        <section
+          id="services"
+          className="flex flex-col items-center justify-center gap-12"
+        >
           <SectionHeader title="Nossos Serviços" />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 pb-12 sm:pb-16 lg:mx-16">
             {servicesData.map((service) => (
@@ -594,18 +705,18 @@ const ProductsAndServices: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.7 }}
-          className="text-center py-16 px-4 sm:py-20 bg-verde-musgo rounded-2xl shadow-xl lg:mx-16"
+          className="text-center py-16 px-4 sm:py-20 bg-limao text-white rounded-2xl shadow-xl lg:mx-16 banner-background"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-limao mb-4 sm:mb-6 leading-tight">
+          <h2 className="text-3xl font-bold mb-4 sm:mb-6 leading-tight">
             Pronto para Transformar Sua Rotina?
           </h2>
-          <p className="text-lg sm:text-xl md:text-2xl text-white max-w-3xl mx-auto mb-6 sm:mb-8">
+          <p className="text-lg max-w-3xl mx-auto mb-6 sm:mb-8">
             Entre em contato conosco e descubra como o ISA Tech pode otimizar
             sua clínica e elevar a qualidade do seu atendimento.
           </p>
           <a
             href="https://isa-tech-pied.vercel.app/#contato"
-            className="inline-block px-8 sm:px-10 py-3 sm:py-4 bg-limao text-verde-musgo text-lg sm:text-xl font-bold rounded-full shadow-lg hover:bg-white hover:text-verde-musgo transition-all duration-300 transform hover:scale-105"
+            className="inline-block px-8 sm:px-10 py-3 sm:py-4 text-verde-musgo bg-limao text-lg sm:text-xl font-bold rounded-full shadow-lg hover:opacity-80 transition-all duration-300"
           >
             Solicitar Demonstração
           </a>
