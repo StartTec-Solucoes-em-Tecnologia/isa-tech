@@ -104,7 +104,7 @@ export default function Home() {
             <div className="flex w-full justify-between gap-2 sm:w-fit lg:gap-4">
               <Link href="#highlights">Saber mais</Link>
 
-              <Link variant={"outline"} href="https://isatech.com.br">
+              <Link variant={"outline"} href="https://app.isatech.com.br">
                 Acessar plataforma
               </Link>
             </div>

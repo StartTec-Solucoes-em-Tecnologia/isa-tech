@@ -88,7 +88,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
         <a
           className="mt-8 w-full bg-verde-musgo text-white rounded-xl p-3 text-center font-semibold"
           // onClick={onClose}
-          href="https://isatech.com.br"
+          href="https://app.isatech.com.br"
         >
           Acessar plataforma
         </a>

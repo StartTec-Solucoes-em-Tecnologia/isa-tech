@@ -166,7 +166,7 @@ export function NavigationBar() {
             </NavigationMenu>
           </div>
 
-          <Link size={"sm"} href="https://isatech.com.br">
+          <Link size={"sm"} href="https://app.isatech.com.br">
             Acessar plataforma
           </Link>
         </div>
