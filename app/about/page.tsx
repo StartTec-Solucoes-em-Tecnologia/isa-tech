@@ -133,13 +133,14 @@ export default function AboutPage() {
               identifier={0}
               className="flex w-full justify-center  md:w-md lg:w-xs"
             >
-              <div className="bg-[#274F4A] text-white rounded-xl p-8 shadow-lg flex flex-col items-center text-center w-4/5 lg:w-full">
+              <div className="bg-[#274F4A] h-[300px] text-white rounded-xl p-8 shadow-lg flex flex-col items-center justify-evenly text-center w-4/5 lg:w-full">
                 <Briefcase className="w-12 h-12 mb-4 text-[#E6ECC0]" />{" "}
                 {/* Ícone da Maleta */}
                 <h3 className="text-xl font-semibold mb-2">Missão</h3>
                 <p className="text-sm font-light leading-relaxed">
-                  Organize agenda, prontuário, financeiro e contabilidade em uma
-                  única plataforma intuitiva.
+                  Facilitar a gestão médica com soluções completas, seguras e
+                  mais humanas, proporcionando tempo, clareza e qualidade de
+                  vida para os profissionais da saúde.
                 </p>
               </div>
             </Motion>
@@ -151,16 +152,18 @@ export default function AboutPage() {
               identifier={1}
               className="flex w-full justify-center md:w-md lg:w-xs"
             >
-              <div className="bg-[#C7D1F5] text-gray-800 rounded-xl p-8 shadow-lg flex flex-col items-center text-center w-4/5 lg:w-full">
+              <div className="bg-[#C7D1F5] h-[300px] text-gray-800 rounded-xl p-8 shadow-lg flex flex-col items-center justify-evenly text-center w-4/5 lg:w-full">
                 <Eye className="w-12 h-12 mb-4 text-gray-700" />{" "}
                 {/* Ícone do Olho */}
                 <h3 className="text-xl font-semibold mb-2">Visão</h3>
                 <p className="text-sm font-light leading-relaxed">
-                  Organize agenda, prontuário, financeiro e contabilidade em uma
-                  única plataforma intuitiva.
+                  Ser a principal referência nacional em soluções de gestão
+                  médica que unem inovação, cuidado humano, segurança e
+                  resultado.
                 </p>
               </div>
             </Motion>
+
             <Motion
               key={2}
               direction="top"
@@ -168,13 +171,14 @@ export default function AboutPage() {
               className="flex w-full justify-center md:w-md lg:w-xs"
             >
               {/* Valores Card */}
-              <div className="bg-[#E6ECC0] text-gray-800 rounded-xl p-8 shadow-lg flex flex-col items-center text-center w-4/5 lg:w-full">
+              <div className="bg-[#E6ECC0] h-[300px] text-gray-800 rounded-xl p-8 shadow-lg flex flex-col items-center justify-evenly text-center w-4/5 lg:w-full">
                 <Heart className="w-12 h-12 mb-4 text-gray-700" />{" "}
                 {/* Ícone do Coração */}
                 <h3 className="text-xl font-semibold mb-2">Valores</h3>
                 <p className="text-sm font-light leading-relaxed">
-                  Organize agenda, prontuário, financeiro e contabilidade em uma
-                  única plataforma intuitiva.
+                  Valorizamos mais do que apenas a boa medicina aplicada na
+                  prática clínica. Nosso sucesso e o dos nossos clientes são
+                  guiados por cinco pilares fundamentais.
                 </p>
               </div>
             </Motion>

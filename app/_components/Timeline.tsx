@@ -8,7 +8,7 @@ import { Pointer, Grab, ArrowLeft } from "lucide-react";
 export function TimelineDemo() {
   const data = [
     {
-      title: "2019",
+      title: "2017",
       content: (
         <p className="text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
           Início da ideia: dois profissionais da área da saúde e tecnologia se
@@ -52,7 +52,7 @@ export function TimelineDemo() {
       ),
     },
     {
-      title: "2024 e além",
+      title: "2025 e além",
       content: (
         <p className="text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
           Inovação contínua, novos recursos e a mesma missão: facilitar a vida
