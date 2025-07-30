@@ -36,7 +36,7 @@ const WhatsAppButton: React.FC = () => {
 
   return (
     <div
-      className="fixed bottom-24 right-4 flex items-center cursor-pointer"
+      className="fixed bottom-24 right-4 flex items-center cursor-pointer z-50"
       onClick={handleWhatsAppClick}
       onMouseEnter={() => setIsHovered(true)} // Expande ao passar o mouse
       onMouseLeave={() => setIsHovered(false)} // Retrai ao tirar o mouse
