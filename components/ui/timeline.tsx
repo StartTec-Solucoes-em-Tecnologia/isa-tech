@@ -32,7 +32,7 @@ export const Timeline: React.FC<TimelineProps> = ({
   const startX = useRef(0);
   const scrollLeftStart = useRef(0);
 
-  const [activeItemIndex, setActiveItemIndex] = useState(0);
+  // const [activeItemIndex, setActiveItemIndex] = useState(0);
   const [progressBarWidth, setProgressBarWidth] = useState(0); // Estado para largura da barra de progresso
 
   // NOVO ESTADO: Largura total do conteúdo rolável para a linha de fundo
@@ -146,9 +146,9 @@ export const Timeline: React.FC<TimelineProps> = ({
             }
           }
         });
-        if (maxVisibleIndex !== -1) {
-          setActiveItemIndex(maxVisibleIndex);
-        }
+        // if (maxVisibleIndex !== -1) {
+        // setActiveItemIndex(maxVisibleIndex);
+        // }
       },
       {
         root: scrollContainerRef.current,
@@ -359,10 +359,10 @@ export const Timeline: React.FC<TimelineProps> = ({
             ref={(el) => {
               itemRefs.current[index] = el;
             }}
-            className={`flex flex-col items-center justify-center min-w-[176px] md:min-w-[240px] lg:min-w-[320px] p-6 relative flex-shrink-0 flex-grow-0 snap-center lg:snap-none`}
+            className={`flex flex-col items-center justify-center min-w-[126px] md:min-w-[240px] lg:min-w-[320px] lg:max-w-[500px] p-6 relative flex-shrink-0 flex-grow-0 snap-center lg:snap-none`}
           >
             {/* Círculo da timeline (a "bolinha") */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-8 w-8 rounded-full bg-white dark:bg-black flex items-center justify-center z-0">
+            {/* <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-8 w-8 rounded-full bg-white dark:bg-black flex items-center justify-center z-20">
               <div
                 className={`h-4 w-4 rounded-full border border-neutral-300 dark:border-neutral-700 p-2 transition-colors duration-300
                   ${
@@ -371,10 +371,10 @@ export const Timeline: React.FC<TimelineProps> = ({
                       : "bg-neutral-200 dark:bg-neutral-800"
                   }`}
               />
-            </div>
+            </div> */}
 
             {/* Conteúdo do item da timeline (o card de texto) */}
-            <div className="pt-4 pb-4 w-80 flex-col text-center relative z-10 bg-white dark:bg-neutral-800 rounded-lg p-4 shadow-lg h-full flex items-center justify-center">
+            <div className="pt-4 pb-4 w-56 lg:w-64 flex-col text-center relative z-10 bg-white dark:bg-neutral-800 rounded-lg p-4 shadow-lg h-full flex items-center justify-evenly">
               <h3 className="text-xl md:text-3xl font-bold text-verde-musgo dark:text-neutral-500 mb-4">
                 {item.title}
               </h3>
