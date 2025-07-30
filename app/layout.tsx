@@ -3,8 +3,8 @@ import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import Footer from "./_components/Footer";
 import { NavigationBar } from "./_components/NavigationBar";
-import Image from "next/image";
 import { ArrowUp } from "lucide-react";
+import WhatsAppButton from "./_components/WhatsaapButton";
 
 export const metadata: Metadata = {
   title: "ISA Tech",
@@ -43,7 +43,7 @@ export default function RootLayout({
 
         <Footer />
 
-        <a
+        {/* <a
           href={`http://wa.me/5581983501757?text=${encodeURIComponent(
             `Olá! Venho do site da ISA Tech e gostaria de fazer um orçamento.`
           )}`}
@@ -56,14 +56,16 @@ export default function RootLayout({
             width={24}
             height={24}
           />
-        </a>
+        </a> */}
 
         <a
           href={"#hero"}
           className="fixed bottom-6 right-4 rounded-full p-4 bg-verde-musgo z-30"
         >
-          <ArrowUp className="text-limao" />
+          <ArrowUp className="text-white" />
         </a>
+
+        <WhatsAppButton />
       </body>
 
       <Analytics />

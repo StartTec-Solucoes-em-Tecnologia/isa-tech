@@ -33,6 +33,7 @@ interface ProductItem {
   imageUrl: string;
   linkText: string;
   linkHref: string;
+  logo: string;
 }
 
 interface ServiceItem {
@@ -62,6 +63,7 @@ const productsData: ProductItem[] = [
     imageUrl: "/images/products/isabot.png",
     linkText: "Conhecer Isa Bot",
     linkHref: "#", // Link a ser definido
+    logo: "/images/logos/bot.png",
   },
   {
     id: 5,
@@ -71,6 +73,7 @@ const productsData: ProductItem[] = [
     imageUrl: "/images/highlights/gestao.png",
     linkText: "Baixar App",
     linkHref: "#", // Link a ser definido
+    logo: "/images/logos/go.png",
   },
   {
     id: 6,
@@ -79,6 +82,7 @@ const productsData: ProductItem[] = [
     imageUrl: "/images/products/isaclinic.png",
     linkText: "Saber Mais",
     linkHref: "#", // Link a ser definido
+    logo: "/images/logos/clinic.png",
   },
   {
     id: 7,
@@ -88,6 +92,7 @@ const productsData: ProductItem[] = [
     imageUrl: "/images/products/isacount.png",
     linkText: "Conhecer Isa Cont",
     linkHref: "#", // Link a ser definido
+    logo: "/images/logos/count.png",
   },
   {
     id: 8,
@@ -97,6 +102,7 @@ const productsData: ProductItem[] = [
     imageUrl: "/images/products/isaconsult.png",
     linkText: "Solicitar Consultoria",
     linkHref: "#", // Link a ser definido
+    logo: "/images/logos/consult.png",
   },
 ];
 // Dados para a seção de Serviços
@@ -362,6 +368,7 @@ const ProductShowcaseItem: React.FC<ProductShowcaseItemProps> = ({
   linkText,
   linkHref,
   isEven,
+  logo,
 }) => {
   const ref = useRef(null);
   const inView = useInView(ref, { amount: 0.4, once: true });
@@ -397,7 +404,14 @@ const ProductShowcaseItem: React.FC<ProductShowcaseItemProps> = ({
       {/* Coluna do Texto */}
       <div className="w-full md:w-1/2 text-center md:text-left mt-6 md:mt-0 p-4">
         <h3 className="text-3xl sm:text-4xl font-bold text-verde-musgo mb-4">
-          {title}
+          {/* {title} */}
+          <Image
+            src={logo}
+            alt={title}
+            width={400} // Tamanho da imagem
+            height={400}
+            className="object-contain w-3/4 max-w-[200px] max-h-[200px]" // Ajuste de tamanho responsivo
+          />
         </h3>
         <p className="text-base sm:text-lg leading-relaxed text-gray-700 mb-6">
           {description}
@@ -458,7 +472,7 @@ const ProductsAndServices: React.FC = () => {
         >
           <section
             id="hero"
-            className="h-full min-h-[90vh] pb-12 items-center flex-col justify-center flex w-full pt-[120px] sm:pt-[160px] lg:pt-[80px] lg:flex-row lg:justify-evenly z-20"
+            className="h-full min-h-[80vh] pb-12 items-center flex-col justify-center flex w-full pt-[120px] sm:pt-[160px] lg:pt-[80px] lg:flex-row lg:justify-evenly z-20"
           >
             <div className="flex relative w-full lg:w-1/3 lg:ml-[5%] lg:xl:ml-[8%] justify-center lg:justify-start lg:-mt-24">
               <Image
@@ -476,7 +490,7 @@ const ProductsAndServices: React.FC = () => {
                 width={400}
                 height={400}
                 // sizes="(max-width: 768px) 320px, (max-width: 1536px) 533px, 700px"
-                className="floating-bottom z-20 w-[120px] h-[120px] sm:w-[94px] sm:h-[132px] 2xl:w-[129px] 2xl:h-[181px] object-contain absolute -top-[12%] left-[8%] sm:left-[18%] md:left-[25%] lg:-top-[12%] lg:-left-[8%] xl:left-0"
+                className="floating-bottom z-20 w-[120px] h-[120px] sm:w-[94px] sm:h-[132px] 2xl:w-[129px] 2xl:h-[181px] object-contain absolute -top-[12%] left-[8%] sm:left-[18%] md:left-[25%] lg:-top-[12%] lg:-left-[8%] xl:left-[-5%]"
                 priority
               />
               <Image
@@ -495,7 +509,7 @@ const ProductsAndServices: React.FC = () => {
                 width={600}
                 height={600}
                 // sizes="(max-width: 768px) 320px, (max-width: 1536px) 533px, 700px"
-                className="floating-bottom z-20 w-[140px] h-[140px] sm:w-[194px] sm:h-[125px] 2xl:w-[266px] 2xl:h-[172px] object-contain absolute -bottom-[40%] left-[20%] sm:-bottom-[20%] lg:-bottom-[20%] lg:-left-[28%] xl:-left-[18%]"
+                className="floating-bottom z-20 w-[140px] h-[140px] sm:w-[194px] sm:h-[125px] 2xl:w-[266px] 2xl:h-[172px] object-contain absolute -bottom-[40%] left-[20%] sm:-bottom-[20%] lg:-bottom-[15%] lg:-left-[28%] xl:-left-[18%]"
                 priority
               />
 
@@ -526,7 +540,7 @@ const ProductsAndServices: React.FC = () => {
                 filter={false}
                 words={`O futuro do prontuário chegou, aumente a qualidade do seu serviços utilizando nossos produtos`}
               />
-              <p className="text-base xl:text-lg">
+              <p className="text-base xl:text-lg z-20">
                 A ISA TECH nasceu para transformar a forma como médicos e
                 clínicas vivem a gestão.
                 <br />
@@ -543,7 +557,7 @@ const ProductsAndServices: React.FC = () => {
         {/* Seção Nossos Produtos (NOVO LAYOUT) */}
         <section
           id="products"
-          className="flex lg:mx-16 flex-col items-center justify-center px-4"
+          className="flex lg:mx-16 flex-col items-center justify-center px-4 mt-12"
         >
           <SectionHeader title="Nossos Produtos" />
           <div className="w-full max-w-6xl">

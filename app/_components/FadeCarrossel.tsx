@@ -34,7 +34,6 @@ export default function FadeCarrossel() {
                     index % 2 === 0 ? "floating-top" : "floating-bottom"
                   )}
                   key={item.title}
-                  onMouseEnter={() => setSelectedImage(index + 1)} // Adicionado onMouseEnter aqui
                 >
                   <motion.div // Alterado de motion.button para motion.div
                     initial={false}
@@ -44,6 +43,7 @@ export default function FadeCarrossel() {
                     className="hover:cursor-pointer" // Mantém o cursor de ponteiro
                   >
                     <div
+                      onMouseEnter={() => setSelectedImage(index + 1)} // Adicionado onMouseEnter aqui
                       className={cn(
                         "gap-2 whitespace-nowrap rounded-full transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive font-semibold bg-verde-musgo text-limao  items-center justify-center flex hover:opacity-50 px-5 h-12 text-sm 2xl:text-lg 2xl:h-auto 2xl:px-8 2xl:py-4",
                         item.bgColor,
