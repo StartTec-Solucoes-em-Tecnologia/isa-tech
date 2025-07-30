@@ -430,7 +430,7 @@ const ProductShowcaseItem: React.FC<ProductShowcaseItemProps> = ({
 // Componente Principal da Página de Produtos e Serviços
 const ProductsAndServices: React.FC = () => {
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-white min-h-screen overflow-x-hidden">
       <main className="mx-auto py-8 sm:py-12">
         {/* Seção Hero/Introdução */}
         {/* <section
