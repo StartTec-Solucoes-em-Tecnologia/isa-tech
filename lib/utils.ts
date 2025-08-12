@@ -214,8 +214,7 @@ export const aboutTab = [
     title: "O que nos move",
     href: "/about#motivation",
     icon: Zap,
-    description:
-      "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+    description: "Acreditamos que a boa medicina começa com tempo e clareza.",
     textColor: "text-limao",
     bgColor: "bg-verde-musgo",
     pipeColor: "bg-lavanda",
