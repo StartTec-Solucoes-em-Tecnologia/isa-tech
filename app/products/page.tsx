@@ -24,12 +24,15 @@ import SectionHeader from "../_components/SectionHeader";
 import Motion from "../_components/Motion";
 import { cn } from "@/lib/utils";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
+import { Link } from "@/components/ui/link";
 
 // Interfaces para as estruturas de dados
 interface ProductItem {
   id: number;
   title: string;
+  subTitle: string;
   description: string;
+  benefits: string[];
   imageUrl: string;
   linkText: string;
   linkHref: string;
@@ -57,55 +60,73 @@ interface FeatureItem {
 // Dados para a seção de Produtos
 const productsData: ProductItem[] = [
   {
-    id: 4,
-    title: "Isa Bot",
-    description:
-      "Atendimento inteligente que trabalha por você — mesmo quando sua equipe está offline. O Isa Bot é o chatbot que automatiza o primeiro contato, agendamentos e check-ins, garantindo presença e organização o tempo todo.",
-    imageUrl: "/images/products/isabot.png",
-    linkText: "Conhecer Isa Bot",
-    linkHref: "#", // Link a ser definido
-    logo: "/images/logos/bot.png",
-  },
-  {
     id: 5,
     title: "Isa Go",
+    subTitle: "Seu consultório na palma da mão.",
     description:
-      "O app médico que te dá mobilidade, controle e praticidade — onde você estiver.",
+      "Com o Isa Go, o médico acompanha sua rotina clínica com liberdade e autonomia — de onde estiver.",
+    benefits: [
+      "– Acesso seguro ao prontuário e agenda",
+      "– Prescrição digital em qualquer lugar",
+      "– Mobilidade com controle total",
+    ],
     imageUrl: "/images/highlights/gestao.png",
-    linkText: "Baixar App",
+    linkText: "Baixe o app e leve sua clínica com você.",
     linkHref: "#", // Link a ser definido
     logo: "/images/logos/go.png",
   },
   {
     id: 6,
     title: "Isa Clinic",
-    description: "Gestão completa para sua clínica. Tudo em um só lugar.",
+    subTitle: "Tudo o que sua clínica precisa — em um só lugar.",
+    description:
+      "Uma plataforma completa de gestão médica, que une tecnologia, organização e praticidade.",
+    benefits: [
+      "– Fluxo de atendimento unificado, do agendamento ao faturamento",
+      "– Relatórios inteligentes e dados sempre à mão",
+      "– Segurança, performance e estabilidade",
+    ],
     imageUrl: "/images/products/isaclinic.png",
-    linkText: "Saber Mais",
+    linkText: "Simplifique sua gestão com inteligência e leveza.",
     linkHref: "#", // Link a ser definido
     logo: "/images/logos/clinic.png",
   },
   {
     id: 7,
     title: "Isa Cont",
+    subTitle: "Contabilidade integrada que entende a saúde do seu negócio.",
     description:
-      "Contabilidade integrada com as soluções ISA. Menos dor de cabeça, mais controle.",
+      "Conectada ao sistema ISA, a Isa Cont cuida das obrigações fiscais e financeiras com precisão e agilidade.",
+    benefits: [
+      "– Integração direta com sua clínica",
+      "– Redução de erros e retrabalhos",
+      "– Controle financeiro e relatórios unificados",
+      "– Consultores especializados",
+    ],
     imageUrl: "/images/products/isacount.png",
-    linkText: "Conhecer Isa Cont",
+    linkText: "Foque na medicina, que da contabilidade a gente cuida.",
     linkHref: "#", // Link a ser definido
     logo: "/images/logos/count.png",
   },
   {
     id: 8,
     title: "Isa Consult",
+    subTitle: "Crescimento com estratégia e resultado.",
     description:
-      "Consultoria para sua clínica crescer com eficiência: reduza custos, aumente lucros.",
+      "Consultoria especializada para clínicas que querem estruturar, crescer e lucrar com inteligência.",
+    benefits: [
+      "– Diagnóstico completo da gestão",
+      "– Redução de custos e otimização de processos",
+      "– Planejamento estratégico e metas claras",
+      "– Acompanhamento próximo e técnico",
+    ],
     imageUrl: "/images/products/isaconsult.png",
-    linkText: "Solicitar Consultoria",
+    linkText: "Transforme sua clínica com quem entende de gestão médica.",
     linkHref: "#", // Link a ser definido
     logo: "/images/logos/consult.png",
   },
 ];
+
 // Dados para a seção de Serviços
 const servicesData: ServiceItem[] = [
   {
@@ -382,6 +403,7 @@ const ProductShowcaseItem: React.FC<ProductShowcaseItemProps> = ({
   description,
   imageUrl,
   linkText,
+  benefits,
   linkHref,
   isEven,
   logo,
@@ -418,7 +440,7 @@ const ProductShowcaseItem: React.FC<ProductShowcaseItemProps> = ({
       </div>
 
       {/* Coluna do Texto */}
-      <div className="w-full md:w-1/2 text-center md:text-left mt-6 md:mt-0 p-4">
+      <div className="w-full lg:w-1/2 text-left mt-6 lg:mt-0 p-4">
         <h3 className="text-3xl sm:text-4xl font-bold text-verde-musgo mb-4">
           {/* {title} */}
           <Image
@@ -426,18 +448,31 @@ const ProductShowcaseItem: React.FC<ProductShowcaseItemProps> = ({
             alt={title}
             width={400} // Tamanho da imagem
             height={400}
-            className="object-contain w-3/4 max-w-[200px] max-h-[200px]" // Ajuste de tamanho responsivo
+            className="object-contain w-3/4 -ml-4 max-w-[150px] max-h-[150px]" // Ajuste de tamanho responsivo
           />
         </h3>
-        <p className="text-base sm:text-lg leading-relaxed text-gray-700 mb-6">
+
+        <p className="text-md leading-relaxed text-gray-700 mb-6">
           {description}
         </p>
-        <a
+
+        {benefits &&
+          benefits.map((item, index) => (
+            <p
+              key={index}
+              className="text-xs text-verde-musgo my-2 font-semibold"
+            >
+              {item.toString()}
+            </p>
+          ))}
+
+        <Link
           href={linkHref}
-          className="inline-block px-8 sm:px-10 py-3 sm:py-4 bg-limao text-verde-musgo text-lg sm:text-xl font-bold rounded-full shadow-lg hover:bg-verde-musgo hover:text-limao transition-colors duration-300 transform hover:scale-105"
+          className="text-[8px] sm:text-xs mt-4"
+          // className="inline-block px-8 sm:px-10 py-3 sm:py-4 bg-limao text-verde-musgo text-lg sm:text-xl font-bold rounded-full shadow-lg hover:bg-verde-musgo hover:text-limao transition-colors duration-300 transform hover:scale-105"
         >
           {linkText}
-        </a>
+        </Link>
       </div>
     </motion.div>
   );
