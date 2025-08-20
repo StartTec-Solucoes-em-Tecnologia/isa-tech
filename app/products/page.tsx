@@ -48,6 +48,7 @@ interface ServiceItem {
 interface FeatureItem {
   id: number;
   title: string;
+  subTitle: string;
   description: string;
   icon: React.ReactNode;
   variant: number;
@@ -59,7 +60,7 @@ const productsData: ProductItem[] = [
     id: 4,
     title: "Isa Bot",
     description:
-      "Automatize mensagens, agendamentos e check-ins. Atenda 24h com o nosso chatbot.",
+      "Atendimento inteligente que trabalha por você — mesmo quando sua equipe está offline. O Isa Bot é o chatbot que automatiza o primeiro contato, agendamentos e check-ins, garantindo presença e organização o tempo todo.",
     imageUrl: "/images/products/isabot.png",
     linkText: "Conhecer Isa Bot",
     linkHref: "#", // Link a ser definido
@@ -141,6 +142,7 @@ const detailedFeaturesData: FeatureItem[] = [
   {
     id: 1,
     title: "Agendamento",
+    subTitle: "Organização que começa antes da consulta.",
     description:
       "Otimize a agenda da sua clínica de forma eficiente. Agende consultas com facilidade, evite conflitos de horário e ofereça um atendimento ágil e conveniente.",
     icon: <Calendar className="w-12 h-12 text-verde-musgo" />,
@@ -149,6 +151,7 @@ const detailedFeaturesData: FeatureItem[] = [
   {
     id: 2,
     title: "Recepção",
+    subTitle: "Acolhimento com eficiência.",
     description:
       "Encante os pacientes desde o primeiro momento. Nossa equipe de recepção está pronta para oferecer um acolhimento caloroso e uma experiência memorável.",
     icon: <Users className="w-12 h-12 text-verde-musgo" />,
@@ -157,6 +160,7 @@ const detailedFeaturesData: FeatureItem[] = [
   {
     id: 3,
     title: "Prontuário Eletrônico",
+    subTitle: "Segurança, agilidade e personalização.",
     description:
       "Mantenha os registros de saúde dos seus pacientes de forma segura e acessível. Tenha todas as informações necessárias ao alcance para um atendimento personalizado e eficaz.",
     icon: <FileText className="w-12 h-12 text-limao" />,
@@ -165,6 +169,7 @@ const detailedFeaturesData: FeatureItem[] = [
   {
     id: 4,
     title: "Faturamento TISS",
+    subTitle: "Controle financeiro com conformidade.",
     description:
       "Simplifique a parte financeira da sua clínica. Lidamos com o faturamento TISS, garantindo conformidade e permitindo que você foque na saúde dos pacientes.",
     icon: <DollarSign className="w-12 h-12 text-verde-musgo" />,
@@ -173,6 +178,7 @@ const detailedFeaturesData: FeatureItem[] = [
   {
     id: 5,
     title: "Prescrição Digital",
+    subTitle: "Moderna, integrada e segura.",
     description:
       "Modernize suas prescrições médicas. Ofereça tratamentos avançados com prescrições digitais precisas e integradas ao histórico do paciente.",
     icon: <ClipboardList className="w-12 h-12 text-limao" />,
@@ -181,6 +187,7 @@ const detailedFeaturesData: FeatureItem[] = [
   {
     id: 6,
     title: "Power B.I",
+    subTitle: "Decisão baseada em dados, não em achismo.",
     description:
       "Decisões baseadas em dados para otimizar sua clínica. Visualize informações relevantes de forma clara e tome decisões informadas para um gerenciamento eficaz.",
     icon: <BarChart2 className="w-12 h-12 text-verde-musgo" />,
@@ -189,6 +196,7 @@ const detailedFeaturesData: FeatureItem[] = [
   {
     id: 7,
     title: "Financeiro",
+    subTitle: "Controle que dá tranquilidade.",
     description:
       "Mantenha as finanças da sua clínica organizadas. Gerencie pagamentos, receitas e despesas de forma simples, garantindo estabilidade e crescimento.",
     icon: <Wallet className="w-12 h-12 text-limao" />,
@@ -197,6 +205,7 @@ const detailedFeaturesData: FeatureItem[] = [
   {
     id: 8,
     title: "Painel de Chamada",
+    subTitle: "Fluxo inteligente de atendimento.",
     description:
       "Otimização no atendimento. Utilize nosso painel de chamada para manter um fluxo contínuo e eficiente, garantindo que os pacientes sejam atendidos prontamente.",
     icon: <MonitorPlay className="w-12 h-12 text-verde-musgo" />,
@@ -205,6 +214,7 @@ const detailedFeaturesData: FeatureItem[] = [
   {
     id: 9,
     title: "Chat Interno",
+    subTitle: "Comunicação que resolve.",
     description:
       "Comunique-se de maneira direta e segura. Nosso chat interno permite uma comunicação eficiente entre a equipe médica, agilizando processos e decisões.",
     icon: <MessageSquare className="w-12 h-12 text-verde-musgo" />,
@@ -213,6 +223,7 @@ const detailedFeaturesData: FeatureItem[] = [
   {
     id: 10,
     title: "App para o Médico",
+    subTitle: "Tecnologia que acompanha sua rotina.",
     description:
       "Tecnologia ao alcance do médico. Nosso aplicativo exclusivo oferece ferramentas personalizadas para otimizar sua prática, simplificando a rotina clínica.",
     icon: <Smartphone className="w-12 h-12 text-verde-musgo" />,
@@ -221,6 +232,7 @@ const detailedFeaturesData: FeatureItem[] = [
   {
     id: 11,
     title: "Telemedicina",
+    subTitle: "O cuidado vai até onde o paciente estiver.",
     description:
       "Ofereça consultas remotas ilimitadas de qualidade. Amplie seu alcance, mantenha o cuidado à distância e proporcione comodidade aos pacientes com a telemedicina. Acesse os prontuários durante as consultas online.",
     icon: <Video className="w-12 h-12 text-limao" />,
@@ -229,6 +241,7 @@ const detailedFeaturesData: FeatureItem[] = [
   {
     id: 12,
     title: "Inteligência Artificial",
+    subTitle: "Apoio clínico e estratégico em tempo real.",
     description:
       "Revolucione sua prática clínica com a ISA, nossa Inteligência Artificial avançada. Ela oferece suporte inteligente durante as consultas, otimiza tarefas administrativas, auxilia na análise de dados complexos e fornece insights valiosos para um atendimento ainda mais preciso e eficiente.",
     icon: <Bot className="w-12 h-12 text-verde-musgo" />,
@@ -312,6 +325,7 @@ const Card: React.FC<CardProps> = ({
 // Interface de props para o componente FeatureCard
 interface FeatureCardProps {
   title: string;
+  subTitle?: string;
   description: string;
   icon: React.ReactNode;
   variant: number;
@@ -320,6 +334,7 @@ interface FeatureCardProps {
 // Componente FeatureCard para Funcionalidades Detalhadas
 const FeatureCard: React.FC<FeatureCardProps> = ({
   title,
+  subTitle,
   description,
   icon,
   variant,
@@ -345,9 +360,10 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
       </div>
 
       <div className="w-2/3 sm:w-full md:w-2/3 xl:w-full">
-        <h3 className="text-lg font-semibold text-neutral-800 dark:text-white mb-1">
+        <h3 className="text-lg font-semibold text-gray-600 dark:text-white mb-1">
           {title}
         </h3>
+        <h4 className="text-verde-musgo my-2 text-md italic">{subTitle}</h4>
         <p className="text-sm text-neutral-600 dark:text-neutral-300">
           {description}
         </p>
@@ -578,12 +594,10 @@ const ProductsAndServices: React.FC = () => {
           className="flex flex-col items-center justify-center py-12 sm:py-16 bg-limao/30 sm:mb-20"
         >
           <div className="flex container flex-col items-center justify-center gap-8 px-12 xl:px-24 ">
-            <SectionHeader title="Funcionalidades que Impulsionam Sua Clínica" />
+            <SectionHeader title="Funcionalidades ISA TECH" />
 
             <p className="text-base sm:text-lg md:text-xl text-center text-gray-700 max-w-4xl mx-auto mb-8 sm:mb-12">
-              O ISA Tech é construído com módulos poderosos para cobrir todas as
-              necessidades da sua gestão. Conheça cada uma das ferramentas que
-              farão a diferença no seu dia a dia:
+              Soluções que impulsionam sua rotina com inteligência prática.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-6 xl:gap-12">
@@ -709,7 +723,7 @@ const ProductsAndServices: React.FC = () => {
           id="services"
           className="flex flex-col items-center justify-center gap-12 px-8"
         >
-          <SectionHeader title="Nossos Serviços" />
+          <SectionHeader title="Nossos Processos" />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 pb-12 sm:pb-16 lg:mx-16">
             {servicesData.map((service) => (
               <Card key={service.id} {...service} />

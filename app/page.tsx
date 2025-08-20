@@ -92,21 +92,23 @@ export default function Home() {
             <TextGenerateEffect
               duration={2}
               filter={false}
-              words={`Transforme sua rotina médica com mais leveza, inteligência e segurança.`}
+              words={`Transforme sua rotina com o prontuário mais avançado do mercado.`}
             />
 
             <h2 className="text-sm 2xl:text-lg">
-              A ISA TECH é o sistema de gestão completo que simplifica
-              processos, protege dados e devolve tempo para o que realmente
-              importa: cuidar de vidas.
+              A ISA é o ecossistema completo de gestão que simplifica processos,
+              protege dados e devolve tempo para o que realmente importa: cuidar
+              de vidas.
             </h2>
 
             <div className="flex w-full justify-between gap-2 sm:w-fit lg:gap-4">
-              <Link href="#highlights">Saber mais</Link>
-
-              <Link variant={"outline"} href="https://app.isatech.com.br">
-                Acessar plataforma
+              <Link href="#highlights">
+                Descubra como transformar sua gestão
               </Link>
+
+              {/* <Link variant={"outline"} href="https://app.isatech.com.br">
+                Acessar plataforma
+              </Link> */}
             </div>
 
             <Image
@@ -169,7 +171,10 @@ export default function Home() {
         id="highlights"
         className="items-center flex flex-col w-full justify-start py-12 xl:py-20"
       >
-        <SectionHeader title="Diferenciais" pipeColor="bg-limao" />
+        <SectionHeader
+          title="Por que escolher a ISA Clinic?"
+          pipeColor="bg-limao"
+        />
 
         <div className="flex gap-12 flex-col lg:flex-row w-full lg:w-11/12 xl:w-4/5 xl:gap-12 lg:gap-6 h-fit items-center mt-12 z-10">
           {highlightCards.map((item, index) => (
@@ -234,8 +239,12 @@ export default function Home() {
         <div className="flex w-full h-full flex-col items-center text-center justify-center gap-12">
           <SectionHeader
             pipeColor="bg-lavanda"
-            title="Profissionais que escolheram simplificar a gestão com a ISA TECH"
+            title="Confiança que cresce com resultados reais"
           />
+
+          <p className="text-gray-700">
+            Profissionais que escolheram simplificar a gestão com a ISA:
+          </p>
 
           <div className="flex flex-row z-30 text-2xl lg:text-3xl 2xl:text-4xl text-verde-musgo w-full justify-evenly">
             <p>
@@ -245,16 +254,16 @@ export default function Home() {
                 decimalPlaces={0}
                 className="whitespace-pre-wrap text-verde-musgo font-bold"
               />
-              K Atendimentos
+              K Atendimentos realizados
             </p>
             <p>
               +
               <NumberTicker
-                value={60}
+                value={6}
                 decimalPlaces={0}
                 className="whitespace-pre-wrap text-verde-musgo font-bold"
               />
-              Médicos
+              K Acessos médicos
             </p>
             <p>
               +
@@ -263,7 +272,7 @@ export default function Home() {
                 decimalPlaces={0}
                 className="whitespace-pre-wrap text-verde-musgo font-bold"
               />
-              K Pacientes
+              K Pacientes cadastrados
             </p>
           </div>
         </div>
@@ -273,7 +282,12 @@ export default function Home() {
         id="feedbacks"
         className="w-full flex flex-col items-center py-12 xl:py-20 bg-transparent"
       >
-        <SectionHeader pipeColor="bg-lavanda" title="Depoimentos" />
+        <SectionHeader pipeColor="bg-lavanda" title="Quem usa, recomenda" />
+
+        <p className="text-gray-700 my-2">
+          Veja como a ISA TECH tem feito diferença na rotina de médicos e
+          clínicas em todo o país.
+        </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 mt-6 lg:flex flex-row flex-wrap items-start justify-center gap-6 lg:gap-8 mx-auto px-12">
           {feedbacks.map((feedback, index) => (

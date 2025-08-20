@@ -94,25 +94,23 @@ export default function AboutPage() {
             <TextGenerateEffect
               duration={2}
               filter={false}
-              words={`Muito além de um sistema: somos parceiros da boa medicina.`}
+              words={`Muito além de um sistema:o futuro da gestão médica.`}
             />
             <p className="text-xs xl:text-base">
-              A ISA TECH nasceu para transformar a forma como médicos e clínicas
-              vivem a gestão.
-              <br />
-              <br />
-              Com uma plataforma completa, suporte real e foco no que importa,
+              Na prática, somos mais do que um sistema: somos inteligência
+              aplicada com empatia, ajudando profissionais da saúde a viverem
+              com mais eficiência, bem-estar e propósito. A ISA TECH nasceu para
+              transformar a forma como médicos e clínicas vivem a gestão. Com
+              uma plataforma completa, suporte real e foco no que importa,
               tornamos os bastidores da rotina médica mais leves, organizados e
               seguros.
               <br />
               <br />
               Acreditamos que tempo, clareza e tranquilidade são essenciais para
-              cuidar bem — e é isso que nossa tecnologia entrega.
-              <br />
-              <br />
-              Na prática, somos mais do que um sistema: somos inteligência
-              aplicada com empatia, ajudando profissionais da saúde a viverem
-              com mais eficiência, bem-estar e propósito.
+              cuidar bem — e é isso que nossa tecnologia entrega. Na prática,
+              somos mais do que um sistema: somos inteligência aplicada com
+              empatia, ajudando profissionais da saúde a viverem com mais
+              eficiência, bem-estar e propósito.
             </p>
           </div>
         </section>
@@ -333,12 +331,11 @@ export default function AboutPage() {
             </h2>
 
             <p className="text-neutral-700 dark:text-neutral-300 leading-relaxed my-8">
-              Para cuidar bem, é preciso ter espaço para pensar, respirar e se
-              conectar com as pessoas.
-              <br />
-              <br />
               Por isso, criamos tecnologia que organiza, protege e simplifica —
-              com inteligência e empatia.
+              com inteligência e empatia. Para cuidar bem, é preciso ter espaço
+              para pensar, respirar e se conectar com as pessoas. Por isso,
+              criamos tecnologia que organiza, protege e simplifica — com
+              inteligência e empatia.
             </p>
 
             <p className="font-semibold text-[#274F4A] dark:text-[#E6ECC0]">

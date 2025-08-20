@@ -59,11 +59,11 @@ export const highlightCards = [
       "Organize agenda, prontuário, financeiro e contabilidade em uma única plataforma intuitiva.",
   },
   {
-    image: "/images/highlights/suporte.png",
-    title: "Suporte Humanizado",
-    bg: "bg-limao",
+    image: "/images/highlights/produtividade.png",
+    title: "Produtividade Real",
+    bg: "bg-lavanda",
     description:
-      "Atendimento próximo, ágil e feito por quem entende a rotina médica de verdade.",
+      "Otimize tempo com processos ágeis, automações e relatórios inteligentes.",
   },
   {
     title: "Segurança de dados",
@@ -73,11 +73,11 @@ export const highlightCards = [
       "Tecnologia robusta com proteção avançada e total conformidade com a LGPD.",
   },
   {
-    image: "/images/highlights/produtividade.png",
-    title: "Produtividade Real",
-    bg: "bg-lavanda",
+    image: "/images/highlights/suporte.png",
+    title: "Suporte Humanizado",
+    bg: "bg-limao",
     description:
-      "Organize agenda, prontuário, financeiro e contabilidade em uma única plataforma intuitiva.",
+      "Atendimento próximo, ágil e feito por quem entende a rotina médica de verdade.",
   },
 ];
 
@@ -137,7 +137,7 @@ export const featureCards = [
   //   bgColor: "bg-lavanda",
   // },
   {
-    title: "ChatBot",
+    title: "ISA Bot",
     icon: BotMessageSquare,
     textColor: "text-verde-musgo",
     bgColor: "bg-limao",

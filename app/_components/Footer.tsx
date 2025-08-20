@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
-import { Instagram, MapPin, Phone } from "lucide-react";
+import { Instagram, Linkedin, Mail, MapPin } from "lucide-react";
 import Image from "next/image";
 
 export default function Footer() {
@@ -14,12 +14,39 @@ export default function Footer() {
           className="mb-2 w-[120px] h-fit"
         />
 
-        <div className="flex flex-col gap-4 mt-8 md:mt-0 min-w-[180px] w-3/4 sm:w-1/2 lg:w-1/3">
+        <div className="flex flex-col items-start gap-4 mt-8 md:mt-0 min-w-[180px] w-3/4 sm:w-1/2 lg:w-1/3">
           <span className="font-bold text-white">
             Simplifique sua rotina com uma
             <br />
             plataforma completa!
           </span>
+
+          <a
+            target="blank"
+            href="mailto:contato@isatech.com.br"
+            className="flex flex-row gap-2"
+          >
+            <div className="flex">
+              <Mail />
+            </div>
+            <p className="text-sm underline">contato@isatech.com.br</p>
+          </a>
+
+          <a
+            target="blank"
+            href="whttps://wa.me/+5581983501757"
+            className="flex flex-row gap-2  justify-center items-center"
+          >
+            <div className="-ml-1">
+              <Image
+                src={"/svg/whatsapp-footer.svg"}
+                alt="Ícone do tiktok"
+                width={32}
+                height={32}
+              />
+            </div>
+            <p className="text-sm underline">(81) 98350-1757</p>
+          </a>
 
           <a
             target="blank"
@@ -34,13 +61,29 @@ export default function Footer() {
 
           <a
             target="blank"
-            href="whttps://wa.me/+5581983501757"
+            href="https://www.instagram.com/isatechbr/"
             className="flex flex-row gap-2"
           >
             <div className="flex">
-              <Phone />
+              <Linkedin />
             </div>
-            <p className="text-sm underline">(81) 98350-1757</p>
+            <p className="text-sm underline">in.isatechbr</p>
+          </a>
+
+          <a
+            target="blank"
+            href="https://www.instagram.com/isatechbr/"
+            className="flex flex-row gap-2"
+          >
+            <div className="flex">
+              <Image
+                src={"/svg/tiktok.svg"}
+                alt="Ícone do tiktok"
+                width={24}
+                height={24}
+              />
+            </div>
+            <p className="text-sm underline">isatechbr</p>
           </a>
 
           <a
