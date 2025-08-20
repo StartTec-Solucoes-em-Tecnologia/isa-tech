@@ -101,7 +101,7 @@ export default function Home() {
               de vidas.
             </h2>
 
-            <div className="flex w-full justify-between gap-2 sm:w-fit lg:gap-4">
+            <div className="flex w-full justify-between gap-2 justify-center sm:w-fit lg:gap-4">
               <Link href="#highlights">
                 Descubra como transformar sua gestão
               </Link>
@@ -284,7 +284,7 @@ export default function Home() {
       >
         <SectionHeader pipeColor="bg-lavanda" title="Quem usa, recomenda" />
 
-        <p className="text-gray-700 my-2">
+        <p className="text-gray-700 my-2 text-center">
           Veja como a ISA TECH tem feito diferença na rotina de médicos e
           clínicas em todo o país.
         </p>
