@@ -45,7 +45,7 @@ export default function Footer() {
                 height={32}
               />
             </div>
-            <p className="text-sm underline">(81) 98350-1757</p>
+            <p className="text-sm underline">(81) 98482-8889</p>
           </a>
 
           <a
