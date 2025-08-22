@@ -34,8 +34,8 @@ export default function Footer() {
 
           <a
             target="blank"
-            href="whttps://wa.me/+5581983501757"
-            className="flex flex-row gap-2  justify-center items-center"
+            href="whttps://wa.me/+5581984828889"
+            className="flex flex-row gap-2 justify-center items-center"
           >
             <div className="-ml-1">
               <Image

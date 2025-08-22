@@ -24,7 +24,7 @@ const WhatsAppButton: React.FC = () => {
   const isExpanded = isInitiallyExpanded || isHovered;
 
   const handleWhatsAppClick = () => {
-    const phoneNumber = "5581983501757"; // Seu número de telefone
+    const phoneNumber = "5581984828889"; // Seu número de telefone
     const message =
       "Olá! Venho do site da ISA Tech e gostaria de fazer um orçamento."; // Sua mensagem
     const encodedMessage = encodeURIComponent(message); // Codifica a mensagem para URL
