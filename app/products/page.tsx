@@ -1,8 +1,7 @@
 "use client"; // Adicione esta diretiva para componentes do lado do cliente
 
 import Image from "next/image";
-import React, { useEffect, useRef, useState } from "react"; // Importa useRef
-import * as motion from "motion/react-client";
+import React, { useEffect, useRef, useState } from "react";
 
 // Importa os ícones do Lucide React
 import {
@@ -21,12 +20,12 @@ import {
 } from "lucide-react";
 import { useInView } from "motion/react";
 import SectionHeader from "../_components/SectionHeader";
-import Motion from "../_components/Motion";
+import * as motion from "motion/react-client";
 import { cn } from "@/lib/utils";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import { Link } from "@/components/ui/link";
 
-// Interfaces para as estruturas de dados
+// Interfaces para as estruturas de dados (Mantidas)
 interface ProductItem {
   id: number;
   title: string;
@@ -57,7 +56,7 @@ interface FeatureItem {
   variant: number;
 }
 
-// Dados para a seção de Produtos
+// Dados para as seções (Mantidos)
 const productsData: ProductItem[] = [
   {
     id: 5,
@@ -72,7 +71,7 @@ const productsData: ProductItem[] = [
     ],
     imageUrl: "/images/highlights/gestao.png",
     linkText: "Baixe o app e leve sua clínica com você.",
-    linkHref: "https://apps.apple.com/br/app/stdoctor/id1463715996", // Link a ser definido
+    linkHref: "https://apps.apple.com/br/app/stdoctor/id1463715996",
     logo: "/images/logos/go.png",
   },
   {
@@ -133,7 +132,8 @@ const productsData: ProductItem[] = [
   },
 ];
 
-// Dados para a seção de Serviços
+// ... (Resto dos dados das outras seções mantidos)
+
 const servicesData: ServiceItem[] = [
   {
     id: 1,
@@ -170,7 +170,6 @@ const servicesData: ServiceItem[] = [
   },
 ];
 
-// Dados para a nova seção de Funcionalidades em Detalhe
 const detailedFeaturesData: FeatureItem[] = [
   {
     id: 1,
@@ -282,7 +281,6 @@ const detailedFeaturesData: FeatureItem[] = [
   },
 ];
 
-// Interface de props para o componente Card (Mantido para outras seções, mas não usado em "Nossos Produtos")
 interface CardProps {
   title: string;
   description: string;
@@ -291,7 +289,6 @@ interface CardProps {
   linkHref: string;
 }
 
-// Componente Card genérico com animação
 const Card: React.FC<CardProps> = ({
   title,
   description,
@@ -341,12 +338,12 @@ const Card: React.FC<CardProps> = ({
       <a
         href={linkHref}
         className={cn(
-          "mt-4 sm:mt-6 px-6 sm:px-7 py-2 sm:py-3 font-semibold rounded-lg hover:bg-verde-musgo hover:text-limao transition-colors duration-300 shadow-md text-xs",
+          "mt-4 sm:mt-6 px-6 sm:px-7 py-2 sm:py-3 font-semibold rounded-lg transition-all duration-300 shadow-md text-xs",
           case2
-            ? "bg-verde-musgo text-limao"
+            ? "bg-verde-musgo text-limao hover:bg-verde-musgo/80"
             : case1
-            ? "bg-limao text-verde-musgo"
-            : "bg-verde-musgo text-limao"
+            ? "bg-limao text-verde-musgo hover:bg-limao/80"
+            : "bg-verde-musgo text-limao hover:bg-verde-musgo/80"
         )}
       >
         {linkText}
@@ -355,7 +352,6 @@ const Card: React.FC<CardProps> = ({
   );
 };
 
-// Interface de props para o componente FeatureCard
 interface FeatureCardProps {
   title: string;
   subTitle?: string;
@@ -364,7 +360,6 @@ interface FeatureCardProps {
   variant: number;
 }
 
-// Componente FeatureCard para Funcionalidades Detalhadas
 const FeatureCard: React.FC<FeatureCardProps> = ({
   title,
   subTitle,
@@ -372,11 +367,21 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
   icon,
   variant,
 }) => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { amount: 0.3, once: true });
+
+  const slideInVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
-    <Motion
-      key={5}
-      direction="top"
-      identifier={5}
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={inView ? "visible" : "hidden"}
+      variants={slideInVariants}
+      transition={{ duration: 0.5, ease: "easeOut" }}
       className="flex items-start gap-4 w-xs sm:w-md lg:w-xs my-4"
     >
       <div
@@ -401,13 +406,13 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
           {description}
         </p>
       </div>
-    </Motion>
+    </motion.div>
   );
 };
 
-// --- NOVO COMPONENTE: ProductShowcaseItem ---
+// --- NOVO COMPONENTE: ProductShowcaseItem (CORRIGIDO) ---
 interface ProductShowcaseItemProps extends ProductItem {
-  isEven: boolean; // Propriedade para controlar a ordem da imagem/texto
+  isEven: boolean;
 }
 
 const ProductShowcaseItem: React.FC<ProductShowcaseItemProps> = ({
@@ -424,15 +429,18 @@ const ProductShowcaseItem: React.FC<ProductShowcaseItemProps> = ({
   const ref = useRef(null);
   const inView = useInView(ref, { amount: 0.4, once: true });
 
-  const slideInVariants = {
-    hidden: { opacity: 0, x: isEven ? 100 : -100 },
-    visible: { opacity: 1, x: 0 },
+  const fadeInVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
   };
 
   const [userAgent, setUserAgent] = useState("");
 
   useEffect(() => {
-    setUserAgent(window.navigator.userAgent);
+    // Acessa window apenas no lado do cliente
+    if (typeof window !== "undefined") {
+      setUserAgent(window.navigator.userAgent);
+    }
   }, []);
 
   return (
@@ -440,7 +448,7 @@ const ProductShowcaseItem: React.FC<ProductShowcaseItemProps> = ({
       ref={ref}
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
-      variants={slideInVariants}
+      variants={fadeInVariants}
       transition={{ duration: 0.7, ease: "easeOut" }}
       className={cn(
         "flex flex-col md:flex-row items-center p-6 sm:p-10 mb-12 sm:mb-16",
@@ -452,22 +460,21 @@ const ProductShowcaseItem: React.FC<ProductShowcaseItemProps> = ({
         <Image
           src={imageUrl}
           alt={title}
-          width={400} // Tamanho da imagem
+          width={400}
           height={400}
-          className="object-contain w-3/4 max-w-[300px] max-h-[300px] md:max-w-full rounded-3xl" // Ajuste de tamanho responsivo
+          className="object-contain w-3/4 max-w-[300px] max-h-[300px] md:max-w-full rounded-3xl"
         />
       </div>
 
       {/* Coluna do Texto */}
       <div className="w-full lg:w-1/2 text-left mt-6 lg:mt-0 p-4">
         <h3 className="text-3xl sm:text-4xl font-bold text-verde-musgo mb-4">
-          {/* {title} */}
           <Image
             src={logo}
             alt={title}
-            width={400} // Tamanho da imagem
+            width={400}
             height={400}
-            className="object-contain w-3/4 -ml-4 max-w-[150px] max-h-[150px]" // Ajuste de tamanho responsivo
+            className="object-contain w-3/4 -ml-4 max-w-[150px] max-h-[150px]"
           />
         </h3>
 
@@ -495,7 +502,6 @@ const ProductShowcaseItem: React.FC<ProductShowcaseItemProps> = ({
           }
           target="_blank"
           className="text-[8px] sm:text-xs mt-4"
-          // className="inline-block px-8 sm:px-10 py-3 sm:py-4 bg-limao text-verde-musgo text-lg sm:text-xl font-bold rounded-full shadow-lg hover:bg-verde-musgo hover:text-limao transition-colors duration-300 transform hover:scale-105"
         >
           {linkText}
         </Link>
@@ -507,35 +513,8 @@ const ProductShowcaseItem: React.FC<ProductShowcaseItemProps> = ({
 // Componente Principal da Página de Produtos e Serviços
 const ProductsAndServices: React.FC = () => {
   return (
-    <div className="bg-white min-h-screen overflow-x-hidden">
+    <div className="bg-white min-h-screen">
       <main className="mx-auto py-8 sm:py-12">
-        {/* Seção Hero/Introdução */}
-        {/* <section
-          id="hero"
-          className="h-full min-h-[80vh] items-center flex-col justify-center flex w-full lg:flex-row lg:justify-evenly z-20 banner-background"
-        >
-          <div className="flex w-full flex-col gap-6 pt-6 px-24 sm:pt-0 text-white items-center">
-            <TextGenerateEffect
-              className="font-bold"
-              duration={2}
-              filter={false}
-              words={`Soluções completas para a sua clínica.`}
-            />
-
-            <p className="text-sm text-center">
-              A ISA TECH nasceu para transformar a forma como médicos e clínicas
-              vivem a gestão.
-              <br />
-            </p>
-            <a
-              href="#products"
-              className="inline-block px-8 py-3 text-verde-musgo bg-limao rounded-full shadow-lg hover:opacity-80 transition-all duration-300 items-center justify-center font-semibold"
-            >
-              Conhecer produtos
-            </a>
-          </div>
-        </section> */}
-
         <div className="bg-limao/30 w-full h-[280px] absolute top-[120px] left-0 z-0 lg:h-screen lg:top-0" />
         <div className="hero_gradient w-full h-[280px] absolute top-[120px] left-0 z-0 lg:h-screen lg:top-0" />
 
@@ -557,7 +536,6 @@ const ProductsAndServices: React.FC = () => {
                 src="/images/products_hero.jpg"
                 width={800}
                 height={800}
-                // sizes="(max-width: 768px) 320px, (max-width: 1536px) 533px, 700px"
                 className="z-20 w-[200px] h-[200px] rounded-xl sm:w-[300px] sm:h-[300px] xl:w-[350px] xl:h-[350px] 2xl:w-[450px] 2xl:h-[450px] object-contain"
                 priority
               />
@@ -566,7 +544,6 @@ const ProductsAndServices: React.FC = () => {
                 src="/images/hero/chat.png"
                 width={400}
                 height={400}
-                // sizes="(max-width: 768px) 320px, (max-width: 1536px) 533px, 700px"
                 className="floating-bottom z-20 w-[120px] h-[120px] sm:w-[94px] sm:h-[132px] 2xl:w-[129px] 2xl:h-[181px] object-contain absolute -top-[12%] left-[8%] sm:left-[18%] md:left-[25%] lg:-top-[12%] lg:-left-[8%] xl:left-[-5%]"
                 priority
               />
@@ -575,37 +552,30 @@ const ProductsAndServices: React.FC = () => {
                 src="/images/hero/dra.png"
                 width={200}
                 height={200}
-                // sizes="(max-width: 768px) 320px, (max-width: 1536px) 533px, 700px"
                 className="floating-top z-20 w-[60px] h-[60px] sm:w-[84px] sm:h-[84px] 2xl:w-[129px] 2xl:h-[129px] object-contain absolute bottom-[10%] left-[3%] sm:bottom-[25%] sm:left-[7%] lg:bottom-[34%] lg:-left-[28%]"
                 priority
               />
-
               <Image
                 alt="Imagem da hero"
                 src="/images/hero/graphic.png"
                 width={600}
                 height={600}
-                // sizes="(max-width: 768px) 320px, (max-width: 1536px) 533px, 700px"
                 className="floating-bottom z-20 w-[140px] h-[140px] sm:w-[194px] sm:h-[125px] 2xl:w-[266px] 2xl:h-[172px] object-contain absolute -bottom-[40%] left-[20%] sm:-bottom-[20%] lg:-bottom-[15%] lg:-left-[28%] xl:-left-[18%]"
                 priority
               />
-
               <Image
                 alt="Imagem da hero"
                 src="/images/hero/patient.png"
                 width={200}
                 height={200}
-                // sizes="(max-width: 768px) 320px, (max-width: 1536px) 533px, 700px"
                 className="floating-top z-20 w-[50px] h-[50px] sm:w-[60px] sm:h-[60px] 2xl:w-[100px] 2xl:h-[100px] object-contain absolute -bottom-[30%] right-[25%] lg:-bottom-[32%] lg:right-[38%]"
                 priority
               />
-
               <Image
                 alt="Imagem da hero"
                 src="/images/hero/dashboard.png"
                 width={600}
                 height={600}
-                // sizes="(max-width: 768px) 320px, (max-width: 1536px) 533px, 700px"
                 className="floating-bottom z-20 w-[125px] h-[125px] sm:w-[242px] sm:h-[125px] 2xl:w-[277px] 2xl:h-[179px] object-contain absolute bottom-[5%] right-[4%] lg:-bottom-[6%] lg:-right-[22%] xl:-right-[12%] 2xl:-right-[5%]"
                 priority
               />
@@ -643,7 +613,7 @@ const ProductsAndServices: React.FC = () => {
               <ProductShowcaseItem
                 key={product.id}
                 {...product}
-                isEven={index % 2 === 1} // Passa se o índice é ímpar (para alternar a ordem)
+                isEven={index % 2 === 1}
               />
             ))}
           </div>
@@ -725,18 +695,18 @@ const ProductsAndServices: React.FC = () => {
               className="flex justify-center mt-8 md:mt-0"
             >
               <Image
-                src="/images/hero/medic.png" // Imagem representativa
+                src="/images/hero/medic.png"
                 alt="Médico usando ISA Tech"
                 width={500}
                 height={500}
                 objectFit="contain"
-                className="rounded-xl shadow-lg w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg" // Ajuste de tamanho responsivo da imagem
+                className="rounded-xl shadow-lg w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg"
               />
             </motion.div>
           </div>
         </section>
 
-        {/* Seção Depoimentos (Simplificada) */}
+        {/* Seção Depoimentos */}
         <section
           id="services"
           className="py-12 sm:py-16 bg-limao/30 mb-16 sm:mb-20 flex flex-col items-center gap-12 px-4 xl:px-12"
@@ -755,9 +725,6 @@ const ProductsAndServices: React.FC = () => {
                   intuitivo e o suporte é impecável. Recomendo a todos os
                   colegas!"`}
               </p>
-              {/* <p className="font-semibold text-verde-musgo text-base sm:text-lg">
-                  - Dra. Ana Paula, Cardiologista
-                </p> */}
             </motion.div>
 
             <motion.div
@@ -772,9 +739,6 @@ const ProductsAndServices: React.FC = () => {
                   atendimentos e oferecer mais comodidade aos pacientes. É a
                   ferramenta que faltava!"`}
               </p>
-              {/* <p className="font-semibold text-verde-musgo text-base sm:text-lg">
-                  - Dr. Carlos Eduardo, Clínico Geral
-                </p> */}
             </motion.div>
           </div>
         </section>
