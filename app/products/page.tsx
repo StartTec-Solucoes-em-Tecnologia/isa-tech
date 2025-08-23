@@ -1,7 +1,7 @@
 "use client"; // Adicione esta diretiva para componentes do lado do cliente
 
 import Image from "next/image";
-import React, { useRef } from "react"; // Importa useRef
+import React, { useEffect, useRef, useState } from "react"; // Importa useRef
 import * as motion from "motion/react-client";
 
 // Importa os ícones do Lucide React
@@ -72,7 +72,7 @@ const productsData: ProductItem[] = [
     ],
     imageUrl: "/images/highlights/gestao.png",
     linkText: "Baixe o app e leve sua clínica com você.",
-    linkHref: "#", // Link a ser definido
+    linkHref: "https://apps.apple.com/br/app/stdoctor/id1463715996", // Link a ser definido
     logo: "/images/logos/go.png",
   },
   {
@@ -88,7 +88,9 @@ const productsData: ProductItem[] = [
     ],
     imageUrl: "/images/products/isaclinic.png",
     linkText: "Simplifique sua gestão com inteligência e leveza.",
-    linkHref: "#", // Link a ser definido
+    linkHref: `http://wa.me/5581984828889?text=${encodeURIComponent(
+      `Olá! Venho do site da ISA Tech e gostaria de fazer um orçamento do ISA Clinic.`
+    )}`,
     logo: "/images/logos/clinic.png",
   },
   {
@@ -105,7 +107,9 @@ const productsData: ProductItem[] = [
     ],
     imageUrl: "/images/products/isacount.png",
     linkText: "Foque na medicina, que da contabilidade a gente cuida.",
-    linkHref: "#", // Link a ser definido
+    linkHref: `http://wa.me/5581984828889?text=${encodeURIComponent(
+      `Olá! Venho do site da ISA Tech e gostaria de fazer um orçamento do ISA Cont.`
+    )}`,
     logo: "/images/logos/count.png",
   },
   {
@@ -122,7 +126,9 @@ const productsData: ProductItem[] = [
     ],
     imageUrl: "/images/products/isaconsult.png",
     linkText: "Transforme sua clínica com quem entende de gestão médica.",
-    linkHref: "#", // Link a ser definido
+    linkHref: `http://wa.me/5581984828889?text=${encodeURIComponent(
+      `Olá! Venho do site da ISA Tech e gostaria de fazer um orçamento do ISA Consult.`
+    )}`,
     logo: "/images/logos/consult.png",
   },
 ];
@@ -136,7 +142,9 @@ const servicesData: ServiceItem[] = [
       "Conte com uma equipe de suporte dedicada e que realmente entende a rotina médica. Nosso atendimento é ágil e eficaz, pronto para auxiliar você em qualquer etapa da utilização do sistema, garantindo sua tranquilidade.",
     imageUrl: "",
     linkText: "Fale Conosco",
-    linkHref: "https://isa-tech-pied.vercel.app/#contato",
+    linkHref: `http://wa.me/5581984828889?text=${encodeURIComponent(
+      `Olá! Venho do site da ISA Tech e gostaria de tirar algumas dúvidas sobre o suporte humanizado.`
+    )}`,
   },
   {
     id: 2,
@@ -145,7 +153,9 @@ const servicesData: ServiceItem[] = [
       "Oferecemos um processo de implantação guiado e treinamento completo para sua equipe. Garantimos que a transição para o ISA Tech seja suave e que todos possam aproveitar ao máximo as funcionalidades do sistema desde o primeiro dia.",
     imageUrl: "",
     linkText: "Solicitar Demonstração",
-    linkHref: "https://isa-tech-pied.vercel.app/#contato",
+    linkHref: `http://wa.me/5581984828889?text=${encodeURIComponent(
+      `Olá! Venho do site da ISA Tech e gostaria de solicitar uma demonstração de implantação e treinamento.`
+    )}`,
   },
   {
     id: 3,
@@ -153,8 +163,10 @@ const servicesData: ServiceItem[] = [
     description:
       "O ISA Tech está em constante evolução. Nosso compromisso é com a melhoria contínua, entregando novas funcionalidades e otimizações regularmente para que seu consultório esteja sempre à frente, com as ferramentas mais modernas.",
     imageUrl: "",
-    linkText: "Ver Novidades",
-    linkHref: "https://isa-tech-pied.vercel.app/#funcionalidades",
+    linkText: "Conhecer Novidades",
+    linkHref: `http://wa.me/5581984828889?text=${encodeURIComponent(
+      `Olá! Venho do site da ISA Tech e gostaria de conhecer as principais novidades do ISA.`
+    )}`,
   },
 ];
 
@@ -399,6 +411,7 @@ interface ProductShowcaseItemProps extends ProductItem {
 }
 
 const ProductShowcaseItem: React.FC<ProductShowcaseItemProps> = ({
+  id,
   title,
   description,
   imageUrl,
@@ -415,6 +428,12 @@ const ProductShowcaseItem: React.FC<ProductShowcaseItemProps> = ({
     hidden: { opacity: 0, x: isEven ? 100 : -100 },
     visible: { opacity: 1, x: 0 },
   };
+
+  const [userAgent, setUserAgent] = useState("");
+
+  useEffect(() => {
+    setUserAgent(window.navigator.userAgent);
+  }, []);
 
   return (
     <motion.div
@@ -467,7 +486,14 @@ const ProductShowcaseItem: React.FC<ProductShowcaseItemProps> = ({
           ))}
 
         <Link
-          href={linkHref}
+          href={
+            id === 5
+              ? userAgent?.includes("Android")
+                ? "https://play.google.com/store/apps/details?id=br.com.starttec.stdoctor&hl=pt_BR"
+                : "https://apps.apple.com/br/app/stdoctor/id1463715996"
+              : linkHref
+          }
+          target="_blank"
           className="text-[8px] sm:text-xs mt-4"
           // className="inline-block px-8 sm:px-10 py-3 sm:py-4 bg-limao text-verde-musgo text-lg sm:text-xl font-bold rounded-full shadow-lg hover:bg-verde-musgo hover:text-limao transition-colors duration-300 transform hover:scale-105"
         >
@@ -782,7 +808,9 @@ const ProductsAndServices: React.FC = () => {
             sua clínica e elevar a qualidade do seu atendimento.
           </p>
           <a
-            href="https://isa-tech-pied.vercel.app/#contato"
+            href={`http://wa.me/5581984828889?text=${encodeURIComponent(
+              `Olá! Venho do site da ISA Tech e gostaria de solicitar uma demonstração.`
+            )}`}
             className="inline-block px-8 sm:px-10 py-3 sm:py-4 text-verde-musgo bg-limao text-lg sm:text-xl font-bold rounded-full shadow-lg hover:opacity-80 transition-all duration-300"
           >
             Solicitar Demonstração
