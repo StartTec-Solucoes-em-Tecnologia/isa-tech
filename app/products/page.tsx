@@ -587,7 +587,7 @@ const ProductsAndServices: React.FC = () => {
                 filter={false}
                 words={`O futuro do prontuário chegou, aumente a qualidade do seu serviços utilizando nossos produtos`}
               />
-              <p className="text-base xl:text-lg z-20">
+              <p className="text-xs lg:text-md xl:text-base z-20">
                 A ISA TECH nasceu para transformar a forma como médicos e
                 clínicas vivem a gestão.
                 <br />
@@ -596,6 +596,13 @@ const ProductsAndServices: React.FC = () => {
                 tornamos os bastidores da rotina médica mais leves, organizados
                 e seguros.
                 <br />
+                Acreditamos que tempo, clareza e tranquilidade são essenciais
+                para cuidar bem — e é isso que nossa tecnologia entrega.
+                <br />
+                <br />
+                Na prática, somos mais do que um sistema: somos inteligência
+                aplicada com empatia, ajudando profissionais da saúde a viverem
+                com mais eficiência, bem-estar e propósito.
               </p>
             </div>
           </section>
