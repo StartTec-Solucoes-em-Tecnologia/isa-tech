@@ -528,7 +528,7 @@ const ProductsAndServices: React.FC = () => {
         >
           <section
             id="hero"
-            className="h-full min-h-[80vh] pb-12 items-center flex-col justify-center flex w-full pt-[120px] sm:pt-[160px] lg:pt-[80px] lg:flex-row lg:justify-evenly z-20"
+            className="h-full min-h-screen 2xl:min-h-[80vh] pb-12 items-center flex-col justify-center flex w-full pt-[120px] sm:pt-[160px] lg:pt-[80px] lg:flex-row lg:justify-evenly z-20"
           >
             <div className="flex relative w-full lg:w-1/3 lg:ml-[5%] lg:xl:ml-[8%] justify-center lg:justify-start lg:-mt-24">
               <Image
@@ -651,7 +651,7 @@ const ProductsAndServices: React.FC = () => {
           id="choose"
           className="py-12 sm:py-16 flex flex-col items-center justify-center lg:mx-16 px-8 lg:px-0"
         >
-          <SectionHeader title="Por Que Escolher ISA Tech?" />
+          <SectionHeader title="Por Que Escolher ISA TECH?" />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 items-center mt-12">
             <motion.div
@@ -662,7 +662,7 @@ const ProductsAndServices: React.FC = () => {
               className="space-y-4 sm:space-y-8 text-base sm:text-lg text-gray-700"
             >
               <p>
-                No ISA Tech, entendemos os desafios da rotina médica. Por isso,
+                Na ISA Tech, entendemos os desafios da rotina médica. Por isso,
                 desenvolvemos uma plataforma que não apenas gerencia, mas
                 otimiza cada aspecto do seu trabalho, permitindo que você se
                 concentre no que realmente importa: seus pacientes.
